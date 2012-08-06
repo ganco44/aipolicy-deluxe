@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JD3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\JD3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FW2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\FW2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PW2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\PW2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FW3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\FW3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Exit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Options2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Options2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Save16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PW1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\PW1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JD2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\JD2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ActionID" xml:space="preserve">
+    <value>The ActionSet ID: </value>
+  </data>
+  <data name="AddAS" xml:space="preserve">
+    <value>add an ActionSet.</value>
+  </data>
+  <data name="AddCtrl" xml:space="preserve">
+    <value>add a Controller.</value>
+  </data>
+  <data name="AddProc" xml:space="preserve">
+    <value>Add Proc: </value>
+  </data>
+  <data name="AddValue" xml:space="preserve">
+    <value>Add_Value</value>
+  </data>
+  <data name="AIPolicyFilter" xml:space="preserve">
+    <value>AI Policy (*.data)|*.data|All Files (*.*)|*.*</value>
+  </data>
+  <data name="ASID" xml:space="preserve">
+    <value>ActionSet ID</value>
+  </data>
+  <data name="ASName" xml:space="preserve">
+    <value>Please enter a new ActionSet name.</value>
+  </data>
+  <data name="Atk" xml:space="preserve">
+    <value>Attack</value>
+  </data>
+  <data name="AtkParam1" xml:space="preserve">
+    <value>Parameter1:0/1</value>
+  </data>
+  <data name="beenAdded" xml:space="preserve">
+    <value> has been added to the end of the table.</value>
+  </data>
+  <data name="beenDel" xml:space="preserve">
+    <value> has been deleted</value>
+  </data>
+  <data name="Broadcast" xml:space="preserve">
+    <value>Broadcast_Message</value>
+  </data>
+  <data name="ByteCount" xml:space="preserve">
+    <value>Byte Count</value>
+  </data>
+  <data name="Calls" xml:space="preserve">
+    <value>Calls</value>
+  </data>
+  <data name="CastSkill" xml:space="preserve">
+    <value>Cast_Skill</value>
+  </data>
+  <data name="CreateTimer" xml:space="preserve">
+    <value>Create_Timer</value>
+  </data>
+  <data name="CRLF" xml:space="preserve">
+    <value>
+</value>
+  </data>
+  <data name="CtrlExists" xml:space="preserve">
+    <value>The Controller ID entered already exists.
+Please try again...</value>
+  </data>
+  <data name="CtrlIDwith" xml:space="preserve">
+    <value>The Controller with ID: </value>
+  </data>
+  <data name="CtrlNoExist" xml:space="preserve">
+    <value>The Controller ID entered does not exist.
+Please try again...</value>
+  </data>
+  <data name="CtrlParam" xml:space="preserve">
+    <value>Ctrl Parameter</value>
+  </data>
+  <data name="Cycles" xml:space="preserve">
+    <value>Cycles</value>
+  </data>
+  <data name="delAS" xml:space="preserve">
+    <value>delete an ActionSet.</value>
+  </data>
+  <data name="Delay" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="DelCtrl" xml:space="preserve">
+    <value>delete a Controller.</value>
+  </data>
+  <data name="DelTimer" xml:space="preserve">
+    <value>Delete_Timer</value>
+  </data>
+  <data name="DisableAS" xml:space="preserve">
+    <value>Disable_ActionSet</value>
+  </data>
+  <data name="Disappear" xml:space="preserve">
+    <value>Disappear</value>
+  </data>
+  <data name="EditAS" xml:space="preserve">
+    <value>edit an ActionSet.</value>
+  </data>
+  <data name="EditIt" xml:space="preserve">
+    <value>edit it.</value>
+  </data>
+  <data name="ElementsID" xml:space="preserve">
+    <value>Elements ID</value>
+  </data>
+  <data name="ELEVEN" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="EnableAS" xml:space="preserve">
+    <value>Enable_ActionSet</value>
+  </data>
+  <data name="EnterAS" xml:space="preserve">
+    <value>Please enter a name for the ActionSet</value>
+  </data>
+  <data name="ErrAILookup" xml:space="preserve">
+    <value>ERROR: Unable to read AI Lookup Table.</value>
+  </data>
+  <data name="ErrFileLoad" xml:space="preserve">
+    <value>ERROR: Unable to load file.</value>
+  </data>
+  <data name="ErrParams" xml:space="preserve">
+    <value>ERROR: Parameters incorrect.
+Please recheck.</value>
+  </data>
+  <data name="Exec_AS" xml:space="preserve">
+    <value>Exec_ActionSet</value>
+  </data>
+  <data name="Exists" xml:space="preserve">
+    <value> already exists.</value>
+  </data>
+  <data name="FadeAggro" xml:space="preserve">
+    <value>Fade_Aggro</value>
+  </data>
+  <data name="Fade_Aggro" xml:space="preserve">
+    <value>Fade Aggro</value>
+  </data>
+  <data name="Flee" xml:space="preserve">
+    <value>Flee</value>
+  </data>
+  <data name="IDControl" xml:space="preserve">
+    <value> (ID Control)
+</value>
+  </data>
+  <data name="ItemID" xml:space="preserve">
+    <value>Item ID</value>
+  </data>
+  <data name="MobID" xml:space="preserve">
+    <value>Mob ID</value>
+  </data>
+  <data name="MobName" xml:space="preserve">
+    <value>Mob Name</value>
+  </data>
+  <data name="Msg" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameControl" xml:space="preserve">
+    <value> (Name Control)
+</value>
+  </data>
+  <data name="noAS" xml:space="preserve">
+    <value>No ActionSet selected to delete.</value>
+  </data>
+  <data name="NoMatchCond" xml:space="preserve">
+    <value>Expression between brackets do not match.</value>
+  </data>
+  <data name="NoNumCtrl" xml:space="preserve">
+    <value>A number was not entered into the Controller ID textbox.</value>
+  </data>
+  <data name="NoResolveCond" xml:space="preserve">
+    <value>Unable to resolve Conditional Expression: </value>
+  </data>
+  <data name="NULL" xml:space="preserve">
+    <value>Null</value>
+  </data>
+  <data name="openAIPolicy" xml:space="preserve">
+    <value>You have to open an AIPolicy file before you can </value>
+  </data>
+  <data name="PathID" xml:space="preserve">
+    <value>Path ID</value>
+  </data>
+  <data name="ProcParams" xml:space="preserve">
+    <value>Procedure Parameters</value>
+  </data>
+  <data name="QnD" xml:space="preserve">
+    <value>Quick and dirty, very basic, AIPolicy Editor.</value>
+  </data>
+  <data name="RCBracket" xml:space="preserve">
+    <value> }</value>
+  </data>
+  <data name="Respawn" xml:space="preserve">
+    <value>Respawn</value>
+  </data>
+  <data name="RetainProc" xml:space="preserve">
+    <value>You Must retain at least one Procedure.</value>
+  </data>
+  <data name="RRange" xml:space="preserve">
+    <value>Refresh Range</value>
+  </data>
+  <data name="SearchNoResults" xml:space="preserve">
+    <value>Search reached the nend of the file without results.
+Try searching from the beginning (Controller 1).</value>
+  </data>
+  <data name="SetMobAttr" xml:space="preserve">
+    <value>Set_Mob_Attributes</value>
+  </data>
+  <data name="SetPath" xml:space="preserve">
+    <value>Set_Path</value>
+  </data>
+  <data name="SetValue" xml:space="preserve">
+    <value>Set_Value</value>
+  </data>
+  <data name="BeTaunted" xml:space="preserve">
+    <value>Be_Taunted</value>
+  </data>
+  <data name="SkillLvl" xml:space="preserve">
+    <value>Skill Level</value>
+  </data>
+  <data name="Skill_ID" xml:space="preserve">
+    <value>Skill ID</value>
+  </data>
+  <data name="SummonMob" xml:space="preserve">
+    <value>Summon Mob</value>
+  </data>
+  <data name="Survival" xml:space="preserve">
+    <value>Survival</value>
+  </data>
+  <data name="TimeInterval" xml:space="preserve">
+    <value>Time Interval</value>
+  </data>
+  <data name="TimerID" xml:space="preserve">
+    <value>Timer ID</value>
+  </data>
+  <data name="Trigger" xml:space="preserve">
+    <value>Trigger</value>
+  </data>
+  <data name="TriggerID" xml:space="preserve">
+    <value>Trigger ID</value>
+  </data>
+  <data name="UnableFind" xml:space="preserve">
+    <value>Unable to find.
+</value>
+  </data>
+  <data name="Unk" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="UnkCondType" xml:space="preserve">
+    <value>Unknown Condition Type: </value>
+  </data>
+  <data name="UnkType" xml:space="preserve">
+    <value>Unknown Type: </value>
+  </data>
+  <data name="v11Path" xml:space="preserve">
+    <value>v11 Path</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value[ ]</value>
+  </data>
+  <data name="Warsoul" xml:space="preserve">
+    <value>Drop_Warsoul_Item</value>
+  </data>
+  <data name="ZERO" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_Equals" xml:space="preserve">
+    <value>=</value>
+  </data>
+  <data name="_Plus" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="THIRTEEN" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="SIXTEEN" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="addProcedure" xml:space="preserve">
+    <value>add a Procedure.</value>
+  </data>
+  <data name="delProc" xml:space="preserve">
+    <value>delete a Procedure.</value>
+  </data>
+  <data name="editProc" xml:space="preserve">
+    <value>edit a Procedure.</value>
+  </data>
+  <data name="editCondEx" xml:space="preserve">
+    <value>edit a Condition expression.</value>
+  </data>
+  <data name="sureDelete" xml:space="preserve">
+    <value>Are you sure you want to delete </value>
+  </data>
+  <data name="ACtrl" xml:space="preserve">
+    <value>Action Controller </value>
+  </data>
+  <data name="QMark" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="DelACtrl" xml:space="preserve">
+    <value>Delete Action Controller</value>
+  </data>
+  <data name="ASNamed" xml:space="preserve">
+    <value>the ActionSet named </value>
+  </data>
+  <data name="DelAction" xml:space="preserve">
+    <value>Delete ActionSet</value>
+  </data>
+  <data name="tProc" xml:space="preserve">
+    <value>this Procedure</value>
+  </data>
+  <data name="Del_Proc" xml:space="preserve">
+    <value>Delete Procedure</value>
+  </data>
+  <data name="ResetAggro" xml:space="preserve">
+    <value>Reset_Aggro</value>
+  </data>
+  <data name="FadeTarget" xml:space="preserve">
+    <value>Fade_Target</value>
+  </data>
+  <data name="Break" xml:space="preserve">
+    <value>Break</value>
+  </data>
+  <data name="NPCGenerator" xml:space="preserve">
+    <value>NPC_Generator</value>
+  </data>
+  <data name="InitPubCount" xml:space="preserve">
+    <value>Initialize_Public_Counter</value>
+  </data>
+  <data name="IncPubCount" xml:space="preserve">
+    <value>Increment_Public_Counter</value>
+  </data>
+  <data name="NPCSpawn" xml:space="preserve">
+    <value>Player_Aimed_NPC_Spawn</value>
+  </data>
+  <data name="ChangePath" xml:space="preserve">
+    <value>Change_Path</value>
+  </data>
+  <data name="PlayAction" xml:space="preserve">
+    <value>Play_Action</value>
+  </data>
+  <data name="SEVENTEEN" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="EIGHTEEN" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="NINETEEN" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="TWOFOUR" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="TWOFIVE" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="TWOSIX" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="TWOSEVEN" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="NYA" xml:space="preserve">
+    <value>Not yet available...</value>
+  </data>
+  <data name="NoSwitchMode" xml:space="preserve">
+    <value>Unable to switch editing mode while Mode Lock is on.</value>
+  </data>
+  <data name="SumMob" xml:space="preserve">
+    <value>Summon_Mob</value>
+  </data>
+  <data name="ONE">
+    <value xml:space="preserve">1</value>
+  </data>
+  <data name="TWO">
+    <value xml:space="preserve">2</value>
+  </data>
+</root>

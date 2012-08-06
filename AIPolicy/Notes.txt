@@ -1,0 +1,198 @@
+﻿--------------------------------------------------------
+             JD Procedure Types
+--------------------------------------------------------
+0	Attack(int unk)
+1	Cast_Skill(int skill_id, int skill_lvl)
+2	Broadcast_Message(int byteCount, byte[] message)
+3	Reset_Aggro()
+4	Exec_ActionSet(int actionset_id)
+5	Disable_ActionSet(int actionset_id)
+6	Enable_ActionSet(int actionset_id)
+7	Create_Timer(int timerID, int delay, int cycles)
+8	Delete_Timer(int timerID)
+9	Flee()
+10	Be_Taunted()
+11	Unknown11()
+12	Fade_Aggro()
+13	Unknown13()
+14	Trigger(int triggerID, int ctrlParam)
+15	Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
+16	Unknown16(int unkInt string unkStr)
+17	Set_Path(int pathID)
+		if version = 11 then Set_Path(int pathID, int v11Path)
+18	Disappear()
+19	N/A
+20	N/A
+21	Respawn()
+22	Set_Value(int oldValue, int newValue)
+23	Add_Value(int value, int toAdd)
+24	N/A
+25	Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
+26	Drop_WarSoul(int itemID, int calls, int cycles)
+
+--------------------------------------------------------
+         JD Target Types
+--------------------------------------------------------
+AGGRO_MOST
+AGGRO_LEAST
+AGGRO_LEAST_RAND
+MOST_HP
+MOST_MP
+LEAST_HP
+TEAM
+SELF
+
+--------------------------------------------------------
+        JD Condition Names
+--------------------------------------------------------
+0	Is_Timer_Ticking
+1	Is_HP_Less
+2	Is_Combat_Started
+3	Randomize
+4	Is_Target_Dead
+5	!
+6	||
+7	&&
+8	Is_Dead
+9	Path_To
+10	More_Than
+11	Distance_To
+12	Unknown12
+13	Unknown13
+14	Unknown14
+15	Unknown15
+16	>
+17	<
+18	=
+19	Variable
+20	Variable_Value
+21	Rank
+22	NPC_Vent
+23	Cast_Skill
+
+
+// Type 0 - Attack(int unk)
+// Type 1 - Cast_Skill(int skill_id, int skill_lvl)
+// Type 2 - Broadcast_Message(int byteCount, byte[] message)
+// Type 3 - Reset_Aggro()
+// Type 4 - Exec_ActionSet(int actionset_id)
+// Type 5 - Disable_ActionSet(int actionset_id)
+// Type 6 - Enable_ActionSet(int actionset_id)
+// Type 7 - Create_Timer(int timerID, int delay, int cycles)
+// Type 8 - Delete_Timer(int timerID)
+// Type 9 - Flee()
+// Type 10 - Be_Taunted()
+// Type 11 - Unknown11()
+// Type 12 - Fade_Aggro()
+// Type 13 - Unknown13()
+// Type 14 - Trigger(int triggerID, int ctrlParam)
+// Type 15 - Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
+// Type 16 - Unknown16()
+// Type 17 - Set_Path(int pathID, int v11) for version 11 else Set_Path(int pathID)
+// Type 18 - Disappear()
+// Type 19 - N/A
+// Type 20 - N/A
+// Type 21 - Respawn()
+// Type 22 - Set_Value(int oldValue, int newValue)
+// Type 23 - Add_Value(int value, int toAdd)
+// Type 24 - N/A
+// Type 25 - Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
+// Type 26 - Drop_WarSoul(int itemID, int calls, int cycles)
+
+
+--------------------------------------------------------
+             PW Procedure Types
+--------------------------------------------------------
+0	Attack(int unk)
+1	Cast_Skill(int skill_id, int skill_lvl)
+2	Broadcast_Message(int byteCount, byte[] message)
+3	Reset_Aggro()
+4	Exec_ActionSet(int actionset_id)
+5	Disable_ActionSet(int actionset_id)
+6	Enable_ActionSet(int actionset_id)
+7	Create_Timer(int timerID, int delay, int cycles)
+8	Delete_Timer(int timerID)
+9	Flee()
+10	Be_Taunted()
+11	Fade_Target()
+12	Fade_Aggro()
+13	Break()
+14	NPC_Generator(int triggerID, int ctrlParam)
+15	Initialize_Public_Counter(int x, int y, int z)
+16	Increment_Public_Counter(int x, int y)
+17	Player_Aimed_NPC_Spawn(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
+18	Change_Path(int w, int x, int y, int z)
+19	Play_Action(sting w, int x, int y, int z)
+
+--------------------------------------------------------
+         PW Target Types
+--------------------------------------------------------
+AGGRO_MOST
+AGGRO_LEAST
+AGGRO_LEAST_RAND
+MOST_HP
+MOST_MP
+LEAST_HP
+CLASS_COMBO,x
+SELF
+
+--------------------------------------------------------
+        PW Condition Names
+--------------------------------------------------------
+0	Is_Timer_Ticking
+1	Is_HP_Less
+2	Is_Combat_Started
+3	Randomize
+4	Is_Target_Killed
+5	!
+6	||
+7	&&
+8	Is_Dead
+9	+
+10	-
+11	==
+12	>
+13	>=
+14	
+15	>
+16	Public_Counte
+17	Value
+18	Is_Event?
+19	?
+
+
+
+--------------------------------------------------------
+             FW Procedure Types
+--------------------------------------------------------
+
+0	Attack(int unk)
+1	Cast_Skill(int skill_id, int skill_lvl)
+2	Broadcast_Message(int byteCount, byte[] message)
+3	Reset_Aggro()
+4	Exec_ActionSet(int actionset_id)
+5	Disable_ActionSet(int actionset_id)
+6	Enable_ActionSet(int actionset_id)
+7	Create_Timer(int timerID, int delay, int cycles)
+8	Delete_Timer(int timerID)
+9	Flee()
+10	Be_Taunted()
+11	Fade_Target()
+12	N/A
+13	Unknown13()
+14	NPC_Generator(int triggerID, int ctrlParam)
+15	Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
+16	Unknown16()
+17	Unknown17(int x, int y)
+18	Disappear()
+19	Unknown19(int x)
+20	N/A
+21	Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
+22	Set_Value(int oldValue, int newValue)
+23	Add_Value(int value, int toAdd)
+24	Unknown24(int x, int y)
+25	Unknown25(int x, int y, int z)
+26	Unknown26()
+27	Unknown27()
+
+
