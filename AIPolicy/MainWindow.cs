@@ -4389,6 +4389,8 @@ namespace AIPolicy
             var comboItem24 = new DevComponents.Editors.ComboItem();
             var comboItem25 = new DevComponents.Editors.ComboItem();
             var comboItem26 = new DevComponents.Editors.ComboItem();
+            var comboItem27 = new DevComponents.Editors.ComboItem();
+            var comboItem28 = new DevComponents.Editors.ComboItem();
 
             comboItem1.Text = Resources.Atk;
             comboItem2.Text = Resources.CastSkill;
@@ -4401,21 +4403,23 @@ namespace AIPolicy
             comboItem9.Text = Resources.DelTimer;
             comboItem10.Text = Resources.Flee;
             comboItem11.Text = Resources.BeTaunted;
-            comboItem12.Text = Resources.Unk + Resources.ELEVEN;
-            comboItem13.Text = Resources.FadeAggro;
+            comboItem12.Text = Resources.FadeTarget;
+            comboItem13.Text = Resources.NA;
             comboItem14.Text = Resources.Unk + Resources.THIRTEEN;
-            comboItem15.Text = Resources.Trigger;
+            comboItem15.Text = Resources.NPCGenerator;
             comboItem16.Text = Resources.SumMob;
             comboItem17.Text = Resources.Unk + Resources.SIXTEEN;
-            comboItem18.Text = Resources.SetPath;
+            comboItem18.Text = Resources.Unk + Resources.SEVENTEEN;
             comboItem19.Text = Resources.Disappear;
-            comboItem20.Text = Resources.NA;
-            comboItem21.Text = Resources.Respawn;
-            comboItem22.Text = Resources.SetValue;
-            comboItem23.Text = Resources.AddValue;
-            comboItem24.Text = Resources.NA;
-            comboItem25.Text = Resources.SetMobAttr;
-            comboItem26.Text = Resources.Warsoul;
+            comboItem20.Text = Resources.Unk + Resources.NINETEEN;
+            comboItem21.Text = Resources.NA;
+            comboItem22.Text = Resources.SetMobAttr;
+            comboItem23.Text = Resources.SetValue;
+            comboItem24.Text = Resources.AddValue;
+            comboItem25.Text = Resources.Unk + Resources.TWOFOUR;
+            comboItem26.Text = Resources.Unk + Resources.TWOFIVE;
+            comboItem27.Text = Resources.Unk + Resources.TWOSIX;
+            comboItem28.Text = Resources.Unk + Resources.TWOSEVEN;
 
             comboBoxEx_Proc.Items.AddRange(new object[]
             {
@@ -4444,7 +4448,9 @@ namespace AIPolicy
                 comboItem23,
                 comboItem24,
                 comboItem25,
-                comboItem26
+                comboItem26,
+                comboItem27,
+                comboItem28
             });
 
             FWProcList();
