@@ -1513,7 +1513,6 @@ namespace AIPolicy
         private bool JDSelected = true;
         private bool PWSelected = false;
         private bool FWSelected = false;
-        private bool ModeLock = false;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Controllers;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_ActionSets;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Condition;

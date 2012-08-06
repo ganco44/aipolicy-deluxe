@@ -44,7 +44,7 @@ namespace AIPolicy
             textBoxX_Param5.Text = "";
             textBoxX_Param6.Text = "";
             textBoxX_Param7.Text = "";
-            textBoxX_ParamTarget.Text = Resources.ZERO;
+            textBoxX_ParamTarget.Text = "";
         }
         
         private static Condition LoadCondition(BinaryReader br)
@@ -1402,24 +1402,29 @@ namespace AIPolicy
             }
         }
         
-        private static string PWProcedureTarget(int target, object[] targetParmeters)
+        private static string PWProcedureTarget(int target, object[] targetParameters)
         {
-            var str = "Target(";
-
-            if (target == 0) str += "AGGRO_FIRST";
-            if (target == 1) str += "AGGRO_SECOND";
-            if (target == 2) str += "AGGRO_SECOND_RAND";
-            if (target == 3) str += "MOST_HP";
-            if (target == 4) str += "MOST_MP";
-            if (target == 5) str += "LEAST_HP";
-            if (target == 6)
+            switch (target)
             {
-                str += "CLASS_COMBO";
-                var param = targetParmeters;
-                str += ", " + param;
+                case 0:
+                    return "AGGRO_FIRST";
+                case 1:
+                    return "AGGRO_SECOND";
+                case 2:
+                    return "AGGRO_SECOND_RAND";
+                case 3:
+                    return "MOST_HP";
+                case 4:
+                    return "MOST_MP";
+                case 5:
+                    return "LEAST_HP";
+                case 6:
+                    return "CLASS_COMBO," + targetParameters[0];
+                case 7:
+                    return "SELF";
+                default:
+                    return "?";
             }
-            if (target == 7) str += "SELF";
-            return str + ")";
         }
         
         private static object[] PWReadTargetParameters(int type, BinaryReader br)
@@ -2249,24 +2254,29 @@ namespace AIPolicy
             }
         }
 
-        private static string FWProcedureTarget(int target, object[] targetParmeters)
+        private static string FWProcedureTarget(int target, object[] targetParameters)
         {
-            var str = "Target(";
-
-            if (target == 0) str += "AGGRO_FIRST";
-            if (target == 1) str += "AGGRO_SECOND";
-            if (target == 2) str += "AGGRO_SECOND_RAND";
-            if (target == 3) str += "MOST_HP";
-            if (target == 4) str += "MOST_MP";
-            if (target == 5) str += "LEAST_HP";
-            if (target == 6)
+            switch (target)
             {
-                str += "CLASS_COMBO";
-                var param = targetParmeters;
-                str += ", " + param;
+                case 0:
+                    return "AGGRO_FIRST";
+                case 1:
+                    return "AGGRO_SECOND";
+                case 2:
+                    return "AGGRO_SECOND_RAND";
+                case 3:
+                    return "MOST_HP";
+                case 4:
+                    return "MOST_MP";
+                case 5:
+                    return "LEAST_HP";
+                case 6:
+                    return "TEAM";
+                case 7:
+                    return "SELF";
+                default:
+                    return "?";
             }
-            if (target == 7) str += "SELF";
-            return str + ")";
         }
 
         private string FWConditionExpression(Condition c)
@@ -2290,9 +2300,9 @@ namespace AIPolicy
             if (c.ConditionType > 2)
             {
                 text += FWConditionName(c.OperID);
-                text += "[";
+                text += "(";
                 if (c.ArgBytes > 0) text += FWConditionValue(c);
-                text += "]";
+                text += ")";
             }
             return text;
         }
@@ -3050,7 +3060,7 @@ namespace AIPolicy
             // Perfect World
             if (PWSelected) textBoxX_Condition.Text = PWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
             // Forsaken World
-            if (JDSelected) textBoxX_Condition.Text = JDConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+            if (FWSelected) textBoxX_Condition.Text = FWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
 
             listBox_Procedure.Items.Clear();
             for (var i = 0; i < AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure.Length; i++)
@@ -3543,9 +3553,10 @@ namespace AIPolicy
             // Jade Dynasty
             if (JDSelected) textBoxX_ParamTarget.Text = JDProcedureTarget(target);
             // Perfect World
-            if (!PWSelected || target != 6) return;
-            textBoxX_ParamTarget.Text = PWProcedureTarget(target,
-                AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].TargetParams);
+            if (PWSelected && target == 6)
+                textBoxX_ParamTarget.Text =
+                    PWProcedureTarget(target, AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].TargetParams);
+            else textBoxX_ParamTarget.Text = PWProcedureTarget(target, null);
         }
 
         private void ButtonXAddCtrlClick(object sender, EventArgs e)
@@ -4059,14 +4070,14 @@ namespace AIPolicy
                         MessageBox.Show(Resources.NoResolveCond + expr);
                         return;
                     }
-                    if (JDSelected)
-                    {
+                    //if (JDSelected)
+                    //{
                         AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = JDGetCondition(text);
                         AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
                             JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
-                    }
+                    //}
                     
-                    //textBoxX_Condition.Clear();
+                    textBoxX_Condition.Clear();
 
                     // Jade Dynasty
                     if (JDSelected) textBoxX_Condition.Text = JDConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
