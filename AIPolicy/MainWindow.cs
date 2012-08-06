@@ -49,7 +49,9 @@ namespace AIPolicy
         
         private static Condition LoadCondition(BinaryReader br)
         {
-            var condition = new Condition { OperID = br.ReadInt32(), ArgBytes = br.ReadInt32() };
+            var condition = new Condition();
+            condition.OperID = br.ReadInt32();
+            condition.ArgBytes = br.ReadInt32();
             condition.Value = br.ReadBytes(condition.ArgBytes);
             condition.ConditionType = br.ReadInt32();
 
@@ -70,6 +72,7 @@ namespace AIPolicy
         }
 
         //**********JADE DYNASTY*************
+
         private void JDProcList()
         {
             switch (comboBoxEx_Proc.SelectedIndex)
@@ -865,15 +868,15 @@ namespace AIPolicy
 
         private object[] JDGetParameters(int type, int ver)
         {
-            // Type 0
+            // Type 0 - Attack(int unk)
             if (type == 0 && textBoxX_Param1.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
 
-            // Type 1
+            // Type 1 - Cast_Skill(int skill_id, int skill_lvl)
             if (type == 1 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
 
-            // Type 2
+            // Type 2 - Broadcast_Message(int byteCount, byte[] message)
             if (type == 2 && textBoxX_Param2.Text != "")
             {
                 var unicode = Encoding.Unicode;
@@ -886,22 +889,22 @@ namespace AIPolicy
                 return new object[] { param1, message };
             }
 
-            // Type 3
+            // Type 3 - Reset_Aggro()
             if (type == 3) return new object[0];
 
-            // Type 4
+            // Type 4 - Exec_ActionSet(int actionset_id)
             if (type == 4 && textBoxX_Param1.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
 
-            // Type 5
+            // Type 5 - Disable_ActionSet(int actionset_id)
             if (type == 5 && textBoxX_Param1.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
 
-            // Type 6
+            // Type 6 - Enable_ActionSet(int actionset_id)
             if (type == 6 && textBoxX_Param1.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
 
-            // Type 7
+            // Type 7 - Create_Timer(int timerID, int delay, int cycles)
             if (type == 7 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" && textBoxX_Param3.Text != "")
             {
                 var param1 = Convert.ToInt32(textBoxX_Param1.Text);
@@ -910,31 +913,31 @@ namespace AIPolicy
                 return new object[] { param1, param2, param3 };
             }
 
-            // Type 8
+            // Type 8 - Delete_Timer(int timerID)
             if (type == 8 && textBoxX_Param1.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
 
-            // Type 9
+            // Type 9 - Flee()
             if (type == 9) return new object[0];
 
-            // Type 10
+            // Type 10 - Be_Taunted()
             if (type == 10) return new object[0];
 
-            // Type 11
+            // Type 11 - Unknown11()
             if (type == 11) return new object[0];
 
-            // Type 12
+            // Type 12 - Fade_Aggro()
             if (type == 12) return new object[0];
 
-            // Type 13
+            // Type 13 - Unknown13()
             if (type == 13) return new object[0];
 
-            // Type 14
+            // Type 14 - Trigger(int triggerID, int ctrlParam)
             if (type == 14 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
                 return
                     new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
 
-            // Type 15
+            // Type 15 - Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
             if (type == 15 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" &&
                 textBoxX_Param3.Text != "" && textBoxX_Param4.Text != "" && textBoxX_Param5.Text != "" &&
                 textBoxX_Param6.Text != "" && textBoxX_Param7.Text != "")
@@ -956,38 +959,39 @@ namespace AIPolicy
                 return new object[] { param1, param2, param3, param4, message, param6, param7 };
             }
 
-            // Type 16
+            // Type 16 - Unknown16(int unkInt string unkStr)
             if (type == 16 && textBoxX_Param1.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
 
-            // Type 17
+            // Type 17 - Set_Path(int pathID)
+            //      if version = 11 then Set_Path(int pathID, int v11Path)
             if (type == 17 && textBoxX_Param1.Text != "")
             {
                 return ver == 11 ? new object[] {Convert.ToInt32(textBoxX_Param1.Text),
                     Convert.ToInt32(textBoxX_Param2.Text)} : new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
             }
 
-            // Type 18
+            // Type 18 - Disappear()
             if (type == 18) return new object[0];
 
-            // Type 19
+            // Type 19 - N/A
 
-            // Type 20
+            // Type 20 - N/A
 
-            // Type 21
+            // Type 21 - Respawn()
             if (type == 21) return new object[0];
 
-            // Type 22
+            // Type 22 - Set_Value(int oldValue, int newValue)
             if (type == 22 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
 
-            // Type 23
+            // Type 23 - Add_Value(int value, int toAdd)
             if (type == 23 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
                 return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
 
-            // Type 24
+            // Type 24 - N/A
 
-            // Type 25
+            // Type 25 - Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
             if (type == 25 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" &&
                 textBoxX_Param3.Text != "" && textBoxX_Param4.Text != "" && textBoxX_Param5.Text != "")
             {
@@ -999,7 +1003,7 @@ namespace AIPolicy
                 return new object[] { param1, param2, param3, param4, param5 };
             }
 
-            // Type 26
+            // Type 26 - Drop_WarSoul(int itemID, int calls, int cycles)
             if (type == 26 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" && textBoxX_Param3.Text != "")
             {
                 var param1 = Convert.ToInt32(textBoxX_Param1.Text);
@@ -1166,6 +1170,7 @@ namespace AIPolicy
         }
 
         //**********PERFECT WORLD*************
+
         private void PWProcList()
         {
             switch (comboBoxEx_Proc.SelectedIndex)
@@ -1938,6 +1943,7 @@ namespace AIPolicy
         }
 
         //***********Forsaken World*************
+
         private void FWProcList()
         {
             switch (comboBoxEx_Proc.SelectedIndex)
@@ -2565,8 +2571,333 @@ namespace AIPolicy
             }
             return str + (" " + FWProcedureTarget(p.Target, p.TargetParams));
         }
+
+        private static void FWSaveCondition(Condition c, BinaryWriter bw)
+        {
+            bw.Write(c.OperID);
+            bw.Write(c.ArgBytes);
+            bw.Write(c.Value);
+            bw.Write(c.ConditionType);
+            if (c.ConditionType == 1)
+            {
+                PWSaveCondition(c.ConditionLeft, bw);
+                bw.Write(c.SubNodeL);
+                if (c.SubNodeL == 2)
+                {
+                    PWSaveCondition(c.ConditionRight, bw);
+                    bw.Write(c.SubNodeR);
+                }
+            }
+            if (c.ConditionType != 2) return;
+            PWSaveCondition(c.ConditionRight, bw);
+            bw.Write(c.SubNodeL);
+        }
+
+        private object[] FWGetParameters(int type)
+        {
+            // Type 0 - Attack(int unk)
+            if (type == 0 && textBoxX_Param1.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
+
+            // Type 1 - Cast_Skill(int skill_id, int skill_lvl)
+            if (type == 1 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
+
+            // Type 2 - Broadcast_Message(int byteCount, byte[] message)
+            if (type == 2 && textBoxX_Param2.Text != "")
+            {
+                var unicode = Encoding.Unicode;
+                var bytes = unicode.GetBytes(textBoxX_Param2.Text);
+                var param1 = bytes.Length + 2;
+                var message = new byte[param1];
+                Array.Copy(bytes, message, bytes.Length);
+                message[bytes.Length] = 0;
+                message[bytes.Length + 1] = 0;
+                return new object[] { param1, message };
+            }
+
+            // Type 3 - Reset_Aggro()
+            if (type == 3) return new object[0];
+
+            // Type 4 - Exec_ActionSet(int actionset_id)
+            if (type == 4 && textBoxX_Param1.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
+
+            // Type 5 - Disable_ActionSet(int actionset_id)
+            if (type == 5 && textBoxX_Param1.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
+
+            // Type 6 - Enable_ActionSet(int actionset_id)
+            if (type == 6 && textBoxX_Param1.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
+
+            // Type 7 - Create_Timer(int timerID, int delay, int cycles)
+            if (type == 7 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" && textBoxX_Param3.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text), Convert.ToInt32(textBoxX_Param3.Text) };
+
+            // Type 8 - Delete_Timer(int timerID)
+            if (type == 8 && textBoxX_Param1.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
+
+            // Type 9 - Flee()
+            if (type == 9) return new object[0];
+
+            // Type 10 - Be_Taunted()
+            if (type == 10) return new object[0];
+
+            // Type 11 - Fade_Target()
+            if (type == 11) return new object[0];
+
+            // Type 12 - N/A
+
+            // Type 13 - Unknown13()
+            if (type == 13) return new object[0];
+
+            // Type 14 - NPC_Generator(int triggerID, int ctrlParam)
+            if (type == 14 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
+
+            // Type 15 - Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
+            if (type == 15 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" &&
+                textBoxX_Param3.Text != "" && textBoxX_Param4.Text != "" && textBoxX_Param5.Text != "" &&
+                textBoxX_Param6.Text != "" && textBoxX_Param7.Text != "")
+            {
+                var param1 = Convert.ToInt32(textBoxX_Param1.Text);
+                var param2 = Convert.ToInt32(textBoxX_Param2.Text);
+                var param3 = Convert.ToInt32(textBoxX_Param3.Text);
+                var param4 = Convert.ToInt32(textBoxX_Param4.Text);
+                var param6 = Convert.ToInt32(textBoxX_Param6.Text);
+                var param7 = Convert.ToInt32(textBoxX_Param7.Text);
+                var message = new byte[32];
+                var msgSize = Encoding.Unicode.GetBytes(textBoxX_Param5.Text);
+                if (msgSize.Length < 32)
+                {
+                    Array.Copy(msgSize, message, msgSize.Length);
+                    for (var i = msgSize.Length; i < 32; i++) message[i] = 0;
+                }
+                else Array.Copy(msgSize, message, 32);
+                return new object[] { param1, param2, param3, param4, message, param6, param7 };
+            }
+
+            // Type 16 - Unknown16()
+            if (type == 16) return new object[0];
+
+            // Type 17 - Unknown17(int x, int y)
+            if (type == 17 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
+
+            // Type 18 - Disappear()
+            if (type == 18) return new object[0];
+
+            // Type 19 - Unknown19(int x)
+            if (type == 19 && textBoxX_Param1.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text) };
+
+            // Type 20 - N/A
+
+            // Type 21 - Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
+            if (type == 21 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" &&
+                textBoxX_Param3.Text != "" && textBoxX_Param4.Text != "" && textBoxX_Param5.Text != "")
+            {
+                var param1 = Convert.ToInt32(textBoxX_Param1.Text);
+                var param2 = Convert.ToInt32(textBoxX_Param2.Text);
+                var param3 = Convert.ToInt32(textBoxX_Param3.Text);
+                var param4 = Convert.ToInt32(textBoxX_Param4.Text);
+                var param5 = Convert.ToInt32(textBoxX_Param5.Text);
+                return new object[] {param1, param2, param3, param4, param5};
+            }
+
+            // Type 22 - Set_Value(int oldValue, int newValue)
+            if (type == 22 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
+
+            // Type 23 - Add_Value(int value, int toAdd)
+            if (type == 23 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
+
+            // Type 24 - Unknown24(int x, int y)
+            if (type == 24 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text) };
+
+            // Type 25 - Unknown25(int x, int y, int z)
+            if (type == 25 && textBoxX_Param1.Text != "" && textBoxX_Param2.Text != "" && textBoxX_Param3.Text != "")
+                return new object[] { Convert.ToInt32(textBoxX_Param1.Text), Convert.ToInt32(textBoxX_Param2.Text), Convert.ToInt32(textBoxX_Param3.Text) };
+
+            // Type 26 - Unknown26()
+            if (type == 26) return new object[0];
+
+            // Type 27 - Unknown27()
+            if (type == 27) return new object[0];
+
+            // Type Error
+            Cursor = Cursors.Default;
+            MessageBox.Show(Resources.ErrParams);
+            return null;
+        }
+
+        private static void FWWriteParameters(int type, object[] parameters, BinaryWriter bw)
+        {
+            switch (type)
+            {
+                // Type 0 - Attack(int unk)
+                case 0:
+                    bw.Write((int)parameters[0]);
+                    break;
+
+                // Type 1 - Cast_Skill(int skill_id, int skill_lvl)
+                case 1:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    break;
+
+                // Type 2 - Broadcast_Message(int byteCount, byte[] message)
+                case 2:
+                    var value = (int)parameters[0];
+                    bw.Write(value);
+                    bw.Write((byte[])parameters[1]);
+                    break;
+
+                // Type 3 - Reset_Aggro()
+                // no parameters...
+                case 3:
+                    break;
+
+                // Type 4 - Exec_ActionSet(int actionset_id)
+                case 4:
+                    bw.Write((int)parameters[0]);
+                    break;
+
+                // Type 5 - Disable_ActionSet(int actionset_id)
+                case 5:
+                    bw.Write((int)parameters[0]);
+                    break;
+
+                // Type 6 - Enable_ActionSet(int actionset_id)
+                case 6:
+                    bw.Write((int)parameters[0]);
+                    break;
+
+                // Type 7 - Create_Timer(int timerID, int delay, int cycles)
+                case 7:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    bw.Write((int)parameters[2]);
+                    break;
+
+                // Type 8 - Delete_Timer(int timerID)
+                case 8:
+                    bw.Write((int)parameters[0]);
+                    break;
+
+                // Type 9 - Flee()
+                // no parameters...
+                case 9:
+
+                // Type 10 - Be_Taunted()
+                // no parameters...
+                case 10:
+
+                // Type 11 - Fade_Target()
+                // no parameters...
+                case 11:
+
+                // Type 12 - N/A
+                case 12:
+
+                // Tpye 13 - Unknown13()
+                // no parameters...
+                case 13:
+                    break;
+
+                // Type 14 - NPC_Generator(int triggerID, int ctrlParam)
+                case 14:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    break;
+
+                // Type 15 - Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
+                case 15:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    bw.Write((int)parameters[2]);
+                    bw.Write((int)parameters[3]);
+                    bw.Write((byte[])parameters[4]);
+                    bw.Write((int)parameters[5]);
+                    bw.Write((int)parameters[6]);
+                    break;
+
+                // Type 16 - Unknown16()
+                // no parameters...
+                case 16:
+                    break;
+
+                // Type 17 - Unknown17(int x, int y)
+                case 17:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    break;
+
+                // Type 18 - Disappear()
+                case 18:
+                    break;
+
+                // Type 19 - Unknown19(int x)
+                case 19:
+                    bw.Write((int)parameters[0]);
+                    break;
+
+
+                // Type 20 - N/A
+                case 20:
+                    break;
+
+                // Type 21 - Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
+                case 21:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    bw.Write((int)parameters[2]);
+                    bw.Write((int)parameters[3]);
+                    bw.Write((int)parameters[4]);
+                    break;
+
+                // Type 22- Set_Value(int oldValue, int newValue)
+                case 22:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    break;
+
+                // Type 23- Add_Value(int value, int toAdd)
+                case 23:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    break;
+
+                // Type 24-  Unknown24(int x, int y)
+                case 24:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    break;
+
+                // Type 25 - Unknown25(int x, int y, int z)
+                case 25:
+                    bw.Write((int)parameters[0]);
+                    bw.Write((int)parameters[1]);
+                    bw.Write((int)parameters[2]);
+                    break;
+
+                // Type 26 - Unknown26()
+                // no parameters...
+                case 26:
+
+                // Type 27 - Unknown27()
+                // no parameters...
+                case 27:
+                    break;
+            }
+        }
         
         //**********************************************
+
         private void ButtonItemOpenClick(object sender, EventArgs e)
         {
             using (var openFileDialog = new OpenFileDialog { Filter = Resources.AIPolicyFilter })
@@ -3519,6 +3850,8 @@ namespace AIPolicy
                 if (JDSelected) pArray = JDGetParameters(comboBoxEx_Proc.SelectedIndex, AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Version);
                 // Perfect World
                 if (PWSelected) pArray = PWGetParameters(comboBoxEx_Proc.SelectedIndex);
+                // Forsaken World
+                if (FWSelected) pArray = FWGetParameters(comboBoxEx_Proc.SelectedIndex);
 
                 if (pArray == null) return;
                 var pSelectedIndex = listBox_Procedure.SelectedIndex;
@@ -3638,6 +3971,9 @@ namespace AIPolicy
             // Perfect World
             if (PWSelected) AI.ActionController[cSelectedIndex].ActionSet[asSselectedIndex].Procedure[pSelectedIndex].Parameter =
                 PWGetParameters(AI.ActionController[cSelectedIndex].ActionSet[asSselectedIndex].Procedure[pSelectedIndex].Type);
+            // Forsaken World
+            if (FWSelected) AI.ActionController[cSelectedIndex].ActionSet[asSselectedIndex].Procedure[pSelectedIndex].Parameter =
+                FWGetParameters(AI.ActionController[cSelectedIndex].ActionSet[asSselectedIndex].Procedure[pSelectedIndex].Type);
 
             listBox_Procedure.Items.Clear();
 
@@ -3723,12 +4059,20 @@ namespace AIPolicy
                         MessageBox.Show(Resources.NoResolveCond + expr);
                         return;
                     }
-                    AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = JDGetCondition(text);
-                    AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
-                        JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
-                    textBoxX_Condition.Clear();
+                    if (JDSelected)
+                    {
+                        AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = JDGetCondition(text);
+                        AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
+                            JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                    }
+                    
+                    //textBoxX_Condition.Clear();
+
+                    // Jade Dynasty
                     if (JDSelected) textBoxX_Condition.Text = JDConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                    // Perfect World
                     if (PWSelected) textBoxX_Condition.Text = PWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                    // Forsaken World
                     if (FWSelected) textBoxX_Condition.Text = FWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
                 }
             }
@@ -3754,8 +4098,7 @@ namespace AIPolicy
             {
                 if (AI == null || saveFileDialog.ShowDialog() != DialogResult.OK || saveFileDialog.FileName == "") return;
                 Cursor = Cursors.WaitCursor;
-                //AI = JDConvert(AI);
-
+                
                 using (var fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.Write))
                 {
                     using (var binaryWriter = new BinaryWriter(fileStream))
@@ -3779,6 +4122,8 @@ namespace AIPolicy
                                 if (JDSelected) JDSaveCondition(actionSet.Condition, binaryWriter);
                                 // Perfect World
                                 if (PWSelected) PWSaveCondition(actionSet.Condition, binaryWriter);
+                                // Forsaken World
+                                if (FWSelected) FWSaveCondition(actionSet.Condition, binaryWriter);
 
                                 binaryWriter.Write(actionSet.ProcedureCount);
                                 foreach (var procedure in actionSet.Procedure)
@@ -3792,10 +4137,16 @@ namespace AIPolicy
                                         binaryWriter.Write(procedure.Target);
                                     }
                                     // Perfect World
-                                    if (!PWSelected) continue;
-                                    PWWriteParameters(procedure.Type, procedure.Parameter, binaryWriter);
+                                    if (PWSelected)
+                                    {
+                                        PWWriteParameters(procedure.Type, procedure.Parameter, binaryWriter);
+                                        binaryWriter.Write(procedure.Target);
+                                        if (procedure.Target == 6) binaryWriter.Write((int) procedure.TargetParams[0]);
+                                    }
+                                    // Forsaken World
+                                    if (!FWSelected) continue;
+                                    FWWriteParameters(procedure.Type, procedure.Parameter, binaryWriter);
                                     binaryWriter.Write(procedure.Target);
-                                    if (procedure.Target == 6) binaryWriter.Write((int) procedure.TargetParams[0]);
                                 }
                             }
                         }

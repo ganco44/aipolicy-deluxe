@@ -196,3 +196,14 @@ SELF
 27	Unknown27()
 
 
+OperID = 8
+ArgBytes = 0
+condition.Type = 3
+
+OperID = 5
+ArgBytes = 0
+Type = 2
+
+OperID = 1
+ArgBytes = 4
+Type = 3
