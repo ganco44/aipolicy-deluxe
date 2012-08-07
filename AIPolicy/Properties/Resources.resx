@@ -528,4 +528,7 @@ Try searching from the beginning (Controller 1).</value>
   <data name="TWO">
     <value xml:space="preserve">2</value>
   </data>
+  <data name="IsTimerTicking">
+    <value xml:space="preserve">Is_Timer_Ticking</value>
+  </data>
 </root>

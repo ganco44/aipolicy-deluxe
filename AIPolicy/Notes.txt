@@ -45,15 +45,15 @@ SELF
 --------------------------------------------------------
         JD Condition Names
 --------------------------------------------------------
-0	Is_Timer_Ticking
-1	Is_HP_Less
-2	Is_Combat_Started
-3	Randomize
-4	Is_Target_Dead
+0	Is_Timer_Ticking[x] // 1 param = integer
+1	Is_HP_Less[x]       // 1 param < 1.00
+2	Is_Combat_Started[] // no params
+3	Randomize[x]        // 1 param < 1.00
+4	Is_Target_Dead[]    // no params
 5	!
 6	||
 7	&&
-8	Is_Dead
+8	Is_Dead[]           // no params
 9	Path_To
 10	More_Than
 11	Distance_To
@@ -139,15 +139,15 @@ SELF
 --------------------------------------------------------
         PW Condition Names
 --------------------------------------------------------
-0	Is_Timer_Ticking
-1	Is_HP_Less
-2	Is_Combat_Started
-3	Randomize
-4	Is_Target_Killed
+0	Is_Timer_Ticking[x]
+1	Is_HP_Less[x]
+2	Is_Combat_Started[]
+3	Randomize[x]
+4	Is_Target_Killed[]
 5	!
 6	||
 7	&&
-8	Is_Dead
+8	Is_Dead[]
 9	+
 10	-
 11	==
@@ -155,8 +155,8 @@ SELF
 13	>=
 14	
 15	>
-16	Public_Counte
-17	Value
+16	Public_Counter[x]   // 1 param = integer
+17	Value[x]            // 1 param = integer
 18	Is_Event?
 19	?
 

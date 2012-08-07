@@ -6,5 +6,6 @@
         public int ID;
         public int ActionSetsCount;
         public ActionSet[] ActionSet;
+        public int ndx;
     }
 }

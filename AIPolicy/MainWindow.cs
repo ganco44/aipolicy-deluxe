@@ -736,7 +736,7 @@ namespace AIPolicy
             switch (operID)
             {
                 case 0:
-                    return "Is_Timer_Ticking";
+                    return Resources.IsTimerTicking;
                 case 1:
                     return "Is_HP_Less";
                 case 2:
@@ -862,7 +862,7 @@ namespace AIPolicy
             return text;
         }
 
-        private static void JDSaveCondition(Condition c, BinaryWriter bw)
+        private void JDSaveCondition(Condition c, BinaryWriter bw)
         {
             bw.Write(c.OperID);
             bw.Write(c.ArgBytes);
@@ -1492,12 +1492,9 @@ namespace AIPolicy
             if (c.ConditionType > 2)
             {
                 text += PWConditionName(c.OperID);
-                text += "(";
-                if (c.ArgBytes > 0)
-                {
-                    text += PWConditionValue(c);
-                }
-                text += ")";
+                text += "[";
+                if (c.ArgBytes > 0) text += PWConditionValue(c);
+                text += "]";
             }
             return text;
         }
@@ -1507,7 +1504,7 @@ namespace AIPolicy
             switch (operID)
             {
                 case 0:
-                    return "Is_Timer_Ticking";
+                    return Resources.IsTimerTicking;
                 case 1:
                     return "Is_HP_Less";
                 case 2:
@@ -2349,9 +2346,9 @@ namespace AIPolicy
             if (c.ConditionType > 2)
             {
                 text += FWConditionName(c.OperID);
-                text += "(";
+                text += "[";
                 if (c.ArgBytes > 0) text += FWConditionValue(c);
-                text += ")";
+                text += "]";
             }
             return text;
         }
@@ -2361,7 +2358,7 @@ namespace AIPolicy
             switch (operID)
             {
                 case 0:
-                    return "Is_Timer_Ticking";
+                    return Resources.IsTimerTicking;
                 case 1:
                     return "Is_HP_Less";
                 case 2:
@@ -2982,6 +2979,7 @@ namespace AIPolicy
                                 AI.ActionController[i] = new ActionController();
                                 AI.ActionController[i].Signature = binaryReader.ReadInt32();
                                 AI.ActionController[i].ID = binaryReader.ReadInt32();
+                                AI.ActionController[i].ndx = AI.ActionController[i].ID;
                                 AI.ActionController[i].ActionSetsCount = binaryReader.ReadInt32();
                                 AI.ActionController[i].ActionSet = new ActionSet[AI.ActionController[i].ActionSetsCount];
                                 var iD = AI.ActionController[i].ID;
@@ -3075,18 +3073,21 @@ namespace AIPolicy
 
         private void ListBoxControllerSelectedIndexChanged(object sender, EventArgs e)
         {
+
             labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1) return;
-            var scSelectedIndex = listBox_Controller.SelectedIndex;
+            var cSelectedIndex = listBox_Controller.SelectedIndex;
             listBox_ActionSet.Items.Clear();
-            var actionSet = AI.ActionController[scSelectedIndex].ActionSet;
+            var actionSet = AI.ActionController[cSelectedIndex].ActionSet;
+            // DEBUG**********************************
+            textBoxX_Debug.Text = AI.ActionController[cSelectedIndex].ndx.ToString(CultureInfo.InvariantCulture);
 
-            foreach (var t in actionSet)
+            foreach (var aSet in actionSet)
             {
-                var iD = t.ID;
-                listBox_ActionSet.Items.Add("[" + iD.ToString(CultureInfo.InvariantCulture) + "] " + t.Name);
-                textBoxX_CtrlID.Text = AI.ActionController[scSelectedIndex].ID.ToString(CultureInfo.InvariantCulture);
+                var iD = aSet.ID;
+                listBox_ActionSet.Items.Add("[" + iD.ToString(CultureInfo.InvariantCulture) + "] " + aSet.Name);
+                textBoxX_CtrlID.Text = AI.ActionController[cSelectedIndex].ID.ToString(CultureInfo.InvariantCulture);
             }
 
             textBoxX_ActionID.Clear();
@@ -4116,7 +4117,7 @@ namespace AIPolicy
             if (JDSelected || PWSelected || FWSelected)
             {
                 text = text.Replace(" ", "");
-                text = text.Replace("定时器到达", "a");
+                text = text.Replace("定时器到达", "a"); // Is_Timer_Ticking
                 text = text.Replace("血量小于", "b");
                 text = text.Replace("战斗开始", "c");
                 text = text.Replace("随机事件", "d");
@@ -4762,6 +4763,34 @@ namespace AIPolicy
         {
             panelEx_Target.Visible = false;
         }
-        
+
+        // Condition "Editor"
+        private void GroupPanelConditionClick(object sender, EventArgs e)
+        {
+            panelEx_CondEdit.Visible = true;
+        }
+
+        private void LabelXClickMeClick(object sender, EventArgs e)
+        {
+            GroupPanelConditionClick(sender, e);
+        }
+
+        private void ButtonXCondEdOKClick(object sender, EventArgs e)
+        {
+            panelEx_CondEdit.Visible = false;
+        }
+
+        private void ButtonXCondEdCancelClick(object sender, EventArgs e)
+        {
+            panelEx_CondEdit.Visible = false;
+        }
+
+        private void ComboBoxExCondEdSelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonXCreateCondClick(object sender, EventArgs e)
+        {
+        }
     }
 }

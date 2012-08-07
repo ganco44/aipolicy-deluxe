@@ -659,6 +659,15 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is_Timer_Ticking.
+        /// </summary>
+        internal static string IsTimerTicking {
+            get {
+                return ResourceManager.GetString("IsTimerTicking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item ID.
         /// </summary>
         internal static string ItemID {
