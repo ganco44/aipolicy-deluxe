@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -75,9 +76,10 @@ namespace AIPolicy
 
         private void JDProcList()
         {
+            labelX_Param2.BackColor = Color.Transparent;
             switch (comboBoxEx_Proc.SelectedIndex)
             {
-                // Attack(int unk)
+                    // Attack(int unk)
                 case 0:
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.Atk;
                     labelX_Param1.Text = Resources.AtkParam1;
@@ -95,6 +97,7 @@ namespace AIPolicy
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.Broadcast;
                     labelX_Param1.Text = Resources.ByteCount;
                     labelX_Param2.Text = Resources.Msg;
+                    labelX_Param2.BackColor = Color.Gold;
                     break;
 
                 // Fade_Aggro()
@@ -547,6 +550,20 @@ namespace AIPolicy
                 default:
                     return "?";
             }
+        }
+
+        // Overloaded function
+        private static int JDProcedureTarget(string target)
+        {
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_MOST")       return 0;
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_LEAST")      return 1;
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_LEAST_RAND") return 2;
+            if (target.ToString(CultureInfo.InvariantCulture) == "MOST_HP")          return 3;
+            if (target.ToString(CultureInfo.InvariantCulture) == "MOST_MP")          return 4;
+            if (target.ToString(CultureInfo.InvariantCulture) == "LEAST_HP")         return 5;
+            if (target.ToString(CultureInfo.InvariantCulture) == "TEAM")             return 6;
+            if (target.ToString(CultureInfo.InvariantCulture) == "SELF")             return 7;
+            return 0; // defaults to AGGRO_MOST as it is the most common
         }
 
         private static string JDProcedureExpression(Procedure p, int ver)
@@ -1173,6 +1190,7 @@ namespace AIPolicy
 
         private void PWProcList()
         {
+            labelX_Param2.BackColor = Color.Transparent;
             switch (comboBoxEx_Proc.SelectedIndex)
             {
                 // Attack(int unk)
@@ -1193,6 +1211,7 @@ namespace AIPolicy
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.Broadcast;
                     labelX_Param1.Text = Resources.ByteCount;
                     labelX_Param2.Text = Resources.Msg;
+                    labelX_Param2.BackColor = Color.Gold;
                     break;
 
                 // Reset_Aggro()
@@ -1426,7 +1445,21 @@ namespace AIPolicy
                     return "?";
             }
         }
-        
+
+        // Overloaded function
+        private static int PWProcedureTarget(string target)
+        {
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_MOST") return 0;
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_LEAST") return 1;
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_LEAST_RAND") return 2;
+            if (target.ToString(CultureInfo.InvariantCulture) == "MOST_HP") return 3;
+            if (target.ToString(CultureInfo.InvariantCulture) == "MOST_MP") return 4;
+            if (target.ToString(CultureInfo.InvariantCulture) == "LEAST_HP") return 5;
+            if (target.ToString(CultureInfo.InvariantCulture) == "CLASS_COMBO") return 6; // will have to fix this...
+            if (target.ToString(CultureInfo.InvariantCulture) == "SELF") return 7;
+            return 0; // defaults to AGGRO_MOST as it is the most common
+        }
+
         private static object[] PWReadTargetParameters(int type, BinaryReader br)
         {
             switch (type)
@@ -1951,6 +1984,7 @@ namespace AIPolicy
 
         private void FWProcList()
         {
+            labelX_Param2.BackColor = Color.Transparent;
             switch (comboBoxEx_Proc.SelectedIndex)
             {
                 // Attack(int unk)
@@ -1971,6 +2005,7 @@ namespace AIPolicy
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.Broadcast;
                     labelX_Param1.Text = Resources.ByteCount;
                     labelX_Param2.Text = Resources.Msg;
+                    labelX_Param2.BackColor = Color.Gold;
                     break;
 
                 // Fade_Aggro()
@@ -2254,7 +2289,7 @@ namespace AIPolicy
             }
         }
 
-        private static string FWProcedureTarget(int target, object[] targetParameters)
+        private static string FWProcedureTarget(int target)
         {
             switch (target)
             {
@@ -2277,6 +2312,20 @@ namespace AIPolicy
                 default:
                     return "?";
             }
+        }
+
+        // Overloaded function
+        private static int FWProcedureTarget(string target)
+        {
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_MOST") return 0;
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_LEAST") return 1;
+            if (target.ToString(CultureInfo.InvariantCulture) == "AGGRO_LEAST_RAND") return 2;
+            if (target.ToString(CultureInfo.InvariantCulture) == "MOST_HP") return 3;
+            if (target.ToString(CultureInfo.InvariantCulture) == "MOST_MP") return 4;
+            if (target.ToString(CultureInfo.InvariantCulture) == "LEAST_HP") return 5;
+            if (target.ToString(CultureInfo.InvariantCulture) == "TEAM") return 6;
+            if (target.ToString(CultureInfo.InvariantCulture) == "SELF") return 7;
+            return 0; // defaults to AGGRO_MOST as it is the most common
         }
 
         private string FWConditionExpression(Condition c)
@@ -2579,7 +2628,7 @@ namespace AIPolicy
                     str = "Unknown27()";
                     break;
             }
-            return str + (" " + FWProcedureTarget(p.Target, p.TargetParams));
+            return str + (" " + FWProcedureTarget(p.Target));
         }
 
         private static void FWSaveCondition(Condition c, BinaryWriter bw)
@@ -3026,6 +3075,7 @@ namespace AIPolicy
 
         private void ListBoxControllerSelectedIndexChanged(object sender, EventArgs e)
         {
+            labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1) return;
             var scSelectedIndex = listBox_Controller.SelectedIndex;
@@ -3050,6 +3100,7 @@ namespace AIPolicy
 
         private void ListBoxActionSetSelectedIndexChanged(object sender, EventArgs e)
         {
+            labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1 || listBox_ActionSet.SelectedIndex <= -1) return;
             var cSelectedIndex = listBox_Controller.SelectedIndex;
@@ -3112,6 +3163,7 @@ namespace AIPolicy
                 groupPanel_ProcParams.Text = Resources.CastSkill;
                 labelX_Param1.Text = Resources.Skill_ID;
                 labelX_Param2.Text = Resources.SkillLvl;
+                labelX_Param2.BackColor = Color.Transparent;
                 var skillID = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                 textBoxX_Param1.Text = skillID.ToString(CultureInfo.InvariantCulture);
                 var skillLvl = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[1];
@@ -3124,6 +3176,7 @@ namespace AIPolicy
                 groupPanel_ProcParams.Text = Resources.Broadcast;
                 labelX_Param1.Text = Resources.ByteCount;
                 labelX_Param2.Text = Resources.Msg;
+                labelX_Param2.BackColor = Color.Gold;
                 var byteCount = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                 textBoxX_Param1.Text = byteCount.ToString(CultureInfo.InvariantCulture);
                 textBoxX_Param2.Text = Encoding.Unicode.GetString((byte[])AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[1]);
@@ -3131,11 +3184,15 @@ namespace AIPolicy
 
             // Type 3 - Reset_Aggro()
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 3)
+            {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.FadeAggro;
+            }
 
             // Type 4 - Exec_ActionSet(int actionset_id)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 4)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.Exec_AS;
                 labelX_Param1.Text = Resources.ASID;
                 var actionID = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
@@ -3145,6 +3202,7 @@ namespace AIPolicy
             // Type 5 - Disable_ActionSet(int actionset_id)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 5)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.DisableAS;
                 labelX_Param1.Text = Resources.ASID;
                 var actionID = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
@@ -3154,6 +3212,7 @@ namespace AIPolicy
             // Type 6 - Enable_ActionSet(int actionset_id)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 6)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.EnableAS;
                 labelX_Param1.Text = Resources.ASID;
                 var actionID = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
@@ -3163,6 +3222,7 @@ namespace AIPolicy
             // Type 7 - Create_Timer(int timerID, int delay, int cycles)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 7)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.CreateTimer;
                 labelX_Param1.Text = Resources.TimerID;
                 labelX_Param2.Text = Resources.Delay;
@@ -3178,6 +3238,7 @@ namespace AIPolicy
             // Type 8 - Delete_Timer(int timerID)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 8)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.DelTimer;
                 labelX_Param1.Text = Resources.TimerID;
                 var num11 = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
@@ -3187,18 +3248,21 @@ namespace AIPolicy
             // Type 9 - Flee()
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 9)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.Flee;
             }
 
             // Type 10 - Be_Taunted()
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 10)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.BeTaunted;
             }
 
             // Type 11
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 11)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Unknown11()
                 if (JDSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.ELEVEN;
                 // Perfect World/Forsaken - Fade_Target()
@@ -3208,12 +3272,14 @@ namespace AIPolicy
             // Type 12
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 12)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.Fade_Aggro;
             }
 
             // Type 13
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 13)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Unknown13()
                 if (JDSelected || FWSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.THIRTEEN;
                 // Perfect World - Break()
@@ -3223,6 +3289,7 @@ namespace AIPolicy
             // Type 14
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 14)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Trigger(int triggerID, int ctrlParam)
                 if (JDSelected) groupPanel_ProcParams.Text = Resources.Trigger;
                 // Perfect World/Forsaken World - NPC_Generator(int triggerID, int ctrlParam)
@@ -3239,6 +3306,7 @@ namespace AIPolicy
             // Type 15
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 15)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty/Forsaken - Summon_Mob(int elementsID, int timeInterval, int calls, int Survival, string mobName, int refreshRange, int unknown)
                 if (JDSelected || FWSelected)
                 {
@@ -3267,6 +3335,7 @@ namespace AIPolicy
                 // Perfect World - Initialize_Public_Counter(int x, int y, int z)
                 if (PWSelected)
                 {
+                    labelX_Param2.BackColor = Color.Transparent;
                     groupPanel_ProcParams.Text = Resources.InitPubCount;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
@@ -3283,6 +3352,7 @@ namespace AIPolicy
             // Type 16
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 16)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty/Forsaken World - Unknown16(int unk)
                 if (JDSelected || FWSelected)
                 {
@@ -3294,6 +3364,7 @@ namespace AIPolicy
                 // Perfect World - Increment_Public_Counter(int x, int y)
                 if (PWSelected)
                 {
+                    labelX_Param2.BackColor = Color.Transparent;
                     groupPanel_ProcParams.Text = Resources.IncPubCount;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
@@ -3307,6 +3378,7 @@ namespace AIPolicy
             // Type 17
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 17)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Set_Path(int pathID, int v11) for version 11 else Set_Path(int pathID)
                 if (JDSelected)
                 {
@@ -3326,6 +3398,7 @@ namespace AIPolicy
                 //                                        string mobName, int refreshRange, int unknown)
                 if (PWSelected)
                 {
+                    labelX_Param2.BackColor = Color.Transparent;
                     groupPanel_ProcParams.Text = Resources.NPCSpawn;
                     labelX_Param1.Text = Resources.ElementsID;
                     labelX_Param2.Text = Resources.TimeInterval;
@@ -3351,6 +3424,7 @@ namespace AIPolicy
                 // Forsaken World - Unknown17(int x, int y)
                 if (FWSelected)
                 {
+                    labelX_Param2.BackColor = Color.Transparent;
                     groupPanel_ProcParams.Text = Resources.Unk + Resources.SEVENTEEN;
                     labelX_Param1.Text = Resources.Unk;
                     var x = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
@@ -3363,6 +3437,7 @@ namespace AIPolicy
             // Type 18
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 18)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Disappear()
                 if (JDSelected) groupPanel_ProcParams.Text = Resources.Disappear;
                 // Perfect World - Change_Path(int w, int x, int y, int z)
@@ -3386,6 +3461,7 @@ namespace AIPolicy
             // Type 19
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 19)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - N/A
                 if (JDSelected) groupPanel_ProcParams.Text = Resources.NA;
                 // Perfect World - Play_Action(sting w, int x, int y, int z)
@@ -3412,12 +3488,14 @@ namespace AIPolicy
             // Type 20 - N/A
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 20)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.NA;
             }
 
             // Type 21 - Respawn()
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 21)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Forsaken World - Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
                 if(FWSelected)
                 {
@@ -3444,6 +3522,7 @@ namespace AIPolicy
             // Type 22 - Set_Value(int oldValue, int newValue)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 22)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.SetValue;
                 labelX_Param1.Text = Resources.Value;
                 labelX_Param2.Text = Resources._Equals;
@@ -3456,6 +3535,7 @@ namespace AIPolicy
             // Type 23 - Add_Value(int value, int toAdd)
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 23)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.AddValue;
                 labelX_Param1.Text = Resources.Value;
                 labelX_Param2.Text = Resources._Plus;
@@ -3468,6 +3548,7 @@ namespace AIPolicy
             // Type 24 - N/A
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 24)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 if (FWSelected)
                 {
                     groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOFOUR;
@@ -3484,6 +3565,7 @@ namespace AIPolicy
             // Type 25
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 25)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Set_Mob_Attribute(int mobID, int cycles, int unk1, int name, int unk2)
                 if (JDSelected)
                 {
@@ -3507,6 +3589,7 @@ namespace AIPolicy
                 // Forsaken World - Unknown25(int x, int y, int z)
                 if (FWSelected)
                 {
+                    labelX_Param2.BackColor = Color.Transparent;
                     groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOFIVE;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
@@ -3523,6 +3606,7 @@ namespace AIPolicy
             // Type 26
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 26)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Drop_WarSoul(int itemID, int calls, int cycles)
                 if (JDSelected)
                 {
@@ -3544,12 +3628,13 @@ namespace AIPolicy
             // Type 27 - Unknown27()
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 27)
             {
+                labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOSEVEN;
             }
 
             // Type Target
             var target = AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Target;
-            //textBoxX_ParamTarget.Text = JDProcedureTarget(target);
+            
             // Jade Dynasty
             if (JDSelected) textBoxX_ParamTarget.Text = JDProcedureTarget(target);
             // Perfect World
@@ -3557,6 +3642,8 @@ namespace AIPolicy
                 textBoxX_ParamTarget.Text =
                     PWProcedureTarget(target, AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].TargetParams);
             else textBoxX_ParamTarget.Text = PWProcedureTarget(target, null);
+            // Forsaken World
+            if (FWSelected) textBoxX_ParamTarget.Text = FWProcedureTarget(target);
         }
 
         private void ButtonXAddCtrlClick(object sender, EventArgs e)
@@ -3893,7 +3980,17 @@ namespace AIPolicy
                 }
                 AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type = comboBoxEx_Proc.SelectedIndex;
                 AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter = pArray;
-                AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Target = Convert.ToInt32(textBoxX_ParamTarget.Text);
+                
+                // Jade Dynasty
+                if (JDSelected) AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Target =
+                    Convert.ToInt32(JDProcedureTarget(textBoxX_ParamTarget.Text));
+                // Perfect World
+                if (PWSelected) AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Target =
+                    Convert.ToInt32(PWProcedureTarget(textBoxX_ParamTarget.Text));
+                // Forsaken World
+                if (FWSelected) AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Target =
+                    Convert.ToInt32(FWProcedureTarget(textBoxX_ParamTarget.Text));
+
                 listBox_Procedure.Items.Clear();
 
                 for (var j = 0; j < AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure.Length; j++)
@@ -4190,6 +4287,7 @@ namespace AIPolicy
 
             comboBoxEx_Proc.Items.Clear();
 
+            var comboItem0 = new DevComponents.Editors.ComboItem();
             var comboItem1 = new DevComponents.Editors.ComboItem();
             var comboItem2 = new DevComponents.Editors.ComboItem();
             var comboItem3 = new DevComponents.Editors.ComboItem();
@@ -4217,35 +4315,90 @@ namespace AIPolicy
             var comboItem25 = new DevComponents.Editors.ComboItem();
             var comboItem26 = new DevComponents.Editors.ComboItem();
 
-            comboItem1.Text = Resources.Atk;
-            comboItem2.Text = Resources.CastSkill;
-            comboItem3.Text = Resources.Broadcast;
-            comboItem4.Text = Resources.ResetAggro;
-            comboItem5.Text = Resources.Exec_AS;
-            comboItem6.Text = Resources.DisableAS;
-            comboItem7.Text = Resources.EnableAS;
-            comboItem8.Text = Resources.CreateTimer;
-            comboItem9.Text = Resources.DelTimer;
-            comboItem10.Text = Resources.Flee;
-            comboItem11.Text = Resources.BeTaunted;
-            comboItem12.Text = Resources.Unk + Resources.ELEVEN;
-            comboItem13.Text = Resources.FadeAggro;
-            comboItem14.Text = Resources.Unk + Resources.THIRTEEN;
-            comboItem15.Text = Resources.Trigger;
-            comboItem16.Text = Resources.SumMob;
-            comboItem17.Text = Resources.Unk + Resources.SIXTEEN;
-            comboItem18.Text = Resources.SetPath;
-            comboItem19.Text = Resources.Disappear;
+            comboItem0.Text = Resources.Atk;
+            comboItem0.FontStyle = FontStyle.Bold;
+
+            comboItem1.Text = Resources.CastSkill;
+            comboItem1.FontStyle = FontStyle.Bold;
+
+            comboItem2.Text = Resources.Broadcast;
+            comboItem2.FontStyle = FontStyle.Bold;
+
+            comboItem3.Text = Resources.ResetAggro;
+            comboItem3.FontStyle = FontStyle.Bold;
+
+            comboItem4.Text = Resources.Exec_AS;
+            comboItem4.FontStyle = FontStyle.Bold;
+
+            comboItem5.Text = Resources.DisableAS;
+            comboItem5.FontStyle = FontStyle.Bold;
+
+            comboItem6.Text = Resources.EnableAS;
+            comboItem6.FontStyle = FontStyle.Bold;
+
+            comboItem7.Text = Resources.CreateTimer;
+            comboItem7.FontStyle = FontStyle.Bold;
+
+            comboItem8.Text = Resources.DelTimer;
+            comboItem8.FontStyle = FontStyle.Bold;
+
+            comboItem9.Text = Resources.Flee;
+            comboItem9.FontStyle = FontStyle.Bold;
+
+            comboItem10.Text = Resources.BeTaunted;
+            comboItem10.FontStyle = FontStyle.Bold;
+
+            comboItem11.Text = Resources.Unk + Resources.ELEVEN;
+            comboItem11.FontStyle = FontStyle.Bold;
+
+            comboItem12.Text = Resources.FadeAggro;
+            comboItem12.FontStyle = FontStyle.Bold;
+
+            comboItem13.Text = Resources.Unk + Resources.THIRTEEN;
+            comboItem13.FontStyle = FontStyle.Bold;
+
+            comboItem14.Text = Resources.Trigger;
+            comboItem14.FontStyle = FontStyle.Bold;
+
+            comboItem15.Text = Resources.SumMob;
+            comboItem15.FontStyle = FontStyle.Bold;
+
+            comboItem16.Text = Resources.Unk + Resources.SIXTEEN;
+            comboItem16.FontStyle = FontStyle.Bold;
+
+            comboItem17.Text = Resources.SetPath;
+            comboItem17.FontStyle = FontStyle.Bold;
+
+            comboItem18.Text = Resources.Disappear;
+            comboItem18.FontStyle = FontStyle.Bold;
+
+            comboItem19.Text = Resources.NA;
+            comboItem19.FontStyle = FontStyle.Bold;
+
             comboItem20.Text = Resources.NA;
+            comboItem20.FontStyle = FontStyle.Bold;
+
             comboItem21.Text = Resources.Respawn;
+            comboItem21.FontStyle = FontStyle.Bold;
+
             comboItem22.Text = Resources.SetValue;
+            comboItem22.FontStyle = FontStyle.Bold;
+
             comboItem23.Text = Resources.AddValue;
+            comboItem23.FontStyle = FontStyle.Bold;
+
             comboItem24.Text = Resources.NA;
+            comboItem24.FontStyle = FontStyle.Bold;
+
             comboItem25.Text = Resources.SetMobAttr;
+            comboItem25.FontStyle = FontStyle.Bold;
+
             comboItem26.Text = Resources.Warsoul;
+            comboItem26.FontStyle = FontStyle.Bold;
 
             comboBoxEx_Proc.Items.AddRange(new object[]
             {
+                comboItem0,
                 comboItem1,
                 comboItem2,
                 comboItem3,
@@ -4291,6 +4444,7 @@ namespace AIPolicy
 
             comboBoxEx_Proc.Items.Clear();
 
+            var comboItem0 = new DevComponents.Editors.ComboItem();
             var comboItem1 = new DevComponents.Editors.ComboItem();
             var comboItem2 = new DevComponents.Editors.ComboItem();
             var comboItem3 = new DevComponents.Editors.ComboItem();
@@ -4310,31 +4464,70 @@ namespace AIPolicy
             var comboItem17 = new DevComponents.Editors.ComboItem();
             var comboItem18 = new DevComponents.Editors.ComboItem();
             var comboItem19 = new DevComponents.Editors.ComboItem();
-            var comboItem20 = new DevComponents.Editors.ComboItem();
+            
+            comboItem0.Text = Resources.Atk;
+            comboItem0.FontStyle = FontStyle.Bold;
 
-            comboItem1.Text = Resources.Atk;
-            comboItem2.Text = Resources.CastSkill;
-            comboItem3.Text = Resources.Broadcast;
-            comboItem4.Text = Resources.ResetAggro;
-            comboItem5.Text = Resources.Exec_AS;
-            comboItem6.Text = Resources.DisableAS;
-            comboItem7.Text = Resources.EnableAS;
-            comboItem8.Text = Resources.CreateTimer;
-            comboItem9.Text = Resources.DelTimer;
-            comboItem10.Text = Resources.Flee;
-            comboItem11.Text = Resources.BeTaunted;
-            comboItem12.Text = Resources.FadeTarget;
-            comboItem13.Text = Resources.FadeAggro;
-            comboItem14.Text = Resources.Break;
-            comboItem15.Text = Resources.NPCGenerator;
-            comboItem16.Text = Resources.InitPubCount;
-            comboItem17.Text = Resources.IncPubCount;
-            comboItem18.Text = Resources.NPCSpawn;
-            comboItem19.Text = Resources.ChangePath;
-            comboItem20.Text = Resources.PlayAction;
+            comboItem1.Text = Resources.CastSkill;
+            comboItem1.FontStyle = FontStyle.Bold;
+
+            comboItem2.Text = Resources.Broadcast;
+            comboItem2.FontStyle = FontStyle.Bold;
+
+            comboItem3.Text = Resources.ResetAggro;
+            comboItem3.FontStyle = FontStyle.Bold;
+
+            comboItem4.Text = Resources.Exec_AS;
+            comboItem4.FontStyle = FontStyle.Bold;
+
+            comboItem5.Text = Resources.DisableAS;
+            comboItem5.FontStyle = FontStyle.Bold;
+
+            comboItem6.Text = Resources.EnableAS;
+            comboItem6.FontStyle = FontStyle.Bold;
+
+            comboItem7.Text = Resources.CreateTimer;
+            comboItem7.FontStyle = FontStyle.Bold;
+
+            comboItem8.Text = Resources.DelTimer;
+            comboItem8.FontStyle = FontStyle.Bold;
+
+            comboItem9.Text = Resources.Flee;
+            comboItem9.FontStyle = FontStyle.Bold;
+
+            comboItem10.Text = Resources.BeTaunted;
+            comboItem10.FontStyle = FontStyle.Bold;
+
+            comboItem11.Text = Resources.FadeTarget;
+            comboItem11.FontStyle = FontStyle.Bold;
+
+            comboItem12.Text = Resources.FadeAggro;
+            comboItem12.FontStyle = FontStyle.Bold;
+
+            comboItem13.Text = Resources.Break;
+            comboItem13.FontStyle = FontStyle.Bold;
+
+            comboItem14.Text = Resources.NPCGenerator;
+            comboItem14.FontStyle = FontStyle.Bold;
+
+            comboItem15.Text = Resources.InitPubCount;
+            comboItem15.FontStyle = FontStyle.Bold;
+
+            comboItem16.Text = Resources.IncPubCount;
+            comboItem16.FontStyle = FontStyle.Bold;
+
+            comboItem17.Text = Resources.NPCSpawn;
+            comboItem17.FontStyle = FontStyle.Bold;
+
+            comboItem18.Text = Resources.ChangePath;
+            comboItem18.FontStyle = FontStyle.Bold;
+
+            comboItem19.Text = Resources.PlayAction;
+            comboItem19.FontStyle = FontStyle.Bold;
 
             comboBoxEx_Proc.Items.AddRange(new object[]
             {
+                comboItem0,
                 comboItem1,
                 comboItem2,
                 comboItem3,
@@ -4353,8 +4546,7 @@ namespace AIPolicy
                 comboItem16,
                 comboItem17,
                 comboItem18,
-                comboItem19,
-                comboItem20
+                comboItem19
             });
 
             PWProcList();
@@ -4374,6 +4566,7 @@ namespace AIPolicy
 
             comboBoxEx_Proc.Items.Clear();
 
+            var comboItem0 = new DevComponents.Editors.ComboItem();
             var comboItem1 = new DevComponents.Editors.ComboItem();
             var comboItem2 = new DevComponents.Editors.ComboItem();
             var comboItem3 = new DevComponents.Editors.ComboItem();
@@ -4401,39 +4594,94 @@ namespace AIPolicy
             var comboItem25 = new DevComponents.Editors.ComboItem();
             var comboItem26 = new DevComponents.Editors.ComboItem();
             var comboItem27 = new DevComponents.Editors.ComboItem();
-            var comboItem28 = new DevComponents.Editors.ComboItem();
+            
+            comboItem0.Text = Resources.Atk;
+            comboItem0.FontStyle = FontStyle.Bold;
 
-            comboItem1.Text = Resources.Atk;
-            comboItem2.Text = Resources.CastSkill;
-            comboItem3.Text = Resources.Broadcast;
-            comboItem4.Text = Resources.ResetAggro;
-            comboItem5.Text = Resources.Exec_AS;
-            comboItem6.Text = Resources.DisableAS;
-            comboItem7.Text = Resources.EnableAS;
-            comboItem8.Text = Resources.CreateTimer;
-            comboItem9.Text = Resources.DelTimer;
-            comboItem10.Text = Resources.Flee;
-            comboItem11.Text = Resources.BeTaunted;
-            comboItem12.Text = Resources.FadeTarget;
-            comboItem13.Text = Resources.NA;
-            comboItem14.Text = Resources.Unk + Resources.THIRTEEN;
-            comboItem15.Text = Resources.NPCGenerator;
-            comboItem16.Text = Resources.SumMob;
-            comboItem17.Text = Resources.Unk + Resources.SIXTEEN;
-            comboItem18.Text = Resources.Unk + Resources.SEVENTEEN;
-            comboItem19.Text = Resources.Disappear;
-            comboItem20.Text = Resources.Unk + Resources.NINETEEN;
-            comboItem21.Text = Resources.NA;
-            comboItem22.Text = Resources.SetMobAttr;
-            comboItem23.Text = Resources.SetValue;
-            comboItem24.Text = Resources.AddValue;
-            comboItem25.Text = Resources.Unk + Resources.TWOFOUR;
-            comboItem26.Text = Resources.Unk + Resources.TWOFIVE;
-            comboItem27.Text = Resources.Unk + Resources.TWOSIX;
-            comboItem28.Text = Resources.Unk + Resources.TWOSEVEN;
+            comboItem1.Text = Resources.CastSkill;
+            comboItem1.FontStyle = FontStyle.Bold;
+
+            comboItem2.Text = Resources.Broadcast;
+            comboItem2.FontStyle = FontStyle.Bold;
+
+            comboItem3.Text = Resources.ResetAggro;
+            comboItem3.FontStyle = FontStyle.Bold;
+
+            comboItem4.Text = Resources.Exec_AS;
+            comboItem4.FontStyle = FontStyle.Bold;
+
+            comboItem5.Text = Resources.DisableAS;
+            comboItem5.FontStyle = FontStyle.Bold;
+
+            comboItem6.Text = Resources.EnableAS;
+            comboItem6.FontStyle = FontStyle.Bold;
+
+            comboItem7.Text = Resources.CreateTimer;
+            comboItem7.FontStyle = FontStyle.Bold;
+
+            comboItem8.Text = Resources.DelTimer;
+            comboItem8.FontStyle = FontStyle.Bold;
+
+            comboItem9.Text = Resources.Flee;
+            comboItem9.FontStyle = FontStyle.Bold;
+
+            comboItem10.Text = Resources.BeTaunted;
+            comboItem10.FontStyle = FontStyle.Bold;
+
+            comboItem11.Text = Resources.FadeTarget;
+            comboItem11.FontStyle = FontStyle.Bold;
+
+            comboItem12.Text = Resources.NA;
+            comboItem12.FontStyle = FontStyle.Bold;
+
+            comboItem13.Text = Resources.Unk + Resources.THIRTEEN;
+            comboItem13.FontStyle = FontStyle.Bold;
+
+            comboItem14.Text = Resources.NPCGenerator;
+            comboItem14.FontStyle = FontStyle.Bold;
+
+            comboItem15.Text = Resources.SumMob;
+            comboItem15.FontStyle = FontStyle.Bold;
+
+            comboItem16.Text = Resources.Unk + Resources.SIXTEEN;
+            comboItem16.FontStyle = FontStyle.Bold;
+
+            comboItem17.Text = Resources.Unk + Resources.SEVENTEEN;
+            comboItem17.FontStyle = FontStyle.Bold;
+
+            comboItem18.Text = Resources.Disappear;
+            comboItem18.FontStyle = FontStyle.Bold;
+
+            comboItem19.Text = Resources.Unk + Resources.NINETEEN;
+            comboItem19.FontStyle = FontStyle.Bold;
+
+            comboItem20.Text = Resources.NA;
+            comboItem20.FontStyle = FontStyle.Bold;
+
+            comboItem21.Text = Resources.SetMobAttr;
+            comboItem21.FontStyle = FontStyle.Bold;
+
+            comboItem22.Text = Resources.SetValue;
+            comboItem22.FontStyle = FontStyle.Bold;
+
+            comboItem23.Text = Resources.AddValue;
+            comboItem23.FontStyle = FontStyle.Bold;
+
+            comboItem24.Text = Resources.Unk + Resources.TWOFOUR;
+            comboItem24.FontStyle = FontStyle.Bold;
+
+            comboItem25.Text = Resources.Unk + Resources.TWOFIVE;
+            comboItem25.FontStyle = FontStyle.Bold;
+
+            comboItem26.Text = Resources.Unk + Resources.TWOSIX;
+            comboItem26.FontStyle = FontStyle.Bold;
+
+            comboItem27.Text = Resources.Unk + Resources.TWOSEVEN;
+            comboItem27.FontStyle = FontStyle.Bold;
 
             comboBoxEx_Proc.Items.AddRange(new object[]
             {
+                comboItem0,
                 comboItem1,
                 comboItem2,
                 comboItem3,
@@ -4460,8 +4708,7 @@ namespace AIPolicy
                 comboItem24,
                 comboItem25,
                 comboItem26,
-                comboItem27,
-                comboItem28
+                comboItem27
             });
 
             FWProcList();
@@ -4475,6 +4722,45 @@ namespace AIPolicy
         private void MainWindowLoad(object sender, EventArgs e)
         {
             ButtonItemJDClick(sender, e);
+        }
+
+        // Broadcast_Message "Editor"
+        private void LabelXParam2Click(object sender, EventArgs e)
+        {
+            if (labelX_Param2.Text == Resources.Msg)
+            {
+                panelEx_Msg.Visible = true;
+            }
+        }
+
+        private void ButtonXMsgOkClick(object sender, EventArgs e)
+        {
+            panelEx_Msg.Visible = false;
+            var length = (textBoxX_Msg.TextLength * 2) + 2;
+            textBoxX_Param1.Text = length.ToString(CultureInfo.InvariantCulture);
+            textBoxX_Param2.Text = textBoxX_Msg.Text;
+        }
+
+        private void ButtonXMsgCancelClick(object sender, EventArgs e)
+        {
+            panelEx_Target.Visible = false;
+        }
+
+        // Target "Editor"
+        private void LabelXParamTargetClick(object sender, EventArgs e)
+        {
+            panelEx_Target.Visible = true;
+        }
+
+        private void ButtonXTOKClick(object sender, EventArgs e)
+        {
+            textBoxX_ParamTarget.Text = comboBoxEx_Target.Text;
+            panelEx_Target.Visible = false;
+        }
+
+        private void ButtonXTCancelClick(object sender, EventArgs e)
+        {
+            panelEx_Target.Visible = false;
         }
         
     }

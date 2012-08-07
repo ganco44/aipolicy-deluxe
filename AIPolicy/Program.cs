@@ -5,20 +5,9 @@ using System.Windows.Forms;
 
 namespace AIPolicy
 {
+    public enum Target {AGGRO_MOST, AGGRO_LEAST, AGGRO_LEAST_RAND, MOST_HP, MOST_MP, LEAST_HP, TEAM, SELF};
     static class Program
     {
-        public enum JDTarget
-        {
-            AGGRO_MOST,
-            AGGRO_LEAST,
-            AGGRO_LEAST_RAND,
-            MOST_HP,
-            MOST_MP,
-            LEAST_HP,
-            TEAM,
-            SELF
-        };
-
         internal static string GetNumber(string s)
         {
             var num = -1;
