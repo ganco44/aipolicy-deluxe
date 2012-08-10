@@ -31,8 +31,6 @@ namespace AIPolicy
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.groupPanel_Controllers = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.labelX_Debug = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX_Debug = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX_CtrlID = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX_CtrlID = new DevComponents.DotNetBar.LabelX();
             this.buttonX_DelCtrl = new DevComponents.DotNetBar.ButtonX();
@@ -55,20 +53,42 @@ namespace AIPolicy
             this.labelX_ClickMe = new DevComponents.DotNetBar.LabelX();
             this.buttonX_CondSave = new DevComponents.DotNetBar.ButtonX();
             this.textBoxX_Condition = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.panelEx_CondEdit = new DevComponents.DotNetBar.PanelEx();
-            this.buttonX_CreateCond = new DevComponents.DotNetBar.ButtonX();
+            this.panelEx_CondCalc = new DevComponents.DotNetBar.PanelEx();
+            this.labelX_ExampleText = new DevComponents.DotNetBar.LabelX();
+            this.labelX_HintText = new DevComponents.DotNetBar.LabelX();
+            this.labelX_Example = new DevComponents.DotNetBar.LabelX();
+            this.labelX_Hint = new DevComponents.DotNetBar.LabelX();
+            this.buttonX_Space = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyRedo = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyMinus = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyPlus = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyPoint = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyUndo = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyClear = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key0 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key3 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key2 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key6 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key5 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key4 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key9 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key8 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Key7 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_MThan = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_LThan = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyEquals = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyAND = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyOR = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyNOT = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyRBracket = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyLBracket = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyRParen = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_KeyLParen = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_CondEdCancel = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_CondEdOK = new DevComponents.DotNetBar.ButtonX();
-            this.comboBoxEx_CondEd = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem_IsTimerTicking = new DevComponents.Editors.ComboItem();
-            this.comboItem_IsHPLess = new DevComponents.Editors.ComboItem();
-            this.comboItem_IsCombatStarted = new DevComponents.Editors.ComboItem();
-            this.comboItem_Randomize = new DevComponents.Editors.ComboItem();
-            this.comboItem_IsTargetKilled = new DevComponents.Editors.ComboItem();
-            this.comboItem_IsDead = new DevComponents.Editors.ComboItem();
-            this.comboItem_PubCtr = new DevComponents.Editors.ComboItem();
-            this.comboItem_CastSkill = new DevComponents.Editors.ComboItem();
-            this.textBoxX_CondEdit = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.comboBoxEx_CondEx = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.textBoxX_Exp = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX_BCondEx = new DevComponents.DotNetBar.LabelX();
             this.groupPanel_Proc = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.comboBoxEx_Proc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -159,33 +179,10 @@ namespace AIPolicy
             this.comboItem_TEAM = new DevComponents.Editors.ComboItem();
             this.comboItem_Self = new DevComponents.Editors.ComboItem();
             this.labelX_STarget = new DevComponents.DotNetBar.LabelX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX12 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX13 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX14 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX15 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX16 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX17 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX18 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX19 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX20 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX21 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX22 = new DevComponents.DotNetBar.ButtonX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel_Controllers.SuspendLayout();
             this.groupPanel_ActionSets.SuspendLayout();
             this.groupPanel_Condition.SuspendLayout();
-            this.panelEx_CondEdit.SuspendLayout();
+            this.panelEx_CondCalc.SuspendLayout();
             this.groupPanel_Proc.SuspendLayout();
             this.groupPanel_ProcParams.SuspendLayout();
             this.groupPanel_TranslationService.SuspendLayout();
@@ -202,8 +199,6 @@ namespace AIPolicy
             // 
             this.groupPanel_Controllers.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel_Controllers.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel_Controllers.Controls.Add(this.labelX_Debug);
-            this.groupPanel_Controllers.Controls.Add(this.textBoxX_Debug);
             this.groupPanel_Controllers.Controls.Add(this.textBoxX_CtrlID);
             this.groupPanel_Controllers.Controls.Add(this.labelX_CtrlID);
             this.groupPanel_Controllers.Controls.Add(this.buttonX_DelCtrl);
@@ -245,32 +240,6 @@ namespace AIPolicy
             this.groupPanel_Controllers.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel_Controllers.TabIndex = 0;
             this.groupPanel_Controllers.Text = "Controllers";
-            // 
-            // labelX_Debug
-            // 
-            // 
-            // 
-            // 
-            this.labelX_Debug.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX_Debug.Location = new System.Drawing.Point(9, 245);
-            this.labelX_Debug.Name = "labelX_Debug";
-            this.labelX_Debug.Size = new System.Drawing.Size(57, 23);
-            this.labelX_Debug.TabIndex = 5;
-            this.labelX_Debug.Text = "Debug:";
-            // 
-            // textBoxX_Debug
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX_Debug.Border.Class = "TextBoxBorder";
-            this.textBoxX_Debug.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX_Debug.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxX_Debug.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBoxX_Debug.Location = new System.Drawing.Point(65, 246);
-            this.textBoxX_Debug.Name = "textBoxX_Debug";
-            this.textBoxX_Debug.Size = new System.Drawing.Size(100, 22);
-            this.textBoxX_Debug.TabIndex = 4;
             // 
             // textBoxX_CtrlID
             // 
@@ -330,7 +299,7 @@ namespace AIPolicy
             this.listBox_Controller.ItemHeight = 16;
             this.listBox_Controller.Location = new System.Drawing.Point(9, 9);
             this.listBox_Controller.Name = "listBox_Controller";
-            this.listBox_Controller.Size = new System.Drawing.Size(156, 228);
+            this.listBox_Controller.Size = new System.Drawing.Size(156, 260);
             this.listBox_Controller.TabIndex = 0;
             this.listBox_Controller.SelectedIndexChanged += new System.EventHandler(this.ListBoxControllerSelectedIndexChanged);
             // 
@@ -597,7 +566,6 @@ namespace AIPolicy
             this.groupPanel_Condition.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel_Condition.TabIndex = 2;
             this.groupPanel_Condition.Text = "Condition";
-            this.groupPanel_Condition.Click += new System.EventHandler(this.GroupPanelConditionClick);
             // 
             // labelX_ClickMe
             // 
@@ -643,73 +611,483 @@ namespace AIPolicy
             this.textBoxX_Condition.TabIndex = 14;
             this.textBoxX_Condition.WordWrap = false;
             // 
-            // panelEx_CondEdit
+            // panelEx_CondCalc
             // 
-            this.panelEx_CondEdit.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx_CondEdit.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx_CondEdit.Controls.Add(this.labelX1);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX22);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX21);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX20);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX19);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX18);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX17);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX16);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX15);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX14);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX13);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX12);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX11);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX10);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX9);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX8);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX7);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX6);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX5);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX4);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX3);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX2);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX1);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX_CreateCond);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX_CondEdCancel);
-            this.panelEx_CondEdit.Controls.Add(this.buttonX_CondEdOK);
-            this.panelEx_CondEdit.Controls.Add(this.comboBoxEx_CondEd);
-            this.panelEx_CondEdit.Controls.Add(this.textBoxX_CondEdit);
-            this.panelEx_CondEdit.Controls.Add(this.labelX_BCondEx);
-            this.panelEx_CondEdit.Location = new System.Drawing.Point(545, 64);
-            this.panelEx_CondEdit.Margin = new System.Windows.Forms.Padding(6);
-            this.panelEx_CondEdit.Name = "panelEx_CondEdit";
-            this.panelEx_CondEdit.Padding = new System.Windows.Forms.Padding(6);
-            this.panelEx_CondEdit.Size = new System.Drawing.Size(302, 310);
-            this.panelEx_CondEdit.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx_CondEdit.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx_CondEdit.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx_CondEdit.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx_CondEdit.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx_CondEdit.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx_CondEdit.Style.GradientAngle = 90;
-            this.panelEx_CondEdit.TabIndex = 16;
-            this.panelEx_CondEdit.Visible = false;
+            this.panelEx_CondCalc.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx_CondCalc.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx_CondCalc.Controls.Add(this.labelX_ExampleText);
+            this.panelEx_CondCalc.Controls.Add(this.labelX_HintText);
+            this.panelEx_CondCalc.Controls.Add(this.labelX_Example);
+            this.panelEx_CondCalc.Controls.Add(this.labelX_Hint);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Space);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyRedo);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyMinus);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyPlus);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyPoint);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyUndo);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyClear);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key0);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key3);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key2);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key1);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key6);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key5);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key4);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key9);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key8);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Key7);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_MThan);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_LThan);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyEquals);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyAND);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyOR);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyNOT);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyRBracket);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyLBracket);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyRParen);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyLParen);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_CondEdCancel);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_CondEdOK);
+            this.panelEx_CondCalc.Controls.Add(this.comboBoxEx_CondEx);
+            this.panelEx_CondCalc.Controls.Add(this.textBoxX_Exp);
+            this.panelEx_CondCalc.Controls.Add(this.labelX_BCondEx);
+            this.panelEx_CondCalc.Location = new System.Drawing.Point(533, 64);
+            this.panelEx_CondCalc.Margin = new System.Windows.Forms.Padding(6);
+            this.panelEx_CondCalc.Name = "panelEx_CondCalc";
+            this.panelEx_CondCalc.Padding = new System.Windows.Forms.Padding(6);
+            this.panelEx_CondCalc.Size = new System.Drawing.Size(314, 295);
+            this.panelEx_CondCalc.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx_CondCalc.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx_CondCalc.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx_CondCalc.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx_CondCalc.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx_CondCalc.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx_CondCalc.Style.GradientAngle = 90;
+            this.panelEx_CondCalc.TabIndex = 16;
+            this.panelEx_CondCalc.Visible = false;
             // 
-            // buttonX_CreateCond
+            // labelX_ExampleText
             // 
-            this.buttonX_CreateCond.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX_CreateCond.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX_CreateCond.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_CreateCond.Location = new System.Drawing.Point(195, 152);
-            this.buttonX_CreateCond.Name = "buttonX_CreateCond";
-            this.buttonX_CreateCond.Size = new System.Drawing.Size(75, 23);
-            this.buttonX_CreateCond.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX_CreateCond.TabIndex = 7;
-            this.buttonX_CreateCond.Text = "Create";
-            this.buttonX_CreateCond.Click += new System.EventHandler(this.ButtonXCreateCondClick);
+            this.labelX_ExampleText.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX_ExampleText.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX_ExampleText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX_ExampleText.Location = new System.Drawing.Point(84, 258);
+            this.labelX_ExampleText.Name = "labelX_ExampleText";
+            this.labelX_ExampleText.Size = new System.Drawing.Size(0, 0);
+            this.labelX_ExampleText.TabIndex = 39;
+            // 
+            // labelX_HintText
+            // 
+            this.labelX_HintText.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX_HintText.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX_HintText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX_HintText.Location = new System.Drawing.Point(65, 78);
+            this.labelX_HintText.Name = "labelX_HintText";
+            this.labelX_HintText.Size = new System.Drawing.Size(0, 0);
+            this.labelX_HintText.TabIndex = 38;
+            // 
+            // labelX_Example
+            // 
+            this.labelX_Example.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX_Example.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX_Example.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX_Example.Location = new System.Drawing.Point(29, 258);
+            this.labelX_Example.Name = "labelX_Example";
+            this.labelX_Example.Size = new System.Drawing.Size(50, 15);
+            this.labelX_Example.TabIndex = 37;
+            this.labelX_Example.Text = "Example:";
+            this.labelX_Example.Visible = false;
+            // 
+            // labelX_Hint
+            // 
+            this.labelX_Hint.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX_Hint.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX_Hint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX_Hint.Location = new System.Drawing.Point(33, 78);
+            this.labelX_Hint.Name = "labelX_Hint";
+            this.labelX_Hint.Size = new System.Drawing.Size(26, 15);
+            this.labelX_Hint.TabIndex = 36;
+            this.labelX_Hint.Text = "Hint:";
+            this.labelX_Hint.Visible = false;
+            // 
+            // buttonX_Space
+            // 
+            this.buttonX_Space.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Space.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Space.Location = new System.Drawing.Point(116, 220);
+            this.buttonX_Space.Name = "buttonX_Space";
+            this.buttonX_Space.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Space.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Space.TabIndex = 35;
+            this.buttonX_Space.Click += new System.EventHandler(this.ButtonXSpaceClick);
+            // 
+            // buttonX_KeyRedo
+            // 
+            this.buttonX_KeyRedo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyRedo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyRedo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyRedo.Location = new System.Drawing.Point(207, 162);
+            this.buttonX_KeyRedo.Name = "buttonX_KeyRedo";
+            this.buttonX_KeyRedo.Size = new System.Drawing.Size(75, 23);
+            this.buttonX_KeyRedo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyRedo.TabIndex = 34;
+            this.buttonX_KeyRedo.Text = "Redo";
+            this.buttonX_KeyRedo.Click += new System.EventHandler(this.ButtonXKeyRedoClick);
+            // 
+            // buttonX_KeyMinus
+            // 
+            this.buttonX_KeyMinus.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyMinus.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyMinus.Location = new System.Drawing.Point(175, 220);
+            this.buttonX_KeyMinus.Name = "buttonX_KeyMinus";
+            this.buttonX_KeyMinus.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyMinus.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyMinus.TabIndex = 33;
+            this.buttonX_KeyMinus.Text = "-";
+            this.buttonX_KeyMinus.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyMinus.Click += new System.EventHandler(this.ButtonXKeyMinusClick);
+            // 
+            // buttonX_KeyPlus
+            // 
+            this.buttonX_KeyPlus.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyPlus.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyPlus.Location = new System.Drawing.Point(145, 220);
+            this.buttonX_KeyPlus.Name = "buttonX_KeyPlus";
+            this.buttonX_KeyPlus.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyPlus.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyPlus.TabIndex = 32;
+            this.buttonX_KeyPlus.Text = "+";
+            this.buttonX_KeyPlus.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyPlus.Click += new System.EventHandler(this.ButtonXKeyPlusClick);
+            // 
+            // buttonX_KeyPoint
+            // 
+            this.buttonX_KeyPoint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyPoint.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyPoint.Location = new System.Drawing.Point(58, 220);
+            this.buttonX_KeyPoint.Name = "buttonX_KeyPoint";
+            this.buttonX_KeyPoint.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyPoint.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyPoint.TabIndex = 31;
+            this.buttonX_KeyPoint.Text = ".";
+            this.buttonX_KeyPoint.Click += new System.EventHandler(this.ButtonXKeyPointClick);
+            // 
+            // buttonX_KeyUndo
+            // 
+            this.buttonX_KeyUndo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyUndo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyUndo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyUndo.Location = new System.Drawing.Point(207, 133);
+            this.buttonX_KeyUndo.Name = "buttonX_KeyUndo";
+            this.buttonX_KeyUndo.Size = new System.Drawing.Size(75, 23);
+            this.buttonX_KeyUndo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyUndo.TabIndex = 29;
+            this.buttonX_KeyUndo.Text = "Undo";
+            this.buttonX_KeyUndo.Click += new System.EventHandler(this.ButtonXKeyUndoClick);
+            // 
+            // buttonX_KeyClear
+            // 
+            this.buttonX_KeyClear.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyClear.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyClear.Location = new System.Drawing.Point(207, 104);
+            this.buttonX_KeyClear.Name = "buttonX_KeyClear";
+            this.buttonX_KeyClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonX_KeyClear.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyClear.TabIndex = 28;
+            this.buttonX_KeyClear.Text = "Clear";
+            this.buttonX_KeyClear.Click += new System.EventHandler(this.ButtonXKeyClearClick);
+            // 
+            // buttonX_Key0
+            // 
+            this.buttonX_Key0.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key0.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key0.Location = new System.Drawing.Point(29, 220);
+            this.buttonX_Key0.Name = "buttonX_Key0";
+            this.buttonX_Key0.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key0.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key0.TabIndex = 27;
+            this.buttonX_Key0.Text = "0";
+            this.buttonX_Key0.Click += new System.EventHandler(this.ButtonXKey0Click);
+            // 
+            // buttonX_Key3
+            // 
+            this.buttonX_Key3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key3.Location = new System.Drawing.Point(87, 191);
+            this.buttonX_Key3.Name = "buttonX_Key3";
+            this.buttonX_Key3.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key3.TabIndex = 26;
+            this.buttonX_Key3.Text = "3";
+            this.buttonX_Key3.Click += new System.EventHandler(this.ButtonXKey3Click);
+            // 
+            // buttonX_Key2
+            // 
+            this.buttonX_Key2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key2.Location = new System.Drawing.Point(58, 191);
+            this.buttonX_Key2.Name = "buttonX_Key2";
+            this.buttonX_Key2.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key2.TabIndex = 25;
+            this.buttonX_Key2.Text = "2";
+            this.buttonX_Key2.Click += new System.EventHandler(this.ButtonXKey2Click);
+            // 
+            // buttonX_Key1
+            // 
+            this.buttonX_Key1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key1.Location = new System.Drawing.Point(29, 191);
+            this.buttonX_Key1.Name = "buttonX_Key1";
+            this.buttonX_Key1.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key1.TabIndex = 24;
+            this.buttonX_Key1.Text = "1";
+            this.buttonX_Key1.Click += new System.EventHandler(this.ButtonXKey1Click);
+            // 
+            // buttonX_Key6
+            // 
+            this.buttonX_Key6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key6.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key6.Location = new System.Drawing.Point(87, 162);
+            this.buttonX_Key6.Name = "buttonX_Key6";
+            this.buttonX_Key6.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key6.TabIndex = 23;
+            this.buttonX_Key6.Text = "6";
+            this.buttonX_Key6.Click += new System.EventHandler(this.ButtonXKey6Click);
+            // 
+            // buttonX_Key5
+            // 
+            this.buttonX_Key5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key5.Location = new System.Drawing.Point(58, 162);
+            this.buttonX_Key5.Name = "buttonX_Key5";
+            this.buttonX_Key5.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key5.TabIndex = 22;
+            this.buttonX_Key5.Text = "5";
+            this.buttonX_Key5.Click += new System.EventHandler(this.ButtonXKey5Click);
+            // 
+            // buttonX_Key4
+            // 
+            this.buttonX_Key4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key4.Location = new System.Drawing.Point(29, 162);
+            this.buttonX_Key4.Name = "buttonX_Key4";
+            this.buttonX_Key4.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key4.TabIndex = 21;
+            this.buttonX_Key4.Text = "4";
+            this.buttonX_Key4.Click += new System.EventHandler(this.ButtonXKey4Click);
+            // 
+            // buttonX_Key9
+            // 
+            this.buttonX_Key9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key9.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key9.Location = new System.Drawing.Point(87, 133);
+            this.buttonX_Key9.Name = "buttonX_Key9";
+            this.buttonX_Key9.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key9.TabIndex = 20;
+            this.buttonX_Key9.Text = "9";
+            this.buttonX_Key9.Click += new System.EventHandler(this.ButtonXKey9Click);
+            // 
+            // buttonX_Key8
+            // 
+            this.buttonX_Key8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key8.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key8.Location = new System.Drawing.Point(58, 133);
+            this.buttonX_Key8.Name = "buttonX_Key8";
+            this.buttonX_Key8.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key8.TabIndex = 19;
+            this.buttonX_Key8.Text = "8";
+            this.buttonX_Key8.Click += new System.EventHandler(this.ButtonXKey8Click);
+            // 
+            // buttonX_Key7
+            // 
+            this.buttonX_Key7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Key7.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Key7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_Key7.Location = new System.Drawing.Point(29, 133);
+            this.buttonX_Key7.Name = "buttonX_Key7";
+            this.buttonX_Key7.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Key7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Key7.TabIndex = 18;
+            this.buttonX_Key7.Text = "7";
+            this.buttonX_Key7.Click += new System.EventHandler(this.ButtonXKey7Click);
+            // 
+            // buttonX_MThan
+            // 
+            this.buttonX_MThan.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_MThan.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_MThan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_MThan.Location = new System.Drawing.Point(145, 133);
+            this.buttonX_MThan.Name = "buttonX_MThan";
+            this.buttonX_MThan.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_MThan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_MThan.TabIndex = 17;
+            this.buttonX_MThan.Text = ">";
+            this.buttonX_MThan.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_MThan.Click += new System.EventHandler(this.ButtonXMThanClick);
+            // 
+            // buttonX_LThan
+            // 
+            this.buttonX_LThan.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_LThan.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_LThan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_LThan.Location = new System.Drawing.Point(116, 133);
+            this.buttonX_LThan.Name = "buttonX_LThan";
+            this.buttonX_LThan.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_LThan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_LThan.TabIndex = 16;
+            this.buttonX_LThan.Text = "<";
+            this.buttonX_LThan.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_LThan.Click += new System.EventHandler(this.ButtonXLThanClick);
+            // 
+            // buttonX_KeyEquals
+            // 
+            this.buttonX_KeyEquals.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyEquals.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyEquals.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyEquals.Location = new System.Drawing.Point(87, 220);
+            this.buttonX_KeyEquals.Name = "buttonX_KeyEquals";
+            this.buttonX_KeyEquals.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyEquals.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyEquals.TabIndex = 15;
+            this.buttonX_KeyEquals.Text = "=";
+            this.buttonX_KeyEquals.Click += new System.EventHandler(this.ButtonXKeyEqualsClick);
+            // 
+            // buttonX_KeyAND
+            // 
+            this.buttonX_KeyAND.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyAND.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyAND.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyAND.Location = new System.Drawing.Point(175, 191);
+            this.buttonX_KeyAND.Name = "buttonX_KeyAND";
+            this.buttonX_KeyAND.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyAND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyAND.TabIndex = 14;
+            this.buttonX_KeyAND.Text = "&&&&";
+            this.buttonX_KeyAND.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyAND.Click += new System.EventHandler(this.ButtonXKeyANDClick);
+            // 
+            // buttonX_KeyOR
+            // 
+            this.buttonX_KeyOR.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyOR.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyOR.Location = new System.Drawing.Point(175, 162);
+            this.buttonX_KeyOR.Name = "buttonX_KeyOR";
+            this.buttonX_KeyOR.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyOR.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyOR.TabIndex = 13;
+            this.buttonX_KeyOR.Text = "||";
+            this.buttonX_KeyOR.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyOR.Click += new System.EventHandler(this.ButtonXKeyORClick);
+            // 
+            // buttonX_KeyNOT
+            // 
+            this.buttonX_KeyNOT.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyNOT.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyNOT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyNOT.Location = new System.Drawing.Point(175, 133);
+            this.buttonX_KeyNOT.Name = "buttonX_KeyNOT";
+            this.buttonX_KeyNOT.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyNOT.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyNOT.TabIndex = 12;
+            this.buttonX_KeyNOT.Text = "!";
+            this.buttonX_KeyNOT.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyNOT.Click += new System.EventHandler(this.ButtonXKeyNOTClick);
+            // 
+            // buttonX_KeyRBracket
+            // 
+            this.buttonX_KeyRBracket.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyRBracket.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyRBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyRBracket.Location = new System.Drawing.Point(145, 162);
+            this.buttonX_KeyRBracket.Name = "buttonX_KeyRBracket";
+            this.buttonX_KeyRBracket.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyRBracket.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyRBracket.TabIndex = 11;
+            this.buttonX_KeyRBracket.Text = "]";
+            this.buttonX_KeyRBracket.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyRBracket.Click += new System.EventHandler(this.ButtonXKeyRBrackeyClick);
+            // 
+            // buttonX_KeyLBracket
+            // 
+            this.buttonX_KeyLBracket.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyLBracket.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyLBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyLBracket.Location = new System.Drawing.Point(116, 162);
+            this.buttonX_KeyLBracket.Name = "buttonX_KeyLBracket";
+            this.buttonX_KeyLBracket.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyLBracket.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyLBracket.TabIndex = 10;
+            this.buttonX_KeyLBracket.Text = "[";
+            this.buttonX_KeyLBracket.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyLBracket.Click += new System.EventHandler(this.ButtonXKeyLBracketClick);
+            // 
+            // buttonX_KeyRParen
+            // 
+            this.buttonX_KeyRParen.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyRParen.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyRParen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyRParen.Location = new System.Drawing.Point(145, 191);
+            this.buttonX_KeyRParen.Name = "buttonX_KeyRParen";
+            this.buttonX_KeyRParen.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyRParen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyRParen.TabIndex = 9;
+            this.buttonX_KeyRParen.Text = ")";
+            this.buttonX_KeyRParen.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyRParen.Click += new System.EventHandler(this.ButtonXKeyRParenClick);
+            // 
+            // buttonX_KeyLParen
+            // 
+            this.buttonX_KeyLParen.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_KeyLParen.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_KeyLParen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX_KeyLParen.Location = new System.Drawing.Point(116, 191);
+            this.buttonX_KeyLParen.Name = "buttonX_KeyLParen";
+            this.buttonX_KeyLParen.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_KeyLParen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_KeyLParen.TabIndex = 8;
+            this.buttonX_KeyLParen.Text = "(";
+            this.buttonX_KeyLParen.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonX_KeyLParen.Click += new System.EventHandler(this.ButtonXKeyLParenClick);
             // 
             // buttonX_CondEdCancel
             // 
             this.buttonX_CondEdCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_CondEdCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX_CondEdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_CondEdCancel.Location = new System.Drawing.Point(195, 210);
+            this.buttonX_CondEdCancel.Location = new System.Drawing.Point(207, 220);
             this.buttonX_CondEdCancel.Name = "buttonX_CondEdCancel";
             this.buttonX_CondEdCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonX_CondEdCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -722,7 +1100,7 @@ namespace AIPolicy
             this.buttonX_CondEdOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_CondEdOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX_CondEdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_CondEdOK.Location = new System.Drawing.Point(195, 181);
+            this.buttonX_CondEdOK.Location = new System.Drawing.Point(207, 191);
             this.buttonX_CondEdOK.Name = "buttonX_CondEdOK";
             this.buttonX_CondEdOK.Size = new System.Drawing.Size(75, 23);
             this.buttonX_CondEdOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -730,92 +1108,35 @@ namespace AIPolicy
             this.buttonX_CondEdOK.Text = "OK";
             this.buttonX_CondEdOK.Click += new System.EventHandler(this.ButtonXCondEdOKClick);
             // 
-            // comboBoxEx_CondEd
+            // comboBoxEx_CondEx
             // 
-            this.comboBoxEx_CondEd.DisplayMember = "Text";
-            this.comboBoxEx_CondEd.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx_CondEd.FormattingEnabled = true;
-            this.comboBoxEx_CondEd.ItemHeight = 14;
-            this.comboBoxEx_CondEd.Items.AddRange(new object[] {
-            this.comboItem_IsTimerTicking,
-            this.comboItem_IsHPLess,
-            this.comboItem_IsCombatStarted,
-            this.comboItem_Randomize,
-            this.comboItem_IsTargetKilled,
-            this.comboItem_IsDead,
-            this.comboItem_PubCtr,
-            this.comboItem_CastSkill});
-            this.comboBoxEx_CondEd.Location = new System.Drawing.Point(29, 94);
-            this.comboBoxEx_CondEd.Name = "comboBoxEx_CondEd";
-            this.comboBoxEx_CondEd.Size = new System.Drawing.Size(139, 20);
-            this.comboBoxEx_CondEd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx_CondEd.TabIndex = 2;
-            this.comboBoxEx_CondEd.SelectedIndexChanged += new System.EventHandler(this.ComboBoxExCondEdSelectedIndexChanged);
+            this.comboBoxEx_CondEx.DisplayMember = "Text";
+            this.comboBoxEx_CondEx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxEx_CondEx.FormattingEnabled = true;
+            this.comboBoxEx_CondEx.ItemHeight = 14;
+            this.comboBoxEx_CondEx.Location = new System.Drawing.Point(29, 103);
+            this.comboBoxEx_CondEx.Name = "comboBoxEx_CondEx";
+            this.comboBoxEx_CondEx.Size = new System.Drawing.Size(169, 20);
+            this.comboBoxEx_CondEx.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.comboBoxEx_CondEx.TabIndex = 2;
+            this.comboBoxEx_CondEx.SelectedIndexChanged += new System.EventHandler(this.ComboBoxExCondEdSelectedIndexChanged);
             // 
-            // comboItem_IsTimerTicking
-            // 
-            this.comboItem_IsTimerTicking.FontSize = 10F;
-            this.comboItem_IsTimerTicking.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_IsTimerTicking.Text = "Is_Timer_Ticking";
-            // 
-            // comboItem_IsHPLess
-            // 
-            this.comboItem_IsHPLess.FontSize = 10F;
-            this.comboItem_IsHPLess.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_IsHPLess.Text = "Is_HP_Less";
-            // 
-            // comboItem_IsCombatStarted
-            // 
-            this.comboItem_IsCombatStarted.FontSize = 10F;
-            this.comboItem_IsCombatStarted.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_IsCombatStarted.Text = "Is_Combat_Started";
-            // 
-            // comboItem_Randomize
-            // 
-            this.comboItem_Randomize.FontSize = 10F;
-            this.comboItem_Randomize.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_Randomize.Text = "Randomize";
-            // 
-            // comboItem_IsTargetKilled
-            // 
-            this.comboItem_IsTargetKilled.FontSize = 10F;
-            this.comboItem_IsTargetKilled.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_IsTargetKilled.Text = "Is_Target_Killed";
-            // 
-            // comboItem_IsDead
-            // 
-            this.comboItem_IsDead.FontSize = 10F;
-            this.comboItem_IsDead.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_IsDead.Text = "Is_Dead";
-            // 
-            // comboItem_PubCtr
-            // 
-            this.comboItem_PubCtr.FontSize = 10F;
-            this.comboItem_PubCtr.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_PubCtr.Text = "Public_Counter";
-            // 
-            // comboItem_CastSkill
-            // 
-            this.comboItem_CastSkill.FontSize = 10F;
-            this.comboItem_CastSkill.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_CastSkill.Text = "Cast_Skill";
-            // 
-            // textBoxX_CondEdit
+            // textBoxX_Exp
             // 
             // 
             // 
             // 
-            this.textBoxX_CondEdit.Border.Class = "TextBoxBorder";
-            this.textBoxX_CondEdit.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX_CondEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxX_CondEdit.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBoxX_CondEdit.Location = new System.Drawing.Point(29, 31);
-            this.textBoxX_CondEdit.Multiline = true;
-            this.textBoxX_CondEdit.Name = "textBoxX_CondEdit";
-            this.textBoxX_CondEdit.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBoxX_CondEdit.Size = new System.Drawing.Size(241, 41);
-            this.textBoxX_CondEdit.TabIndex = 1;
-            this.textBoxX_CondEdit.WordWrap = false;
+            this.textBoxX_Exp.Border.Class = "TextBoxBorder";
+            this.textBoxX_Exp.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxX_Exp.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxX_Exp.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBoxX_Exp.Location = new System.Drawing.Point(29, 31);
+            this.textBoxX_Exp.Multiline = true;
+            this.textBoxX_Exp.Name = "textBoxX_Exp";
+            this.textBoxX_Exp.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textBoxX_Exp.Size = new System.Drawing.Size(253, 41);
+            this.textBoxX_Exp.TabIndex = 1;
+            this.textBoxX_Exp.WordWrap = false;
             // 
             // labelX_BCondEx
             // 
@@ -1878,7 +2199,7 @@ namespace AIPolicy
             this.panelEx_Target.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelEx_Target.Location = new System.Drawing.Point(752, 437);
             this.panelEx_Target.Name = "panelEx_Target";
-            this.panelEx_Target.Size = new System.Drawing.Size(232, 161);
+            this.panelEx_Target.Size = new System.Drawing.Size(232, 135);
             this.panelEx_Target.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx_Target.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx_Target.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -1893,7 +2214,7 @@ namespace AIPolicy
             // 
             this.buttonX_TCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_TCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX_TCancel.Location = new System.Drawing.Point(138, 112);
+            this.buttonX_TCancel.Location = new System.Drawing.Point(138, 87);
             this.buttonX_TCancel.Name = "buttonX_TCancel";
             this.buttonX_TCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonX_TCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1905,7 +2226,7 @@ namespace AIPolicy
             // 
             this.buttonX_TOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_TOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX_TOK.Location = new System.Drawing.Point(21, 112);
+            this.buttonX_TOK.Location = new System.Drawing.Point(16, 87);
             this.buttonX_TOK.Name = "buttonX_TOK";
             this.buttonX_TOK.Size = new System.Drawing.Size(75, 23);
             this.buttonX_TOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1995,290 +2316,11 @@ namespace AIPolicy
             this.labelX_STarget.TabIndex = 0;
             this.labelX_STarget.Text = "Select Target:";
             // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(116, 123);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(23, 23);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 8;
-            this.buttonX1.Text = "(";
-            // 
-            // buttonX2
-            // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(145, 123);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(23, 23);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 9;
-            this.buttonX2.Text = ")";
-            // 
-            // buttonX3
-            // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(116, 152);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(23, 23);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 10;
-            this.buttonX3.Text = "[";
-            // 
-            // buttonX4
-            // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(145, 152);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(23, 23);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 11;
-            this.buttonX4.Text = "]";
-            // 
-            // buttonX5
-            // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(116, 210);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(23, 23);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.TabIndex = 12;
-            this.buttonX5.Text = "!";
-            // 
-            // buttonX6
-            // 
-            this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX6.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(116, 181);
-            this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(23, 23);
-            this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX6.TabIndex = 13;
-            this.buttonX6.Text = "||";
-            // 
-            // buttonX7
-            // 
-            this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX7.Location = new System.Drawing.Point(145, 181);
-            this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(23, 23);
-            this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX7.TabIndex = 14;
-            this.buttonX7.Text = "&&&&";
-            // 
-            // buttonX8
-            // 
-            this.buttonX8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX8.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX8.Location = new System.Drawing.Point(145, 210);
-            this.buttonX8.Name = "buttonX8";
-            this.buttonX8.Size = new System.Drawing.Size(23, 23);
-            this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX8.TabIndex = 15;
-            this.buttonX8.Text = "=";
-            // 
-            // buttonX9
-            // 
-            this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX9.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX9.Location = new System.Drawing.Point(58, 210);
-            this.buttonX9.Name = "buttonX9";
-            this.buttonX9.Size = new System.Drawing.Size(23, 23);
-            this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX9.TabIndex = 16;
-            this.buttonX9.Text = "<";
-            // 
-            // buttonX10
-            // 
-            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX10.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX10.Location = new System.Drawing.Point(87, 210);
-            this.buttonX10.Name = "buttonX10";
-            this.buttonX10.Size = new System.Drawing.Size(23, 23);
-            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX10.TabIndex = 17;
-            this.buttonX10.Text = ">";
-            // 
-            // buttonX11
-            // 
-            this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX11.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX11.Location = new System.Drawing.Point(29, 123);
-            this.buttonX11.Name = "buttonX11";
-            this.buttonX11.Size = new System.Drawing.Size(23, 23);
-            this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX11.TabIndex = 18;
-            this.buttonX11.Text = "7";
-            // 
-            // buttonX12
-            // 
-            this.buttonX12.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX12.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX12.Location = new System.Drawing.Point(58, 123);
-            this.buttonX12.Name = "buttonX12";
-            this.buttonX12.Size = new System.Drawing.Size(23, 23);
-            this.buttonX12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX12.TabIndex = 19;
-            this.buttonX12.Text = "8";
-            // 
-            // buttonX13
-            // 
-            this.buttonX13.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX13.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX13.Location = new System.Drawing.Point(87, 123);
-            this.buttonX13.Name = "buttonX13";
-            this.buttonX13.Size = new System.Drawing.Size(23, 23);
-            this.buttonX13.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX13.TabIndex = 20;
-            this.buttonX13.Text = "9";
-            // 
-            // buttonX14
-            // 
-            this.buttonX14.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX14.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX14.Location = new System.Drawing.Point(29, 152);
-            this.buttonX14.Name = "buttonX14";
-            this.buttonX14.Size = new System.Drawing.Size(23, 23);
-            this.buttonX14.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX14.TabIndex = 21;
-            this.buttonX14.Text = "4";
-            // 
-            // buttonX15
-            // 
-            this.buttonX15.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX15.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX15.Location = new System.Drawing.Point(58, 152);
-            this.buttonX15.Name = "buttonX15";
-            this.buttonX15.Size = new System.Drawing.Size(23, 23);
-            this.buttonX15.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX15.TabIndex = 22;
-            this.buttonX15.Text = "5";
-            // 
-            // buttonX16
-            // 
-            this.buttonX16.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX16.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX16.Location = new System.Drawing.Point(87, 152);
-            this.buttonX16.Name = "buttonX16";
-            this.buttonX16.Size = new System.Drawing.Size(23, 23);
-            this.buttonX16.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX16.TabIndex = 23;
-            this.buttonX16.Text = "6";
-            // 
-            // buttonX17
-            // 
-            this.buttonX17.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX17.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX17.Location = new System.Drawing.Point(29, 181);
-            this.buttonX17.Name = "buttonX17";
-            this.buttonX17.Size = new System.Drawing.Size(23, 23);
-            this.buttonX17.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX17.TabIndex = 24;
-            this.buttonX17.Text = "1";
-            // 
-            // buttonX18
-            // 
-            this.buttonX18.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX18.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX18.Location = new System.Drawing.Point(58, 181);
-            this.buttonX18.Name = "buttonX18";
-            this.buttonX18.Size = new System.Drawing.Size(23, 23);
-            this.buttonX18.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX18.TabIndex = 25;
-            this.buttonX18.Text = "2";
-            // 
-            // buttonX19
-            // 
-            this.buttonX19.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX19.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX19.Location = new System.Drawing.Point(87, 181);
-            this.buttonX19.Name = "buttonX19";
-            this.buttonX19.Size = new System.Drawing.Size(23, 23);
-            this.buttonX19.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX19.TabIndex = 26;
-            this.buttonX19.Text = "3";
-            // 
-            // buttonX20
-            // 
-            this.buttonX20.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX20.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX20.Location = new System.Drawing.Point(29, 210);
-            this.buttonX20.Name = "buttonX20";
-            this.buttonX20.Size = new System.Drawing.Size(23, 23);
-            this.buttonX20.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX20.TabIndex = 27;
-            this.buttonX20.Text = "0";
-            // 
-            // buttonX21
-            // 
-            this.buttonX21.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX21.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX21.Location = new System.Drawing.Point(195, 94);
-            this.buttonX21.Name = "buttonX21";
-            this.buttonX21.Size = new System.Drawing.Size(75, 23);
-            this.buttonX21.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX21.TabIndex = 28;
-            this.buttonX21.Text = "Clear";
-            // 
-            // buttonX22
-            // 
-            this.buttonX22.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX22.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX22.Location = new System.Drawing.Point(195, 123);
-            this.buttonX22.Name = "buttonX22";
-            this.buttonX22.Size = new System.Drawing.Size(75, 23);
-            this.buttonX22.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX22.TabIndex = 29;
-            this.buttonX22.Text = "Undo";
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelX1.Location = new System.Drawing.Point(38, 248);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(220, 53);
-            this.labelX1.TabIndex = 30;
-            this.labelX1.Text = "NOTE: Condition Expression\r\nCalculator is under construction\r\nand is currently no" +
-                "n-functional.";
-            // 
             // MainWindow
             // 
             this.ClientSize = new System.Drawing.Size(1008, 732);
             this.Controls.Add(this.panelEx_Target);
-            this.Controls.Add(this.panelEx_CondEdit);
+            this.Controls.Add(this.panelEx_CondCalc);
             this.Controls.Add(this.panelEx_Msg);
             this.Controls.Add(this.bar_StatusBar);
             this.Controls.Add(this.dockSite2);
@@ -2308,8 +2350,8 @@ namespace AIPolicy
             this.groupPanel_ActionSets.ResumeLayout(false);
             this.groupPanel_Condition.ResumeLayout(false);
             this.groupPanel_Condition.PerformLayout();
-            this.panelEx_CondEdit.ResumeLayout(false);
-            this.panelEx_CondEdit.PerformLayout();
+            this.panelEx_CondCalc.ResumeLayout(false);
+            this.panelEx_CondCalc.PerformLayout();
             this.groupPanel_Proc.ResumeLayout(false);
             this.groupPanel_ProcParams.ResumeLayout(false);
             this.groupPanel_TranslationService.ResumeLayout(false);
@@ -2330,10 +2372,12 @@ namespace AIPolicy
 
         private AIPolicy AI;
         private bool SafeMode = true;
-        private bool JDSelected = true;
-        private bool PWSelected = false;
-        private bool FWSelected = false;
-        private static string code;
+        public bool JDSelected = true;
+        public bool PWSelected = false;
+        public bool FWSelected = false;
+        private string Encode;
+        IUndoable<string> encodeBuffer = new Undoable<string>("");
+        IUndoable<string> undoBuffer   = new Undoable<string>("");
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Controllers;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_ActionSets;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Condition;
@@ -2445,46 +2489,43 @@ namespace AIPolicy
         private DevComponents.Editors.ComboItem comboItem_LeastHP;
         private DevComponents.Editors.ComboItem comboItem_TEAM;
         private DevComponents.Editors.ComboItem comboItem_Self;
-        private DevComponents.DotNetBar.PanelEx panelEx_CondEdit;
+        private DevComponents.DotNetBar.PanelEx panelEx_CondCalc;
         private DevComponents.DotNetBar.LabelX labelX_BCondEx;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX_CondEdit;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_CondEd;
-        private DevComponents.Editors.ComboItem comboItem_IsTimerTicking;
-        private DevComponents.Editors.ComboItem comboItem_IsHPLess;
-        private DevComponents.Editors.ComboItem comboItem_IsCombatStarted;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX_Exp;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_CondEx;
         private DevComponents.DotNetBar.LabelX labelX_ClickMe;
         private DevComponents.DotNetBar.ButtonX buttonX_CondEdOK;
-        private DevComponents.Editors.ComboItem comboItem_Randomize;
-        private DevComponents.Editors.ComboItem comboItem_IsTargetKilled;
-        private DevComponents.Editors.ComboItem comboItem_IsDead;
-        private DevComponents.Editors.ComboItem comboItem_PubCtr;
-        private DevComponents.Editors.ComboItem comboItem_CastSkill;
         private DevComponents.DotNetBar.ButtonX buttonX_CondEdCancel;
-        private DevComponents.DotNetBar.LabelX labelX_Debug;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX_Debug;
-        private DevComponents.DotNetBar.ButtonX buttonX_CreateCond;
-        private DevComponents.DotNetBar.ButtonX buttonX4;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.ButtonX buttonX5;
-        private DevComponents.DotNetBar.ButtonX buttonX8;
-        private DevComponents.DotNetBar.ButtonX buttonX7;
-        private DevComponents.DotNetBar.ButtonX buttonX6;
-        private DevComponents.DotNetBar.ButtonX buttonX10;
-        private DevComponents.DotNetBar.ButtonX buttonX9;
-        private DevComponents.DotNetBar.ButtonX buttonX16;
-        private DevComponents.DotNetBar.ButtonX buttonX15;
-        private DevComponents.DotNetBar.ButtonX buttonX14;
-        private DevComponents.DotNetBar.ButtonX buttonX13;
-        private DevComponents.DotNetBar.ButtonX buttonX12;
-        private DevComponents.DotNetBar.ButtonX buttonX11;
-        private DevComponents.DotNetBar.ButtonX buttonX17;
-        private DevComponents.DotNetBar.ButtonX buttonX18;
-        private DevComponents.DotNetBar.ButtonX buttonX19;
-        private DevComponents.DotNetBar.ButtonX buttonX20;
-        private DevComponents.DotNetBar.ButtonX buttonX22;
-        private DevComponents.DotNetBar.ButtonX buttonX21;
-        private DevComponents.DotNetBar.LabelX labelX1;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyRBracket;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyLBracket;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyRParen;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyLParen;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyNOT;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyEquals;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyAND;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyOR;
+        private DevComponents.DotNetBar.ButtonX buttonX_MThan;
+        private DevComponents.DotNetBar.ButtonX buttonX_LThan;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key6;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key5;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key4;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key9;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key8;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key7;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key1;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key2;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key3;
+        private DevComponents.DotNetBar.ButtonX buttonX_Key0;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyUndo;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyClear;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyPoint;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyMinus;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyPlus;
+        private DevComponents.DotNetBar.ButtonX buttonX_KeyRedo;
+        private DevComponents.DotNetBar.ButtonX buttonX_Space;
+        private DevComponents.DotNetBar.LabelX labelX_Hint;
+        private DevComponents.DotNetBar.LabelX labelX_Example;
+        private DevComponents.DotNetBar.LabelX labelX_ExampleText;
+        private DevComponents.DotNetBar.LabelX labelX_HintText;
     }
 }

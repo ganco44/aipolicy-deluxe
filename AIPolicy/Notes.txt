@@ -45,30 +45,30 @@ SELF
 --------------------------------------------------------
         JD Condition Names
 --------------------------------------------------------
-0	Is_Timer_Ticking[x] // 1 param = integer
-1	Is_HP_Less[x]       // 1 param < 1.00
+0	Is_Timer_Ticking[0] // 1 param = integer
+1	Is_HP_Less[0.00]       // 1 param < 1.00
 2	Is_Combat_Started[] // no params
-3	Randomize[x]        // 1 param < 1.00
+3	Randomize[0.00]        // 1 param < 1.00
 4	Is_Target_Dead[]    // no params
 5	!
 6	||
 7	&&
 8	Is_Dead[]           // no params
-9	Path_To
-10	More_Than
-11	Distance_To
-12	Unknown12
-13	Unknown13
-14	Unknown14
-15	Unknown15
+9	Path_To[0]
+10	More_Than[0]
+11	Distance_To[0.00]
+12	Unknown12[]
+13	Unknown13[]
+14	Unknown14[]
+15	Unknown15[]
 16	>
 17	<
 18	=
-19	Variable
-20	Variable_Value
-21	Rank
-22	NPC_Vent
-23	Cast_Skill
+19	Variable[0]
+20	Variable_Value[0]
+21	Rank[0]
+22	NPC_Vent[]
+23	Cast_Skill[0]
 
 
 // Type 0 - Attack(int unk)
@@ -139,11 +139,11 @@ SELF
 --------------------------------------------------------
         PW Condition Names
 --------------------------------------------------------
-0	Is_Timer_Ticking[x]
-1	Is_HP_Less[x]
+0	Is_Timer_Ticking[0]
+1	Is_HP_Less[0.00]
 2	Is_Combat_Started[]
-3	Randomize[x]
-4	Is_Target_Killed[]
+3	Randomize[0.00]
+4	Is_Target_Dead[]
 5	!
 6	||
 7	&&
@@ -155,9 +155,9 @@ SELF
 13	>=
 14	
 15	>
-16	Public_Counter[x]   // 1 param = integer
-17	Value[x]            // 1 param = integer
-18	Is_Event?
+16	Public_Counter[0]   // 1 param = integer
+17	Value[0]            // 1 param = integer
+18	Is_Event[]?
 19	?
 
 
@@ -207,3 +207,51 @@ Type = 2
 OperID = 1
 ArgBytes = 4
 Type = 3
+
+
+
+
+
+
+			text = text.Replace(" ", "");
+            text = text.Replace("Is_Timer_Ticking", "a");   // Is_Timer_Ticking[0]
+            text = text.Replace("Is_HP_Less", "b");         // Is_HP_Less[0.00]
+            text = text.Replace("Is_Combat_Started", "c");  // Is_Combat_Started[]
+            text = text.Replace("Randomize", "d");          // Randomize[0.00]
+            text = text.Replace("Is_Target_Dead", "e");     // Is_Target_Dead[]
+            text = text.Replace("||", "f");                 // OR
+            text = text.Replace("&&", "g");                 // AND
+            text = text.Replace("Is_Dead", "h");            // Is_Dead[]
+            text = text.Replace("Path_To", "i");            // Path_To[0]
+            text = text.Replace("More_Than", "j");          // More_Than[0]
+            text = text.Replace("Distance_To", "k");        // Distance_To[0.00]
+            text = text.Replace("Unknown12", "l");          // Unknown12[]
+            text = text.Replace("Unknown13", "m");          // Unknown13[]
+            text = text.Replace("Unknown14", "n");          // Unknown14[]
+            text = text.Replace("Unknown15", "o");          // Unknown15[]
+            text = text.Replace("Variable_Value", "q");     // Variable_Value[0]
+            text = text.Replace("Variable", "p");           // Variable[0]
+            text = text.Replace("Rank", "r");               // Rank[0]
+            text = text.Replace("NPC_Vent", "s");           //  NPC_Vent[]
+            text = text.Replace("Cast_Skill", "t");         // Cast_Skill[0]
+            text = text.Replace("Public_Counter", "u");     // Public_Counter[0]
+            text = text.Replace("Value", "v");              // Value[0]
+            text = text.Replace("Is_Event", "w");           // Is_Event[]
+            text = text.Replace("[", "[");
+            text = text.Replace("]", "]");
+            text = text.Replace("!", "!");
+            text = text.Replace("1", "1");
+            text = text.Replace("2", "2");
+            text = text.Replace("3", "3");
+            text = text.Replace("4", "4");
+            text = text.Replace("5", "5");
+            text = text.Replace("6", "6");
+            text = text.Replace("7", "7");
+            text = text.Replace("8", "8");
+            text = text.Replace("9", "9");
+            text = text.Replace("0", "0");
+            text = text.Replace(".", ".");
+            text = text.Replace("(", "(");
+            text = text.Replace(")", ")");
+            text = text.Replace("[", "");
+            text = text.Replace("]", "");

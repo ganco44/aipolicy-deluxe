@@ -61,24 +61,6 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to =.
-        /// </summary>
-        internal static string _Equals {
-            get {
-                return ResourceManager.GetString("_Equals", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to +.
-        /// </summary>
-        internal static string _Plus {
-            get {
-                return ResourceManager.GetString("_Plus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The ActionSet ID: .
         /// </summary>
         internal static string ActionID {
@@ -147,6 +129,15 @@ namespace AIPolicy.Properties {
         internal static string AIPolicyFilter {
             get {
                 return ResourceManager.GetString("AIPolicyFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;&amp;.
+        /// </summary>
+        internal static string AND {
+            get {
+                return ResourceManager.GetString("AND", resourceCulture);
             }
         }
         
@@ -296,6 +287,24 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cast_Skill has 1 parameter..
+        /// </summary>
+        internal static string CS1P {
+            get {
+                return ResourceManager.GetString("CS1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cast_Skill[1202].
+        /// </summary>
+        internal static string CS1PEx {
+            get {
+                return ResourceManager.GetString("CS1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Controller ID entered already exists.
         ///Please try again....
         /// </summary>
@@ -433,6 +442,33 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Distance_To.
+        /// </summary>
+        internal static string DistanceTo {
+            get {
+                return ResourceManager.GetString("DistanceTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance_To has 1 parameter..
+        /// </summary>
+        internal static string DT1P {
+            get {
+                return ResourceManager.GetString("DT1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance_To[1].
+        /// </summary>
+        internal static string DT1PEx {
+            get {
+                return ResourceManager.GetString("DT1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to edit an ActionSet..
         /// </summary>
         internal static string EditAS {
@@ -469,11 +505,11 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 18.
+        ///   Looks up a localized string similar to 8.
         /// </summary>
-        internal static string EIGHTEEN {
+        internal static string EIGHT {
             get {
-                return ResourceManager.GetString("EIGHTEEN", resourceCulture);
+                return ResourceManager.GetString("EIGHT", resourceCulture);
             }
         }
         
@@ -483,15 +519,6 @@ namespace AIPolicy.Properties {
         internal static string ElementsID {
             get {
                 return ResourceManager.GetString("ElementsID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 11.
-        /// </summary>
-        internal static string ELEVEN {
-            get {
-                return ResourceManager.GetString("ELEVEN", resourceCulture);
             }
         }
         
@@ -510,6 +537,15 @@ namespace AIPolicy.Properties {
         internal static string EnterAS {
             get {
                 return ResourceManager.GetString("EnterAS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to =.
+        /// </summary>
+        internal static string EQUAL {
+            get {
+                return ResourceManager.GetString("EQUAL", resourceCulture);
             }
         }
         
@@ -601,11 +637,29 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        internal static string FIVE {
+            get {
+                return ResourceManager.GetString("FIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flee.
         /// </summary>
         internal static string Flee {
             get {
                 return ResourceManager.GetString("Flee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.
+        /// </summary>
+        internal static string FOUR {
+            get {
+                return ResourceManager.GetString("FOUR", resourceCulture);
             }
         }
         
@@ -624,12 +678,84 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is_Combat_Started has no parameter..
+        /// </summary>
+        internal static string ICS {
+            get {
+                return ResourceManager.GetString("ICS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Combat_Started[].
+        /// </summary>
+        internal static string ICSEx {
+            get {
+                return ResourceManager.GetString("ICSEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  (ID Control)
         ///.
         /// </summary>
         internal static string IDControl {
             get {
                 return ResourceManager.GetString("IDControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Dead has no parameter..
+        /// </summary>
+        internal static string IDnoP {
+            get {
+                return ResourceManager.GetString("IDnoP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Dead[].
+        /// </summary>
+        internal static string IDnoPEx {
+            get {
+                return ResourceManager.GetString("IDnoPEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Event has no parameter..
+        /// </summary>
+        internal static string IE {
+            get {
+                return ResourceManager.GetString("IE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsEvent[].
+        /// </summary>
+        internal static string IEEx {
+            get {
+                return ResourceManager.GetString("IEEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_HP_Less has 1 parameter..
+        /// </summary>
+        internal static string IHPL1P {
+            get {
+                return ResourceManager.GetString("IHPL1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_HP_Less[0.80].
+        /// </summary>
+        internal static string IHPLEx {
+            get {
+                return ResourceManager.GetString("IHPLEx", resourceCulture);
             }
         }
         
@@ -659,6 +785,51 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is_Combat_Started.
+        /// </summary>
+        internal static string IsCombatStarted {
+            get {
+                return ResourceManager.GetString("IsCombatStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Dead.
+        /// </summary>
+        internal static string IsDead {
+            get {
+                return ResourceManager.GetString("IsDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Event.
+        /// </summary>
+        internal static string IsEvent {
+            get {
+                return ResourceManager.GetString("IsEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_HP_Less.
+        /// </summary>
+        internal static string IsHPLess {
+            get {
+                return ResourceManager.GetString("IsHPLess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Target_Dead.
+        /// </summary>
+        internal static string IsTargetDead {
+            get {
+                return ResourceManager.GetString("IsTargetDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is_Timer_Ticking.
         /// </summary>
         internal static string IsTimerTicking {
@@ -668,11 +839,47 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is_Target_Dead has no parameter..
+        /// </summary>
+        internal static string ITD {
+            get {
+                return ResourceManager.GetString("ITD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Target_Dead[].
+        /// </summary>
+        internal static string ITDEx {
+            get {
+                return ResourceManager.GetString("ITDEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item ID.
         /// </summary>
         internal static string ItemID {
             get {
                 return ResourceManager.GetString("ItemID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Timer_Ticking has 1 parameter..
+        /// </summary>
+        internal static string ITT1P {
+            get {
+                return ResourceManager.GetString("ITT1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is_Timer_Ticking[0].
+        /// </summary>
+        internal static string ITTEx {
+            get {
+                return ResourceManager.GetString("ITTEx", resourceCulture);
             }
         }
         
@@ -687,6 +894,42 @@ namespace AIPolicy.Properties {
             get {
                 object obj = ResourceManager.GetObject("JD3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [.
+        /// </summary>
+        internal static string LBRACKET {
+            get {
+                return ResourceManager.GetString("LBRACKET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (.
+        /// </summary>
+        internal static string LPAREN {
+            get {
+                return ResourceManager.GetString("LPAREN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;.
+        /// </summary>
+        internal static string LTHAN {
+            get {
+                return ResourceManager.GetString("LTHAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        internal static string MINUS {
+            get {
+                return ResourceManager.GetString("MINUS", resourceCulture);
             }
         }
         
@@ -709,11 +952,47 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to More_Than.
+        /// </summary>
+        internal static string MoreThan {
+            get {
+                return ResourceManager.GetString("MoreThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Message.
         /// </summary>
         internal static string Msg {
             get {
                 return ResourceManager.GetString("Msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More_Than has 1 parameter..
+        /// </summary>
+        internal static string MT1P {
+            get {
+                return ResourceManager.GetString("MT1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More_Than[1].
+        /// </summary>
+        internal static string MT1PEx {
+            get {
+                return ResourceManager.GetString("MT1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt;.
+        /// </summary>
+        internal static string MTHAN {
+            get {
+                return ResourceManager.GetString("MTHAN", resourceCulture);
             }
         }
         
@@ -746,11 +1025,11 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 19.
+        ///   Looks up a localized string similar to 9.
         /// </summary>
-        internal static string NINETEEN {
+        internal static string NINE {
             get {
-                return ResourceManager.GetString("NINETEEN", resourceCulture);
+                return ResourceManager.GetString("NINE", resourceCulture);
             }
         }
         
@@ -760,6 +1039,15 @@ namespace AIPolicy.Properties {
         internal static string noAS {
             get {
                 return ResourceManager.GetString("noAS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No expression entered..
+        /// </summary>
+        internal static string NoExpEntered {
+            get {
+                return ResourceManager.GetString("NoExpEntered", resourceCulture);
             }
         }
         
@@ -800,6 +1088,15 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to !.
+        /// </summary>
+        internal static string NOT {
+            get {
+                return ResourceManager.GetString("NOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NPC_Generator.
         /// </summary>
         internal static string NPCGenerator {
@@ -814,6 +1111,33 @@ namespace AIPolicy.Properties {
         internal static string NPCSpawn {
             get {
                 return ResourceManager.GetString("NPCSpawn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NPC_Vent has no parameter..
+        /// </summary>
+        internal static string NPCV {
+            get {
+                return ResourceManager.GetString("NPCV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NPC_Vent.
+        /// </summary>
+        internal static string NPCVent {
+            get {
+                return ResourceManager.GetString("NPCVent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NPC_Vent[].
+        /// </summary>
+        internal static string NPCVEx {
+            get {
+                return ResourceManager.GetString("NPCVEx", resourceCulture);
             }
         }
         
@@ -868,11 +1192,47 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ||.
+        /// </summary>
+        internal static string OR {
+            get {
+                return ResourceManager.GetString("OR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Path ID.
         /// </summary>
         internal static string PathID {
             get {
                 return ResourceManager.GetString("PathID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path_To.
+        /// </summary>
+        internal static string PathTo {
+            get {
+                return ResourceManager.GetString("PathTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public_Counter has 1 parameter..
+        /// </summary>
+        internal static string PC1P {
+            get {
+                return ResourceManager.GetString("PC1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public_Counter[2300].
+        /// </summary>
+        internal static string PC1PEx {
+            get {
+                return ResourceManager.GetString("PC1PEx", resourceCulture);
             }
         }
         
@@ -886,11 +1246,56 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to +.
+        /// </summary>
+        internal static string PLUS {
+            get {
+                return ResourceManager.GetString("PLUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ..
+        /// </summary>
+        internal static string POINT {
+            get {
+                return ResourceManager.GetString("POINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Procedure Parameters.
         /// </summary>
         internal static string ProcParams {
             get {
                 return ResourceManager.GetString("ProcParams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path_To has 1 parameter..
+        /// </summary>
+        internal static string PT1P {
+            get {
+                return ResourceManager.GetString("PT1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path_To[1].
+        /// </summary>
+        internal static string PT1PEx {
+            get {
+                return ResourceManager.GetString("PT1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public_Counter.
+        /// </summary>
+        internal static string PubCtr {
+            get {
+                return ResourceManager.GetString("PubCtr", resourceCulture);
             }
         }
         
@@ -927,11 +1332,83 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Randomize has 1 parameter..
+        /// </summary>
+        internal static string R1P {
+            get {
+                return ResourceManager.GetString("R1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Randomize[0.50].
+        /// </summary>
+        internal static string R1PEx {
+            get {
+                return ResourceManager.GetString("R1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank has 1 parameter..
+        /// </summary>
+        internal static string Ra1P {
+            get {
+                return ResourceManager.GetString("Ra1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank[1].
+        /// </summary>
+        internal static string Ra1PEx {
+            get {
+                return ResourceManager.GetString("Ra1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Randomize.
+        /// </summary>
+        internal static string Randomize {
+            get {
+                return ResourceManager.GetString("Randomize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank.
+        /// </summary>
+        internal static string Rank {
+            get {
+                return ResourceManager.GetString("Rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ].
+        /// </summary>
+        internal static string RBRACKET {
+            get {
+                return ResourceManager.GetString("RBRACKET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  }.
         /// </summary>
         internal static string RCBracket {
             get {
                 return ResourceManager.GetString("RCBracket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Redo history exhausted..
+        /// </summary>
+        internal static string RedoExh {
+            get {
+                return ResourceManager.GetString("RedoExh", resourceCulture);
             }
         }
         
@@ -959,6 +1436,15 @@ namespace AIPolicy.Properties {
         internal static string RetainProc {
             get {
                 return ResourceManager.GetString("RetainProc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ).
+        /// </summary>
+        internal static string RPAREN {
+            get {
+                return ResourceManager.GetString("RPAREN", resourceCulture);
             }
         }
         
@@ -1016,20 +1502,20 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 17.
+        ///   Looks up a localized string similar to 7.
         /// </summary>
-        internal static string SEVENTEEN {
+        internal static string SEVEN {
             get {
-                return ResourceManager.GetString("SEVENTEEN", resourceCulture);
+                return ResourceManager.GetString("SEVEN", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 16.
+        ///   Looks up a localized string similar to 6.
         /// </summary>
-        internal static string SIXTEEN {
+        internal static string SIX {
             get {
-                return ResourceManager.GetString("SIXTEEN", resourceCulture);
+                return ResourceManager.GetString("SIX", resourceCulture);
             }
         }
         
@@ -1048,6 +1534,15 @@ namespace AIPolicy.Properties {
         internal static string SkillLvl {
             get {
                 return ResourceManager.GetString("SkillLvl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  .
+        /// </summary>
+        internal static string SPACE {
+            get {
+                return ResourceManager.GetString("SPACE", resourceCulture);
             }
         }
         
@@ -1088,11 +1583,11 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 13.
+        ///   Looks up a localized string similar to 3.
         /// </summary>
-        internal static string THIRTEEN {
+        internal static string THREE {
             get {
-                return ResourceManager.GetString("THIRTEEN", resourceCulture);
+                return ResourceManager.GetString("THREE", resourceCulture);
             }
         }
         
@@ -1151,38 +1646,74 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 25.
+        ///   Looks up a localized string similar to Unknown12 has no parameter..
         /// </summary>
-        internal static string TWOFIVE {
+        internal static string U12 {
             get {
-                return ResourceManager.GetString("TWOFIVE", resourceCulture);
+                return ResourceManager.GetString("U12", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 24.
+        ///   Looks up a localized string similar to Unknown12[].
         /// </summary>
-        internal static string TWOFOUR {
+        internal static string U12Ex {
             get {
-                return ResourceManager.GetString("TWOFOUR", resourceCulture);
+                return ResourceManager.GetString("U12Ex", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 27.
+        ///   Looks up a localized string similar to Unknown13 has no parameter..
         /// </summary>
-        internal static string TWOSEVEN {
+        internal static string U13 {
             get {
-                return ResourceManager.GetString("TWOSEVEN", resourceCulture);
+                return ResourceManager.GetString("U13", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 26.
+        ///   Looks up a localized string similar to Unknown13[].
         /// </summary>
-        internal static string TWOSIX {
+        internal static string U13Ex {
             get {
-                return ResourceManager.GetString("TWOSIX", resourceCulture);
+                return ResourceManager.GetString("U13Ex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown14 has no parameter..
+        /// </summary>
+        internal static string U14 {
+            get {
+                return ResourceManager.GetString("U14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown14[].
+        /// </summary>
+        internal static string U14Ex {
+            get {
+                return ResourceManager.GetString("U14Ex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown15 has no parameter..
+        /// </summary>
+        internal static string U15 {
+            get {
+                return ResourceManager.GetString("U15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown15[].
+        /// </summary>
+        internal static string U15Ex {
+            get {
+                return ResourceManager.GetString("U15Ex", resourceCulture);
             }
         }
         
@@ -1193,6 +1724,15 @@ namespace AIPolicy.Properties {
         internal static string UnableFind {
             get {
                 return ResourceManager.GetString("UnableFind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undo history exhausted..
+        /// </summary>
+        internal static string UndoExh {
+            get {
+                return ResourceManager.GetString("UndoExh", resourceCulture);
             }
         }
         
@@ -1233,11 +1773,83 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value[ ].
+        ///   Looks up a localized string similar to Value has 1 parameter..
+        /// </summary>
+        internal static string V1P {
+            get {
+                return ResourceManager.GetString("V1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value[2].
+        /// </summary>
+        internal static string V1PEx {
+            get {
+                return ResourceManager.GetString("V1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
         /// </summary>
         internal static string Value {
             get {
                 return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable has 1 parameter..
+        /// </summary>
+        internal static string Var1P {
+            get {
+                return ResourceManager.GetString("Var1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable[0].
+        /// </summary>
+        internal static string Var1PEx {
+            get {
+                return ResourceManager.GetString("Var1PEx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable.
+        /// </summary>
+        internal static string Variable {
+            get {
+                return ResourceManager.GetString("Variable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable_Value.
+        /// </summary>
+        internal static string VariableValue {
+            get {
+                return ResourceManager.GetString("VariableValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable_Value has 1 parameter..
+        /// </summary>
+        internal static string VV1P {
+            get {
+                return ResourceManager.GetString("VV1P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable_Value[1].
+        /// </summary>
+        internal static string VV1PEx {
+            get {
+                return ResourceManager.GetString("VV1PEx", resourceCulture);
             }
         }
         

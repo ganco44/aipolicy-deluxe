@@ -253,9 +253,6 @@ Please try again...</value>
   <data name="ElementsID" xml:space="preserve">
     <value>Elements ID</value>
   </data>
-  <data name="ELEVEN" xml:space="preserve">
-    <value>11</value>
-  </data>
   <data name="EnableAS" xml:space="preserve">
     <value>Enable_ActionSet</value>
   </data>
@@ -409,7 +406,7 @@ Try searching from the beginning (Controller 1).</value>
     <value>v11 Path</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Value[ ]</value>
+    <value>Value</value>
   </data>
   <data name="Warsoul" xml:space="preserve">
     <value>Drop_Warsoul_Item</value>
@@ -417,17 +414,11 @@ Try searching from the beginning (Controller 1).</value>
   <data name="ZERO" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_Equals" xml:space="preserve">
+  <data name="EQUAL" xml:space="preserve">
     <value>=</value>
   </data>
-  <data name="_Plus" xml:space="preserve">
+  <data name="PLUS" xml:space="preserve">
     <value>+</value>
-  </data>
-  <data name="THIRTEEN" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="SIXTEEN" xml:space="preserve">
-    <value>16</value>
   </data>
   <data name="addProcedure" xml:space="preserve">
     <value>add a Procedure.</value>
@@ -492,27 +483,6 @@ Try searching from the beginning (Controller 1).</value>
   <data name="PlayAction" xml:space="preserve">
     <value>Play_Action</value>
   </data>
-  <data name="SEVENTEEN" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="EIGHTEEN" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="NINETEEN" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="TWOFOUR" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="TWOFIVE" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="TWOSIX" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="TWOSEVEN" xml:space="preserve">
-    <value>27</value>
-  </data>
   <data name="NYA" xml:space="preserve">
     <value>Not yet available...</value>
   </data>
@@ -522,13 +492,247 @@ Try searching from the beginning (Controller 1).</value>
   <data name="SumMob" xml:space="preserve">
     <value>Summon_Mob</value>
   </data>
-  <data name="ONE">
-    <value xml:space="preserve">1</value>
+  <data name="ONE" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="TWO">
-    <value xml:space="preserve">2</value>
+  <data name="TWO" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="IsTimerTicking">
-    <value xml:space="preserve">Is_Timer_Ticking</value>
+  <data name="IsTimerTicking" xml:space="preserve">
+    <value>Is_Timer_Ticking</value>
+  </data>
+  <data name="SEVEN" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="THREE" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="FOUR" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="FIVE" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SIX" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="EIGHT" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="NINE" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LTHAN" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="MTHAN" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="LPAREN" xml:space="preserve">
+    <value>(</value>
+  </data>
+  <data name="RPAREN" xml:space="preserve">
+    <value>)</value>
+  </data>
+  <data name="LBRACKET" xml:space="preserve">
+    <value>[</value>
+  </data>
+  <data name="RBRACKET" xml:space="preserve">
+    <value>]</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>||</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>&amp;&amp;</value>
+  </data>
+  <data name="NOT" xml:space="preserve">
+    <value>!</value>
+  </data>
+  <data name="POINT" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="MINUS" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="UndoExh" xml:space="preserve">
+    <value>Undo history exhausted.</value>
+  </data>
+  <data name="RedoExh" xml:space="preserve">
+    <value>Redo history exhausted.</value>
+  </data>
+  <data name="SPACE" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="IsHPLess" xml:space="preserve">
+    <value>Is_HP_Less</value>
+  </data>
+  <data name="IsCombatStarted" xml:space="preserve">
+    <value>Is_Combat_Started</value>
+  </data>
+  <data name="Randomize" xml:space="preserve">
+    <value>Randomize</value>
+  </data>
+  <data name="IsTargetDead" xml:space="preserve">
+    <value>Is_Target_Dead</value>
+  </data>
+  <data name="IsDead" xml:space="preserve">
+    <value>Is_Dead</value>
+  </data>
+  <data name="PubCtr" xml:space="preserve">
+    <value>Public_Counter</value>
+  </data>
+  <data name="PathTo" xml:space="preserve">
+    <value>Path_To</value>
+  </data>
+  <data name="MoreThan" xml:space="preserve">
+    <value>More_Than</value>
+  </data>
+  <data name="DistanceTo" xml:space="preserve">
+    <value>Distance_To</value>
+  </data>
+  <data name="Variable" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="VariableValue" xml:space="preserve">
+    <value>Variable_Value</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="NPCVent" xml:space="preserve">
+    <value>NPC_Vent</value>
+  </data>
+  <data name="IsEvent" xml:space="preserve">
+    <value>Is_Event</value>
+  </data>
+  <data name="NoExpEntered" xml:space="preserve">
+    <value>No expression entered.</value>
+  </data>
+  <data name="ITT1P" xml:space="preserve">
+    <value>Is_Timer_Ticking has 1 parameter.</value>
+  </data>
+  <data name="ITTEx" xml:space="preserve">
+    <value>Is_Timer_Ticking[0]</value>
+  </data>
+  <data name="IHPL1P" xml:space="preserve">
+    <value>Is_HP_Less has 1 parameter.</value>
+  </data>
+  <data name="IHPLEx" xml:space="preserve">
+    <value>Is_HP_Less[0.80]</value>
+  </data>
+  <data name="ICS" xml:space="preserve">
+    <value>Is_Combat_Started has no parameter.</value>
+  </data>
+  <data name="ICSEx" xml:space="preserve">
+    <value>Is_Combat_Started[]</value>
+  </data>
+  <data name="R1P" xml:space="preserve">
+    <value>Randomize has 1 parameter.</value>
+  </data>
+  <data name="R1PEx" xml:space="preserve">
+    <value>Randomize[0.50]</value>
+  </data>
+  <data name="ITD" xml:space="preserve">
+    <value>Is_Target_Dead has no parameter.</value>
+  </data>
+  <data name="ITDEx" xml:space="preserve">
+    <value>Is_Target_Dead[]</value>
+  </data>
+  <data name="IDnoP" xml:space="preserve">
+    <value>Is_Dead has no parameter.</value>
+  </data>
+  <data name="IDnoPEx" xml:space="preserve">
+    <value>Is_Dead[]</value>
+  </data>
+  <data name="PC1P" xml:space="preserve">
+    <value>Public_Counter has 1 parameter.</value>
+  </data>
+  <data name="PC1PEx" xml:space="preserve">
+    <value>Public_Counter[2300]</value>
+  </data>
+  <data name="V1P" xml:space="preserve">
+    <value>Value has 1 parameter.</value>
+  </data>
+  <data name="V1PEx" xml:space="preserve">
+    <value>Value[2]</value>
+  </data>
+  <data name="IE" xml:space="preserve">
+    <value>Is_Event has no parameter.</value>
+  </data>
+  <data name="IEEx" xml:space="preserve">
+    <value>IsEvent[]</value>
+  </data>
+  <data name="PT1P" xml:space="preserve">
+    <value>Path_To has 1 parameter.</value>
+  </data>
+  <data name="PT1PEx" xml:space="preserve">
+    <value>Path_To[1]</value>
+  </data>
+  <data name="MT1P" xml:space="preserve">
+    <value>More_Than has 1 parameter.</value>
+  </data>
+  <data name="MT1PEx" xml:space="preserve">
+    <value>More_Than[1]</value>
+  </data>
+  <data name="DT1P" xml:space="preserve">
+    <value>Distance_To has 1 parameter.</value>
+  </data>
+  <data name="DT1PEx" xml:space="preserve">
+    <value>Distance_To[1]</value>
+  </data>
+  <data name="U12" xml:space="preserve">
+    <value>Unknown12 has no parameter.</value>
+  </data>
+  <data name="U12Ex" xml:space="preserve">
+    <value>Unknown12[]</value>
+  </data>
+  <data name="U13" xml:space="preserve">
+    <value>Unknown13 has no parameter.</value>
+  </data>
+  <data name="U13Ex" xml:space="preserve">
+    <value>Unknown13[]</value>
+  </data>
+  <data name="U14" xml:space="preserve">
+    <value>Unknown14 has no parameter.</value>
+  </data>
+  <data name="U14Ex" xml:space="preserve">
+    <value>Unknown14[]</value>
+  </data>
+  <data name="U15" xml:space="preserve">
+    <value>Unknown15 has no parameter.</value>
+  </data>
+  <data name="U15Ex" xml:space="preserve">
+    <value>Unknown15[]</value>
+  </data>
+  <data name="VV1P" xml:space="preserve">
+    <value>Variable_Value has 1 parameter.</value>
+  </data>
+  <data name="VV1PEx" xml:space="preserve">
+    <value>Variable_Value[1]</value>
+  </data>
+  <data name="Var1P" xml:space="preserve">
+    <value>Variable has 1 parameter.</value>
+  </data>
+  <data name="Var1PEx" xml:space="preserve">
+    <value>Variable[0]</value>
+  </data>
+  <data name="Ra1P" xml:space="preserve">
+    <value>Rank has 1 parameter.</value>
+  </data>
+  <data name="Ra1PEx" xml:space="preserve">
+    <value>Rank[1]</value>
+  </data>
+  <data name="NPCV" xml:space="preserve">
+    <value>NPC_Vent has no parameter.</value>
+  </data>
+  <data name="NPCVEx" xml:space="preserve">
+    <value>NPC_Vent[]</value>
+  </data>
+  <data name="CS1P" xml:space="preserve">
+    <value>Cast_Skill has 1 parameter.</value>
+  </data>
+  <data name="CS1PEx" xml:space="preserve">
+    <value>Cast_Skill[1202]</value>
   </data>
 </root>

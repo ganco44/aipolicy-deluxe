@@ -149,7 +149,7 @@ namespace AIPolicy
 
                 // Unknown11()
                 case 11:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ELEVEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.ONE;
                     break;
 
                 // Fade_Aggro()
@@ -159,7 +159,7 @@ namespace AIPolicy
 
                 // Unknown13()
                 case 13:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.THIRTEEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.THREE;
                     break;
 
                 // Trigger(int triggerID, int ctrlParam)
@@ -183,7 +183,7 @@ namespace AIPolicy
 
                 // Unknown16(int unknown)
                 case 16:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.SIXTEEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.SIX;
                     labelX_Param1.Text = Resources.Unk;
                     break;
 
@@ -218,14 +218,14 @@ namespace AIPolicy
                 case 22:
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.SetValue;
                     labelX_Param1.Text = Resources.Value;
-                    labelX_Param2.Text = Resources._Equals;
+                    labelX_Param2.Text = Resources.EQUAL;
                     break;
 
                 // Add_Value(int value, int toAdd)
                 case 23:
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.AddValue;
                     labelX_Param1.Text = Resources.Value;
-                    labelX_Param2.Text = Resources._Plus;
+                    labelX_Param2.Text = Resources.PLUS;
                     break;
 
                 // N/A
@@ -256,7 +256,10 @@ namespace AIPolicy
         {
             var num = 1;
             var num2 = 0;
+            var s2 = s.Substring(0, 1);
             var text = s.Substring(1);
+
+            //if (text.ToString(CultureInfo.InvariantCulture) == "") return null;
 
             if (s[0] == '(')
             {
@@ -283,6 +286,7 @@ namespace AIPolicy
             var stack = new Stack();
             var stack2 = new Stack();
             var text2 = s.Substring(num4, 1);
+
             while (text2 != "" || stack.Count != 0)
             {
                 if (Program.IsNumber(text2))
@@ -293,7 +297,7 @@ namespace AIPolicy
                 }
                 else
                 {
-                    string s2;
+                    //string s2;
                     if (text2 == "(")
                     {
                         if (stack.Count != 0)
@@ -301,7 +305,7 @@ namespace AIPolicy
                             num4--;
                             s2 = s.Substring(0, num4);
                             text = s.Substring(num4 + 1);
-                            var condition2 = new Condition { OperID = Program.IDOper(stack.Pop().ToString()) };
+                            var condition2 = new Condition { OperID = Program.JDIDOper(stack.Pop().ToString()) };
                             var tmpCond1 = condition2;
                             tmpCond1.ConditionType = Program.GetOperPrime(tmpCond1.OperID);
                             var tmpCond2 = condition2;
@@ -329,12 +333,12 @@ namespace AIPolicy
                     }
                     else
                     {
-                        if (stack.Count != 0 && (text2 == "" || Program.GetOperPrime(Program.IDOper(stack.Peek().ToString())) <= Program.GetOperPrime(Program.IDOper(text2))))
+                        if (stack.Count != 0 && (text2 == "" || Program.GetOperPrime(Program.JDIDOper(stack.Peek().ToString())) <= Program.GetOperPrime(Program.JDIDOper(text2))))
                         {
                             num4--;
                             s2 = s.Substring(0, num4);
                             text = s.Substring(num4 + 1);
-                            var condition3 = new Condition { OperID = Program.IDOper(stack.Pop().ToString()) };
+                            var condition3 = new Condition { OperID = Program.JDIDOper(stack.Pop().ToString()) };
                             var tmpCond7 = condition3;
                             tmpCond7.ConditionType = Program.GetOperPrime(tmpCond7.OperID);
                             var tmpCond8 = condition3;
@@ -390,7 +394,7 @@ namespace AIPolicy
         private Condition JDFixCondition(Condition c)
         {
             if (c.OperID == 22) return AI.ActionController[441].ActionSet[0].Condition;
-            if (c.OperID > 22) return null;
+            if (c.OperID > 23) return null;
             if (c.ConditionType == 1)
             {
                 c.ConditionLeft = JDFixCondition(c.ConditionLeft);
@@ -738,13 +742,13 @@ namespace AIPolicy
                 case 0:
                     return Resources.IsTimerTicking;
                 case 1:
-                    return "Is_HP_Less";
+                    return Resources.IsHPLess;
                 case 2:
-                    return "Is_Combat_Started";
+                    return Resources.IsCombatStarted;
                 case 3:
-                    return "Randomize";
+                    return Resources.Randomize;
                 case 4:
-                    return "Is_Target_Dead";
+                    return Resources.IsTargetDead;
                 case 5:
                     return "!";
                 case 6:
@@ -752,13 +756,13 @@ namespace AIPolicy
                 case 7:
                     return "&&";
                 case 8:
-                    return "Is_Dead";
+                    return Resources.IsDead;
                 case 9:
-                    return "Path_To";
+                    return Resources.PathTo;
                 case 10:
-                    return "More_Than";
+                    return Resources.MoreThan;
                 case 11:
-                    return "Distance_To";
+                    return Resources.DistanceTo;
                 case 12:
                     return "Unknown12";
                 case 13:
@@ -774,13 +778,13 @@ namespace AIPolicy
                 case 18:
                     return "=";
                 case 19:
-                    return "Variable";
+                    return Resources.Variable;
                 case 20:
-                    return "Variable_Value";
+                    return Resources.VariableValue;
                 case 21:
-                    return "Rank";
+                    return Resources.Rank;
                 case 22:
-                    return "NPC_Vent";
+                    return Resources.NPCVent;
                 case 23:
                     return "Skill_Cast";
                 default:
@@ -796,33 +800,33 @@ namespace AIPolicy
         {
             switch (c.OperID)
             {
-                case 0:
-                case 9:
-                case 10:
-                case 19:
-                case 20:
-                case 21:
-                case 23:
+                case 0:    // Is_Timer_Ticking[0]
+                case 9:    // Path_To[0]
+                case 10:   // More_Than[0]
+                case 19:   // Variable[0]
+                case 20:   // Variable_Value[0]
+                case 21:   // Rank[0]
+                case 23:   // Cast_Skill[0]
                     return BitConverter.ToInt32(c.Value, 0).ToString(CultureInfo.InvariantCulture);
-                case 1:
-                case 3:
-                case 11:
+                case 1:    // Is_HP_Less[0.00]
+                case 3:    // Randomize[0.00]
+                case 11:   // Distance_To[0.00]
                     return BitConverter.ToSingle(c.Value, 0).ToString("F2");
-                case 2:
-                case 4:
-                case 6:
-                case 7:
-                case 8:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 16:
-                case 17:
-                case 18:
-                case 22:
+                case 2:    // Is_Combat_Started[]
+                case 4:    // Is_Target_Dead[]
+                case 6:    // ||
+                case 7:    // &&
+                case 8:    // Is_Dead[]
+                case 12:   // Unknown12[]
+                case 13:   // Unknown13[]
+                case 14:   // Unknown14[]
+                case 15:   // Unknown15[]
+                case 16:   // >
+                case 17:   // <
+                case 18:   // =
+                case 22:   // NPC_Vent[]
                     return "";
-                case 5:
+                case 5:    // !
                     return "NOT";
                 default:
                     {
@@ -862,7 +866,7 @@ namespace AIPolicy
             return text;
         }
 
-        private void JDSaveCondition(Condition c, BinaryWriter bw)
+        private static void JDSaveCondition(Condition c, BinaryWriter bw)
         {
             bw.Write(c.OperID);
             bw.Write(c.ArgBytes);
@@ -1330,6 +1334,139 @@ namespace AIPolicy
             }
         }
 
+        private static Condition PWGetCondition(string s)
+        {
+            var num = 1;
+            var num2 = 0;
+            var s2 = s.Substring(0, 1);
+            var text = s.Substring(1);
+
+            //if (text.ToString(CultureInfo.InvariantCulture) == "") return null;
+            
+            if (s[0] == '(')
+            {
+                var num3 = 1;
+                while (num3 <= text.Length && num >= 0)
+                {
+                    if (s[num3] == ')')
+                    {
+                        num--;
+                        num2 = num3;
+                    }
+                    if (s[num3] == '(') num++;
+                    num3++;
+                }
+                if (num2 == 0 || num != 0) return null;
+
+                if (num2 == text.Length)
+                {
+                    s = text.Substring(0, num2 - 1);
+                    return PWGetCondition(s);
+                }
+            }
+            var num4 = 0;
+            var stack = new Stack();
+            var stack2 = new Stack();
+            var text2 = s.Substring(num4, 1);
+            while (text2 != "" || stack.Count != 0)
+            {
+                if (Program.IsNumber(text2))
+                {
+                    text2 = Program.GetNumber(s.Substring(num4));
+                    stack2.Push(text2);
+                    num4 += text2.Length;
+                }
+                else
+                {
+                    //string s2;
+                    if (text2 == "(")
+                    {
+                        if (stack.Count != 0)
+                        {
+                            num4--;
+                            s2 = s.Substring(0, num4);
+                            text = s.Substring(num4 + 1);
+                            var condition2 = new Condition { OperID = Program.PWIDOper(stack.Pop().ToString()) };
+                            var tmpCond1 = condition2;
+                            tmpCond1.ConditionType = Program.GetOperPrime(tmpCond1.OperID);
+                            var tmpCond2 = condition2;
+                            tmpCond2.ArgBytes = Program.GetOperArgBytes(tmpCond2.OperID);
+                            var tmpCond3 = condition2;
+                            tmpCond3.Value = new byte[tmpCond3.ArgBytes];
+                            if (condition2.ConditionType == 1)
+                            {
+                                condition2.ConditionLeft = PWGetCondition(s2);
+                                var tmpCond4 = condition2;
+                                tmpCond4.SubNodeL = Program.GetSubNodeL(tmpCond4.OperID);
+                                condition2.ConditionRight = PWGetCondition(text);
+                                var tmpCond5 = condition2;
+                                tmpCond5.SubNodeR = Program.GetSubNodeR(tmpCond5.OperID);
+                            }
+                            if (condition2.ConditionType == 2)
+                            {
+                                condition2.ConditionRight = PWGetCondition(text);
+                                var tmpCond6 = condition2;
+                                tmpCond6.SubNodeL = Program.GetSubNodeL(tmpCond6.OperID);
+                            }
+                            return condition2;
+                        }
+                        num4 = num2 + 1;
+                    }
+                    else
+                    {
+                        if (stack.Count != 0 && (text2 == "" || Program.GetOperPrime(Program.PWIDOper(stack.Peek().ToString())) <= Program.GetOperPrime(Program.PWIDOper(text2))))
+                        {
+                            num4--;
+                            s2 = s.Substring(0, num4);
+                            text = s.Substring(num4 + 1);
+                            var condition3 = new Condition { OperID = Program.PWIDOper(stack.Pop().ToString()) };
+                            var tmpCond7 = condition3;
+                            tmpCond7.ConditionType = Program.GetOperPrime(tmpCond7.OperID);
+                            var tmpCond8 = condition3;
+                            tmpCond8.ArgBytes = Program.GetOperArgBytes(tmpCond8.OperID);
+                            var value = new byte[condition3.ArgBytes];
+                            switch (condition3.OperID)
+                            {
+                                case 0:
+                                case 16:
+                                case 17:
+                                    value = BitConverter.GetBytes(Convert.ToInt32(stack2.Pop().ToString()));
+                                    break;
+
+                                case 1:
+                                case 3:
+                                value = BitConverter.GetBytes(Convert.ToSingle(stack2.Pop().ToString()));
+                                    break;
+                            }
+                            condition3.Value = value;
+
+                            if (condition3.ConditionType == 1)
+                            {
+                                condition3.ConditionLeft = PWGetCondition(s2);
+                                var tmpCond9 = condition3;
+                                tmpCond9.SubNodeL = Program.GetSubNodeL(tmpCond9.OperID);
+                                condition3.ConditionRight = PWGetCondition(text);
+                                var tmpCond10 = condition3;
+                                tmpCond10.SubNodeR = Program.GetSubNodeR(tmpCond10.OperID);
+                            }
+
+                            if (condition3.ConditionType == 2)
+                            {
+                                condition3.ConditionRight = PWGetCondition(text);
+                                var tmpCond11 = condition3;
+                                tmpCond11.SubNodeL = Program.GetSubNodeL(tmpCond11.OperID);
+                            }
+                            return condition3;
+                        }
+                        stack.Push(text2);
+                        num4++;
+                    }
+                }
+                text2 = num4 < s.Length ? s.Substring(num4, 1) : "";
+            }
+            return null;
+        }
+        
         private static object[] PWReadParameters(int type, BinaryReader br)
         {
             switch (type)
@@ -1506,11 +1643,11 @@ namespace AIPolicy
                 case 0:
                     return Resources.IsTimerTicking;
                 case 1:
-                    return "Is_HP_Less";
+                    return Resources.IsHPLess;
                 case 2:
-                    return "Is_Combat_Started";
+                    return Resources.IsCombatStarted;
                 case 3:
-                    return "Randomize";
+                    return Resources.Randomize;
                 case 4:
                     return "Is_Target_Killed";
                 case 5:
@@ -1520,7 +1657,7 @@ namespace AIPolicy
                 case 7:
                     return "&&";
                 case 8:
-                    return "Is_Dead";
+                    return Resources.IsDead;
                 case 9:
                     return "+";
                 case 10:
@@ -1536,7 +1673,7 @@ namespace AIPolicy
                 case 15:
                     return ">";
                 case 16:
-                    return "Public_Counter";
+                    return Resources.PubCtr;
                 case 17:
                     return "Value";
                 case 18:
@@ -1550,28 +1687,28 @@ namespace AIPolicy
         {
             switch (c.OperID)
             {
-                case 0:
-                case 16:
-                case 17:
+                case 0:    // Is_Timer_Ticking[0]
+                case 16:   // Public_Counter[0]
+                case 17:   // Value[0]
                     return BitConverter.ToInt32(c.Value, 0).ToString(CultureInfo.InvariantCulture);
-                case 1:
-                case 3:
+                case 1:    // Is_HP_Less[0.00]
+                case 3:    // Randomize[0.00]
                     return BitConverter.ToSingle(c.Value, 0).ToString("F2");
-                case 2:
-                case 4:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                case 18:
+                case 2:    // Is_Combat_Started[]
+                case 4:    // Is_Target_Killed[]
+                case 6:    // ||
+                case 7:    // &&
+                case 8:    // Is_Dead[]
+                case 9:    // +
+                case 10:   // -
+                case 11:   // ==
+                case 12:   // >
+                case 13:   // >=
+                case 14:   // (space)
+                case 15:   // >
+                case 18:   // Is_Event[]?
                     return "";
-                case 5:
+                case 5:    // !
                     return "NOT";
                 default:
                     return "?";
@@ -2054,7 +2191,7 @@ namespace AIPolicy
 
                 // Unknown11()
                 case 11:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ELEVEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.ONE;
                     break;
 
                 // N/A
@@ -2064,7 +2201,7 @@ namespace AIPolicy
 
                 // Unknown13()
                 case 13:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.THIRTEEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.THREE;
                     break;
 
                 // NPC_Generator(int triggerID, int ctrlParam)
@@ -2088,13 +2225,13 @@ namespace AIPolicy
 
                 // Unknown16(int unknown)
                 case 16:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.SIXTEEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.SIX;
                     labelX_Param1.Text = Resources.Unk;
                     break;
 
                 // Unknown17(int x, int y)
                 case 17:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.SEVENTEEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.SEVEN;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
                     break;
@@ -2106,7 +2243,7 @@ namespace AIPolicy
 
                 // Unknown19(int x)
                 case 19:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.NINETEEN;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.ONE + Resources.NINE;
                     labelX_Param1.Text = Resources.Unk;
                     break;
 
@@ -2129,26 +2266,26 @@ namespace AIPolicy
                 case 22:
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.SetValue;
                     labelX_Param1.Text = Resources.Value;
-                    labelX_Param2.Text = Resources._Equals;
+                    labelX_Param2.Text = Resources.EQUAL;
                     break;
 
                 // Add_Value(int value, int toAdd)
                 case 23:
                     groupPanel_ProcParams.Text = Resources.AddProc + Resources.AddValue;
                     labelX_Param1.Text = Resources.Value;
-                    labelX_Param2.Text = Resources._Plus;
+                    labelX_Param2.Text = Resources.PLUS;
                     break;
 
                 // Unknown24(int x, int y)
                 case 24:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWOFOUR;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWO + Resources.FOUR;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
                     break;
 
                 // Unknown25(int x, int y, int z)
                 case 25:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWOFIVE;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWO + Resources.FIVE;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
                     labelX_Param3.Text = Resources.Unk;
@@ -2156,7 +2293,11 @@ namespace AIPolicy
 
                 // Unknown26()
                 case 26:
-                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWOSIX;
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWO + Resources.SIX;
+                    break;
+                // Unknown26()
+                case 27:
+                    groupPanel_ProcParams.Text = Resources.AddProc + Resources.Unk + Resources.TWO + Resources.THREE;
                     break;
             }
         }
@@ -2360,13 +2501,13 @@ namespace AIPolicy
                 case 0:
                     return Resources.IsTimerTicking;
                 case 1:
-                    return "Is_HP_Less";
+                    return Resources.IsHPLess;
                 case 2:
-                    return "Is_Combat_Started";
+                    return Resources.IsCombatStarted;
                 case 3:
-                    return "Randomize";
+                    return Resources.Randomize;
                 case 4:
-                    return "Is_Target_Dead";
+                    return Resources.IsTargetDead;
                 case 5:
                     return "!";
                 case 6:
@@ -2374,13 +2515,13 @@ namespace AIPolicy
                 case 7:
                     return "&&";
                 case 8:
-                    return "Is_Dead";
+                    return Resources.IsDead;
                 case 9:
-                    return "Path_To";
+                    return Resources.PathTo;
                 case 10:
-                    return "More_Than";
+                    return Resources.MoreThan;
                 case 11:
-                    return "Distance_To";
+                    return Resources.DistanceTo;
                 case 12:
                     return "Unknown12";
                 case 13:
@@ -2396,13 +2537,13 @@ namespace AIPolicy
                 case 18:
                     return "=";
                 case 19:
-                    return "Variable";
+                    return Resources.Variable;
                 case 20:
-                    return "Variable_Value";
+                    return Resources.VariableValue;
                 case 21:
-                    return "Rank";
+                    return Resources.Rank;
                 case 22:
-                    return "NPC_Vent";
+                    return Resources.NPCVent;
                 case 23:
                     return "Skill_Cast";
                 default:
@@ -2976,6 +3117,10 @@ namespace AIPolicy
                             AI.ActionController = new ActionController[AI.ActionControllerCount];
                             for (var i = 0; i < AI.ActionController.Length; i++)
                             {
+                                if (i == 1818)
+                                {
+                                    
+                                }
                                 AI.ActionController[i] = new ActionController();
                                 AI.ActionController[i].Signature = binaryReader.ReadInt32();
                                 AI.ActionController[i].ID = binaryReader.ReadInt32();
@@ -3080,9 +3225,7 @@ namespace AIPolicy
             var cSelectedIndex = listBox_Controller.SelectedIndex;
             listBox_ActionSet.Items.Clear();
             var actionSet = AI.ActionController[cSelectedIndex].ActionSet;
-            // DEBUG**********************************
-            textBoxX_Debug.Text = AI.ActionController[cSelectedIndex].ndx.ToString(CultureInfo.InvariantCulture);
-
+            
             foreach (var aSet in actionSet)
             {
                 var iD = aSet.ID;
@@ -3265,7 +3408,7 @@ namespace AIPolicy
             {
                 labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Unknown11()
-                if (JDSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.ELEVEN;
+                if (JDSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.ONE + Resources.ONE;
                 // Perfect World/Forsaken - Fade_Target()
                 if (PWSelected || FWSelected) groupPanel_ProcParams.Text = Resources.FadeTarget;
             }
@@ -3282,7 +3425,7 @@ namespace AIPolicy
             {
                 labelX_Param2.BackColor = Color.Transparent;
                 // Jade Dynasty - Unknown13()
-                if (JDSelected || FWSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.THIRTEEN;
+                if (JDSelected || FWSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.ONE + Resources.THREE;
                 // Perfect World - Break()
                 if (PWSelected) groupPanel_ProcParams.Text = Resources.Break;
             }
@@ -3357,7 +3500,7 @@ namespace AIPolicy
                 // Jade Dynasty/Forsaken World - Unknown16(int unk)
                 if (JDSelected || FWSelected)
                 {
-                    groupPanel_ProcParams.Text = Resources.Unk + Resources.SIXTEEN;
+                    groupPanel_ProcParams.Text = Resources.Unk + Resources.ONE + Resources.SIX;
                     labelX_Param1.Text = Resources.Unk;
                     var unk1 = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                     textBoxX_Param1.Text = unk1.ToString(CultureInfo.InvariantCulture);
@@ -3426,7 +3569,7 @@ namespace AIPolicy
                 if (FWSelected)
                 {
                     labelX_Param2.BackColor = Color.Transparent;
-                    groupPanel_ProcParams.Text = Resources.Unk + Resources.SEVENTEEN;
+                    groupPanel_ProcParams.Text = Resources.Unk + Resources.ONE + Resources.SEVEN;
                     labelX_Param1.Text = Resources.Unk;
                     var x = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                     textBoxX_Param1.Text = x.ToString(CultureInfo.InvariantCulture);
@@ -3480,7 +3623,7 @@ namespace AIPolicy
                     textBoxX_Param3.Text = z.ToString(CultureInfo.InvariantCulture);
                 }
                 // Forsaken World - Unknown19(int x)
-                groupPanel_ProcParams.Text = Resources.Unk + Resources.NINETEEN;
+                groupPanel_ProcParams.Text = Resources.Unk + Resources.ONE + Resources.NINE;
                 labelX_Param1.Text = Resources.AtkParam1;
                 var param1 = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                 textBoxX_Param1.Text = param1.ToString(CultureInfo.InvariantCulture);
@@ -3526,7 +3669,7 @@ namespace AIPolicy
                 labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.SetValue;
                 labelX_Param1.Text = Resources.Value;
-                labelX_Param2.Text = Resources._Equals;
+                labelX_Param2.Text = Resources.EQUAL;
                 var oldValue = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                 textBoxX_Param1.Text = oldValue.ToString(CultureInfo.InvariantCulture);
                 var newValue = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[1];
@@ -3539,7 +3682,7 @@ namespace AIPolicy
                 labelX_Param2.BackColor = Color.Transparent;
                 groupPanel_ProcParams.Text = Resources.AddValue;
                 labelX_Param1.Text = Resources.Value;
-                labelX_Param2.Text = Resources._Plus;
+                labelX_Param2.Text = Resources.PLUS;
                 var value = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                 textBoxX_Param1.Text = value.ToString(CultureInfo.InvariantCulture);
                 var toAdd = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[1];
@@ -3552,9 +3695,9 @@ namespace AIPolicy
                 labelX_Param2.BackColor = Color.Transparent;
                 if (FWSelected)
                 {
-                    groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOFOUR;
+                    groupPanel_ProcParams.Text = Resources.Unk + Resources.TWO + Resources.FOUR;
                     labelX_Param1.Text = Resources.Value;
-                    labelX_Param2.Text = Resources._Plus;
+                    labelX_Param2.Text = Resources.PLUS;
                     var value = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[0];
                     textBoxX_Param1.Text = value.ToString(CultureInfo.InvariantCulture);
                     var toAdd = (int)AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Parameter[1];
@@ -3591,7 +3734,7 @@ namespace AIPolicy
                 if (FWSelected)
                 {
                     labelX_Param2.BackColor = Color.Transparent;
-                    groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOFIVE;
+                    groupPanel_ProcParams.Text = Resources.Unk + Resources.TWO + Resources.FIVE;
                     labelX_Param1.Text = Resources.Unk;
                     labelX_Param2.Text = Resources.Unk;
                     labelX_Param3.Text = Resources.Unk;
@@ -3623,14 +3766,14 @@ namespace AIPolicy
                     textBoxX_Param3.Text = cycles.ToString(CultureInfo.InvariantCulture);
                 }
                 // Forsaken World - Unknown26()
-                if (FWSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOSIX;
+                if (FWSelected) groupPanel_ProcParams.Text = Resources.Unk + Resources.TWO + Resources.SIX;
             }
 
             // Type 27 - Unknown27()
             if (AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Procedure[pSelectedIndex].Type == 27)
             {
                 labelX_Param2.BackColor = Color.Transparent;
-                groupPanel_ProcParams.Text = Resources.Unk + Resources.TWOSEVEN;
+                groupPanel_ProcParams.Text = Resources.Unk + Resources.TWO + Resources.SEVEN;
             }
 
             // Type Target
@@ -4108,35 +4251,45 @@ namespace AIPolicy
                 return;
             }
             if (listBox_ActionSet.SelectedIndex < 0) return;
+
+            if (textBoxX_Condition.Text == "")
+            {
+                MessageBox.Show(Resources.NoExpEntered);
+                return;
+            }
+
             var cSelectedIndex = listBox_Controller.SelectedIndex;
             var asSelectedIndex = listBox_ActionSet.SelectedIndex;
             //var pSelectedIndex = this.listBox_Procedure.SelectedIndex;
             var text = textBoxX_Condition.Text;
 
             // Jade Dynasty
-            if (JDSelected || PWSelected || FWSelected)
+            if (JDSelected)
             {
                 text = text.Replace(" ", "");
-                text = text.Replace("定时器到达", "a"); // Is_Timer_Ticking
-                text = text.Replace("血量小于", "b");
-                text = text.Replace("战斗开始", "c");
-                text = text.Replace("随机事件", "d");
-                text = text.Replace("目标已死", "e");
-                text = text.Replace("||", "f");
-                text = text.Replace("&&", "g");
-                text = text.Replace("本身被杀", "h");
-                text = text.Replace("路径到达终点", "i");
-                text = text.Replace("人数超过", "j");
-                text = text.Replace("距离超过", "k");
-                text = text.Replace("未知条件12", "l");
-                text = text.Replace("未知条件13", "m");
-                text = text.Replace("未知条件14", "n");
-                text = text.Replace("未知条件15", "o");
-                text = text.Replace("变量值", "q");
-                text = text.Replace("变量", "p");
-                text = text.Replace("排行榜", "r");
-                text = text.Replace("怪已刷出", "s");
-                text = text.Replace("被技能击中", "t");
+                text = text.Replace("Is_Timer_Ticking", "a"); // Is_Timer_Ticking[0]
+                text = text.Replace("Is_HP_Less", "b"); // Is_HP_Less[0.00]
+                text = text.Replace("Is_Combat_Started", "c"); // Is_Combat_Started[]
+                text = text.Replace("Randomize", "d"); // Randomize[0.00]
+                text = text.Replace("Is_Target_Dead", "e"); // Is_Target_Dead[]
+                text = text.Replace("||", "f"); // OR
+                text = text.Replace("&&", "g"); // AND
+                text = text.Replace("Is_Dead", "h"); // Is_Dead[]
+                text = text.Replace("Path_To", "i"); // Path_To[0]
+                text = text.Replace("More_Than", "j"); // More_Than[0]
+                text = text.Replace("Distance_To", "k"); // Distance_To[0.00]
+                text = text.Replace("Unknown12", "l"); // Unknown12[]
+                text = text.Replace("Unknown13", "m"); // Unknown13[]
+                text = text.Replace("Unknown14", "n"); // Unknown14[]
+                text = text.Replace("Unknown15", "o"); // Unknown15[]
+                text = text.Replace("Variable_Value", "q"); // Variable_Value[0]
+                text = text.Replace("Variable", "p"); // Variable[0]
+                text = text.Replace("Rank", "r"); // Rank[0]
+                text = text.Replace("NPC_Vent", "s"); //  NPC_Vent[]
+                text = text.Replace("Cast_Skill", "t"); // Cast_Skill[0]
+                //text = text.Replace("Public_Counter", "u"); // Public_Counter[0]
+                //text = text.Replace("Value", "v"); // Value[0]
+                //text = text.Replace("Is_Event", "w"); // Is_Event[]
                 text = text.Replace("【", "[");
                 text = text.Replace("】", "]");
                 text = text.Replace("！", "!");
@@ -4155,37 +4308,90 @@ namespace AIPolicy
                 text = text.Replace("）", ")");
                 text = text.Replace("[", "");
                 text = text.Replace("]", "");
-
-                if (!Program.IsMatch(text))
-                    MessageBox.Show(Resources.NoMatchCond);
-                else
-                {
-                    for (var i = 0; i < text.Length; i++)
-                    {
-                        var expr = text.Substring(i, 1);
-                        if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.IDOper(expr) >= 0)
-                            continue;
-                        MessageBox.Show(Resources.NoResolveCond + expr);
-                        return;
-                    }
-                    //if (JDSelected)
-                    //{
-                        AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = JDGetCondition(text);
-                        AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
-                            JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
-                    //}
-                    
-                    textBoxX_Condition.Clear();
-
-                    // Jade Dynasty
-                    if (JDSelected) textBoxX_Condition.Text = JDConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
-                    // Perfect World
-                    if (PWSelected) textBoxX_Condition.Text = PWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
-                    // Forsaken World
-                    if (FWSelected) textBoxX_Condition.Text = FWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
-                }
             }
-            else MessageBox.Show(Resources.NYA);
+
+            // Perfect World
+            if (PWSelected)
+            {
+                text = text.Replace(" ", "");
+                text = text.Replace("Is_Timer_Ticking", "a"); // Is_Timer_Ticking[0]
+                text = text.Replace("Is_HP_Less", "b"); // Is_HP_Less[0.00]
+                text = text.Replace("Is_Combat_Started", "c"); // Is_Combat_Started[]
+                text = text.Replace("Randomize", "d"); // Randomize[0.00]
+                text = text.Replace("Is_Target_Dead", "e"); // Is_Target_Dead[]
+                text = text.Replace("||", "f"); // OR
+                text = text.Replace("&&", "g"); // AND
+                text = text.Replace("Is_Dead", "h"); // Is_Dead[]
+                text = text.Replace("Public_Counter", "i"); // Public_Counter[0]
+                text = text.Replace("Value", "j"); // Value[0]
+                text = text.Replace("Is_Event", "k"); // Is_Event[]
+                text = text.Replace("【", "[");
+                text = text.Replace("】", "]");
+                text = text.Replace("！", "!");
+                text = text.Replace("１", "1");
+                text = text.Replace("２", "2");
+                text = text.Replace("３", "3");
+                text = text.Replace("４", "4");
+                text = text.Replace("５", "5");
+                text = text.Replace("６", "6");
+                text = text.Replace("７", "7");
+                text = text.Replace("８", "8");
+                text = text.Replace("９", "9");
+                text = text.Replace("０", "0");
+                text = text.Replace("。", ".");
+                text = text.Replace("（", "(");
+                text = text.Replace("）", ")");
+                text = text.Replace("[", "");
+                text = text.Replace("]", "");
+            }
+
+            if (!Program.IsMatch(text))
+                MessageBox.Show(Resources.NoMatchCond);
+            else
+            {
+                for (var i = 0; i < text.Length; i++)
+                {
+                    var expr = text.Substring(i, 1);
+                    if (JDSelected)
+                    {
+                        if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.JDIDOper(expr) >= 0)
+                            continue;
+                    }
+                    if (PWSelected)
+                    {
+                        if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.PWIDOper(expr) >= 0)
+                            continue;
+                    }
+                    //if (expr == "(" || expr == ")" ||  expr == "." || Program.IsNumber(expr) || Program.JDIDOper(expr) >= 0)
+                    //    continue;
+                    MessageBox.Show(Resources.NoResolveCond + expr);
+                    return;
+                }
+                if (JDSelected)
+                {
+                    AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = JDGetCondition(text);
+                    AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
+                        JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                }
+                if (PWSelected)
+                {
+                    AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = PWGetCondition(text);
+                    //AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
+                    //    JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                }
+                //AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition = JDGetCondition(text);
+                //AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition =
+                //    JDFixCondition(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                
+                textBoxX_Condition.Clear();
+                
+                // Jade Dynasty
+                if (JDSelected) textBoxX_Condition.Text = JDConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                // Perfect World
+                if (PWSelected) textBoxX_Condition.Text = PWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+                // Forsaken World
+                if (FWSelected) textBoxX_Condition.Text = FWConditionExpression(AI.ActionController[cSelectedIndex].ActionSet[asSelectedIndex].Condition);
+            }
         }
         
         private void ComboBoxExProcSelectedIndexChanged(object sender, EventArgs e)
@@ -4199,6 +4405,8 @@ namespace AIPolicy
             if (JDSelected) JDProcList();
             // Perfect World
             if (PWSelected) PWProcList();
+            // Forsaken World
+            if (FWSelected) FWProcList();
         }
 
         private void ButtonItemSaveClick(object sender, EventArgs e)
@@ -4282,12 +4490,17 @@ namespace AIPolicy
                 return;
             }
             JDSelected = true;
+            Program._jdState = true;
             PWSelected = false;
+            Program._pwState = false;
             FWSelected = false;
+            Program._fwState = false;
             labelItem_ModeImg.Image = Resources.JD2;
 
+            // Clear out the comboBox
             comboBoxEx_Proc.Items.Clear();
 
+            // Dynamically allocate all needed items
             var comboItem0 = new DevComponents.Editors.ComboItem();
             var comboItem1 = new DevComponents.Editors.ComboItem();
             var comboItem2 = new DevComponents.Editors.ComboItem();
@@ -4316,6 +4529,7 @@ namespace AIPolicy
             var comboItem25 = new DevComponents.Editors.ComboItem();
             var comboItem26 = new DevComponents.Editors.ComboItem();
 
+            // setup item values
             comboItem0.Text = Resources.Atk;
             comboItem0.FontStyle = FontStyle.Bold;
 
@@ -4349,13 +4563,13 @@ namespace AIPolicy
             comboItem10.Text = Resources.BeTaunted;
             comboItem10.FontStyle = FontStyle.Bold;
 
-            comboItem11.Text = Resources.Unk + Resources.ELEVEN;
+            comboItem11.Text = Resources.Unk + Resources.ONE + Resources.ONE;
             comboItem11.FontStyle = FontStyle.Bold;
 
             comboItem12.Text = Resources.FadeAggro;
             comboItem12.FontStyle = FontStyle.Bold;
 
-            comboItem13.Text = Resources.Unk + Resources.THIRTEEN;
+            comboItem13.Text = Resources.Unk + Resources.ONE + Resources.THREE;
             comboItem13.FontStyle = FontStyle.Bold;
 
             comboItem14.Text = Resources.Trigger;
@@ -4364,7 +4578,7 @@ namespace AIPolicy
             comboItem15.Text = Resources.SumMob;
             comboItem15.FontStyle = FontStyle.Bold;
 
-            comboItem16.Text = Resources.Unk + Resources.SIXTEEN;
+            comboItem16.Text = Resources.Unk + Resources.ONE + Resources.SIX;
             comboItem16.FontStyle = FontStyle.Bold;
 
             comboItem17.Text = Resources.SetPath;
@@ -4397,6 +4611,7 @@ namespace AIPolicy
             comboItem26.Text = Resources.Warsoul;
             comboItem26.FontStyle = FontStyle.Bold;
 
+            // add created range to comboBox
             comboBoxEx_Proc.Items.AddRange(new object[]
             {
                 comboItem0,
@@ -4427,8 +4642,96 @@ namespace AIPolicy
                 comboItem25,
                 comboItem26
             });
-
+            // list procedures
             JDProcList();
+
+            // clear out condition expressions
+            comboBoxEx_CondEx.Items.Clear();
+
+            // Dynamically allocate all needed items
+            var comboItemx0 = new DevComponents.Editors.ComboItem();   // <BLANK>
+            var comboItemx1 = new DevComponents.Editors.ComboItem();   // Is_Timer_Ticking[0]
+            var comboItemx2 = new DevComponents.Editors.ComboItem();   // Is_HP_Less[0.00]
+            var comboItemx3 = new DevComponents.Editors.ComboItem();   // Is_Combat_Started[]
+            var comboItemx4 = new DevComponents.Editors.ComboItem();   // Randomize[0]
+            var comboItemx5 = new DevComponents.Editors.ComboItem();   // Is_Target_Dead[]
+            var comboItemx6 = new DevComponents.Editors.ComboItem();   // Is_Dead[]
+            var comboItemx7 = new DevComponents.Editors.ComboItem();   // Path_To[0]
+            var comboItemx8 = new DevComponents.Editors.ComboItem();   // More_Than[0]
+            var comboItemx9 = new DevComponents.Editors.ComboItem();   // Distance_To[0.00]
+            var comboItemx10 = new DevComponents.Editors.ComboItem();  // Unknown12[]
+            var comboItemx11 = new DevComponents.Editors.ComboItem();  // Unknown13[]
+            var comboItemx12 = new DevComponents.Editors.ComboItem();  // Unknown14[]
+            var comboItemx13 = new DevComponents.Editors.ComboItem();  // Unknown15[]
+            var comboItemx14 = new DevComponents.Editors.ComboItem();  // Variable[0]
+            var comboItemx15 = new DevComponents.Editors.ComboItem();  // Variable_Value[0]
+            var comboItemx16 = new DevComponents.Editors.ComboItem();  // Rank[0]
+            var comboItemx17 = new DevComponents.Editors.ComboItem();  // NPC_Vent[]
+            var comboItemx18 = new DevComponents.Editors.ComboItem();  // Cast_Skill[0]
+
+            // setup item values
+            comboItemx0.Text = "";                          // <BLANK>
+            comboItemx0.FontStyle = FontStyle.Bold;
+            comboItemx1.Text = Resources.IsTimerTicking;    // Is_Timer_Ticking[0]
+            comboItemx1.FontStyle = FontStyle.Bold;
+            comboItemx2.Text = Resources.IsHPLess;          // Is_HP_Less[0.00]
+            comboItemx2.FontStyle = FontStyle.Bold;
+            comboItemx3.Text = Resources.IsCombatStarted;   // Is_Combat_Started[]
+            comboItemx3.FontStyle = FontStyle.Bold;
+            comboItemx4.Text = Resources.Randomize;         // Randomize[0]
+            comboItemx4.FontStyle = FontStyle.Bold;
+            comboItemx5.Text = Resources.IsTargetDead;      // Is_Target_Dead[]
+            comboItemx5.FontStyle = FontStyle.Bold;
+            comboItemx6.Text = Resources.IsDead;            // Is_Dead[]
+            comboItemx6.FontStyle = FontStyle.Bold;
+            comboItemx7.Text = Resources.PathTo;            // Path_To[0]
+            comboItemx7.FontStyle = FontStyle.Bold;
+            comboItemx8.Text = Resources.MoreThan;          // More_Than[0]
+            comboItemx8.FontStyle = FontStyle.Bold;
+            comboItemx9.Text = Resources.DistanceTo;        // Distance_To[0.00]
+            comboItemx9.FontStyle = FontStyle.Bold;
+            comboItemx10.Text = Resources.Unk + Resources.ONE + Resources.TWO;    // Unknown12[]
+            comboItemx10.FontStyle = FontStyle.Bold;
+            comboItemx11.Text = Resources.Unk + Resources.ONE + Resources.THREE;  // Unknown13[]
+            comboItemx11.FontStyle = FontStyle.Bold;
+            comboItemx12.Text = Resources.Unk + Resources.ONE + Resources.FOUR;   // Unknown14[]
+            comboItemx12.FontStyle = FontStyle.Bold;
+            comboItemx13.Text = Resources.Unk + Resources.ONE + Resources.FIVE;   // Unknown15[]
+            comboItemx13.FontStyle = FontStyle.Bold;
+            comboItemx14.Text = Resources.Variable;         // Variable[0]
+            comboItemx14.FontStyle = FontStyle.Bold;
+            comboItemx15.Text = Resources.VariableValue;    // Variable_Value[0]
+            comboItemx15.FontStyle = FontStyle.Bold;
+            comboItemx16.Text = Resources.Rank;             // Rank[0]
+            comboItemx16.FontStyle = FontStyle.Bold;
+            comboItemx17.Text = Resources.NPCVent;          // NPC_Vent[]
+            comboItemx17.FontStyle = FontStyle.Bold;
+            comboItemx18.Text = Resources.CastSkill;        // Cast_Skill[0]
+            comboItemx18.FontStyle = FontStyle.Bold;
+
+            // add created range to comboBox
+            comboBoxEx_CondEx.Items.AddRange(new object[]
+            {
+                comboItemx0,
+                comboItemx1,
+                comboItemx2,
+                comboItemx3,
+                comboItemx4,
+                comboItemx5,
+                comboItemx6,
+                comboItemx7,
+                comboItemx8,
+                comboItemx9,
+                comboItemx10,
+                comboItemx11,
+                comboItemx12,
+                comboItemx13,
+                comboItemx14,
+                comboItemx15,
+                comboItemx16,
+                comboItemx17,
+                comboItemx18
+            });
         }
 
         private void ButtonItemPWClick(object sender, EventArgs e)
@@ -4439,8 +4742,11 @@ namespace AIPolicy
                 return;
             }
             JDSelected = false;
+            Program._jdState = false;
             PWSelected = true;
+            Program._pwState = true;
             FWSelected = false;
+            Program._fwState = false;
             labelItem_ModeImg.Image = Resources.PW1;
 
             comboBoxEx_Proc.Items.Clear();
@@ -4465,66 +4771,50 @@ namespace AIPolicy
             var comboItem17 = new DevComponents.Editors.ComboItem();
             var comboItem18 = new DevComponents.Editors.ComboItem();
             var comboItem19 = new DevComponents.Editors.ComboItem();
+            var comboItem20 = new DevComponents.Editors.ComboItem();
             
             comboItem0.Text = Resources.Atk;
             comboItem0.FontStyle = FontStyle.Bold;
-
             comboItem1.Text = Resources.CastSkill;
             comboItem1.FontStyle = FontStyle.Bold;
-
             comboItem2.Text = Resources.Broadcast;
             comboItem2.FontStyle = FontStyle.Bold;
-
             comboItem3.Text = Resources.ResetAggro;
             comboItem3.FontStyle = FontStyle.Bold;
-
             comboItem4.Text = Resources.Exec_AS;
             comboItem4.FontStyle = FontStyle.Bold;
-
             comboItem5.Text = Resources.DisableAS;
             comboItem5.FontStyle = FontStyle.Bold;
-
             comboItem6.Text = Resources.EnableAS;
             comboItem6.FontStyle = FontStyle.Bold;
-
             comboItem7.Text = Resources.CreateTimer;
             comboItem7.FontStyle = FontStyle.Bold;
-
             comboItem8.Text = Resources.DelTimer;
             comboItem8.FontStyle = FontStyle.Bold;
-
             comboItem9.Text = Resources.Flee;
             comboItem9.FontStyle = FontStyle.Bold;
-
             comboItem10.Text = Resources.BeTaunted;
             comboItem10.FontStyle = FontStyle.Bold;
-
             comboItem11.Text = Resources.FadeTarget;
             comboItem11.FontStyle = FontStyle.Bold;
-
             comboItem12.Text = Resources.FadeAggro;
             comboItem12.FontStyle = FontStyle.Bold;
-
             comboItem13.Text = Resources.Break;
             comboItem13.FontStyle = FontStyle.Bold;
-
             comboItem14.Text = Resources.NPCGenerator;
             comboItem14.FontStyle = FontStyle.Bold;
-
             comboItem15.Text = Resources.InitPubCount;
             comboItem15.FontStyle = FontStyle.Bold;
-
             comboItem16.Text = Resources.IncPubCount;
             comboItem16.FontStyle = FontStyle.Bold;
-
             comboItem17.Text = Resources.NPCSpawn;
             comboItem17.FontStyle = FontStyle.Bold;
-
             comboItem18.Text = Resources.ChangePath;
             comboItem18.FontStyle = FontStyle.Bold;
-
             comboItem19.Text = Resources.PlayAction;
             comboItem19.FontStyle = FontStyle.Bold;
+            comboItem20.Text = Resources.Broadcast;
+            comboItem20.FontStyle = FontStyle.Bold;
 
             comboBoxEx_Proc.Items.AddRange(new object[]
             {
@@ -4537,20 +4827,62 @@ namespace AIPolicy
                 comboItem6,
                 comboItem7,
                 comboItem8,
-                comboItem9,
-                comboItem10,
-                comboItem11,
-                comboItem12,
-                comboItem13,
-                comboItem14,
-                comboItem15,
-                comboItem16,
-                comboItem17,
-                comboItem18,
-                comboItem19
+                comboItem9
             });
 
             PWProcList();
+
+            // clear out condition expressions
+            comboBoxEx_CondEx.Items.Clear();
+
+            // Dynamically allocate all needed items
+            var comboItemx0 = new DevComponents.Editors.ComboItem();   // <BLANK>
+            var comboItemx1 = new DevComponents.Editors.ComboItem();   // Is_Timer_Ticking[0]
+            var comboItemx2 = new DevComponents.Editors.ComboItem();   // Is_HP_Less[0.00]
+            var comboItemx3 = new DevComponents.Editors.ComboItem();   // Is_Combat_Started[]
+            var comboItemx4 = new DevComponents.Editors.ComboItem();   // Randomize[0.00]
+            var comboItemx5 = new DevComponents.Editors.ComboItem();   // Is_Target_Dead[]
+            var comboItemx6 = new DevComponents.Editors.ComboItem();   // Is_Dead[]
+            var comboItemx7 = new DevComponents.Editors.ComboItem();   // Public_Counter[0]
+            var comboItemx8 = new DevComponents.Editors.ComboItem();   // Value[0]
+            var comboItemx9 = new DevComponents.Editors.ComboItem();   // Is_Event?
+            
+            // setup item values
+            comboItemx0.Text = "";                         // <BLANK>
+            comboItemx0.FontStyle = FontStyle.Bold;
+            comboItemx1.Text = Resources.IsTimerTicking;   // Is_Timer_Ticking[0]
+            comboItemx1.FontStyle = FontStyle.Bold;
+            comboItemx2.Text = Resources.IsHPLess;         // Is_HP_Less[0.00]
+            comboItemx2.FontStyle = FontStyle.Bold;
+            comboItemx3.Text = Resources.IsCombatStarted;  // Is_Combat_Started[]
+            comboItemx3.FontStyle = FontStyle.Bold;
+            comboItemx4.Text = Resources.Randomize;        // Randomize[0.00]
+            comboItemx4.FontStyle = FontStyle.Bold;
+            comboItemx5.Text = Resources.IsTargetDead;     // Is_Target_Dead[]
+            comboItemx5.FontStyle = FontStyle.Bold;
+            comboItemx6.Text = Resources.IsDead;           // Is_Dead[]
+            comboItemx6.FontStyle = FontStyle.Bold;
+            comboItemx7.Text = Resources.PubCtr;           // Public_Counter[0]
+            comboItemx7.FontStyle = FontStyle.Bold;
+            comboItemx8.Text = Resources.Value;            // Value[0]
+            comboItemx8.FontStyle = FontStyle.Bold;
+            comboItemx9.Text = Resources.IsEvent;          // Is_Event?
+            comboItemx9.FontStyle = FontStyle.Bold;
+            
+            // add created range to comboBox
+            comboBoxEx_CondEx.Items.AddRange(new object[]
+            {
+                comboItemx0,
+                comboItemx1,
+                comboItemx2,
+                comboItemx3,
+                comboItemx4,
+                comboItemx5,
+                comboItemx6,
+                comboItemx7,
+                comboItemx8,
+                comboItemx9
+            });
         }
 
         private void ButtonItemFWClick(object sender, EventArgs e)
@@ -4561,8 +4893,11 @@ namespace AIPolicy
                 return;
             }
             JDSelected = false;
+            Program._jdState = false;
             PWSelected = false;
+            Program._pwState = false;
             FWSelected = true;
+            Program._fwState = true;
             labelItem_ModeImg.Image = Resources.FW2;
 
             comboBoxEx_Proc.Items.Clear();
@@ -4635,7 +4970,7 @@ namespace AIPolicy
             comboItem12.Text = Resources.NA;
             comboItem12.FontStyle = FontStyle.Bold;
 
-            comboItem13.Text = Resources.Unk + Resources.THIRTEEN;
+            comboItem13.Text = Resources.Unk + Resources.ONE + Resources.THREE;
             comboItem13.FontStyle = FontStyle.Bold;
 
             comboItem14.Text = Resources.NPCGenerator;
@@ -4644,16 +4979,16 @@ namespace AIPolicy
             comboItem15.Text = Resources.SumMob;
             comboItem15.FontStyle = FontStyle.Bold;
 
-            comboItem16.Text = Resources.Unk + Resources.SIXTEEN;
+            comboItem16.Text = Resources.Unk + Resources.ONE + Resources.THREE;
             comboItem16.FontStyle = FontStyle.Bold;
 
-            comboItem17.Text = Resources.Unk + Resources.SEVENTEEN;
+            comboItem17.Text = Resources.Unk + Resources.ONE + Resources.SEVEN;
             comboItem17.FontStyle = FontStyle.Bold;
 
             comboItem18.Text = Resources.Disappear;
             comboItem18.FontStyle = FontStyle.Bold;
 
-            comboItem19.Text = Resources.Unk + Resources.NINETEEN;
+            comboItem19.Text = Resources.Unk + Resources.ONE + Resources.NINE;
             comboItem19.FontStyle = FontStyle.Bold;
 
             comboItem20.Text = Resources.NA;
@@ -4668,16 +5003,16 @@ namespace AIPolicy
             comboItem23.Text = Resources.AddValue;
             comboItem23.FontStyle = FontStyle.Bold;
 
-            comboItem24.Text = Resources.Unk + Resources.TWOFOUR;
+            comboItem24.Text = Resources.Unk + Resources.TWO + Resources.FOUR;
             comboItem24.FontStyle = FontStyle.Bold;
 
-            comboItem25.Text = Resources.Unk + Resources.TWOFIVE;
+            comboItem25.Text = Resources.Unk + Resources.TWO + Resources.FIVE;
             comboItem25.FontStyle = FontStyle.Bold;
 
-            comboItem26.Text = Resources.Unk + Resources.TWOSIX;
+            comboItem26.Text = Resources.Unk + Resources.TWO + Resources.SIX;
             comboItem26.FontStyle = FontStyle.Bold;
 
-            comboItem27.Text = Resources.Unk + Resources.TWOSEVEN;
+            comboItem27.Text = Resources.Unk + Resources.TWO + Resources.SEVEN;
             comboItem27.FontStyle = FontStyle.Bold;
 
             comboBoxEx_Proc.Items.AddRange(new object[]
@@ -4713,6 +5048,107 @@ namespace AIPolicy
             });
 
             FWProcList();
+
+            // clear out condition expressions
+            comboBoxEx_CondEx.Items.Clear();
+
+            // Dynamically allocate all needed items
+            var comboItemx0 = new DevComponents.Editors.ComboItem();
+            var comboItemx1 = new DevComponents.Editors.ComboItem();
+            var comboItemx2 = new DevComponents.Editors.ComboItem();
+            var comboItemx3 = new DevComponents.Editors.ComboItem();
+            var comboItemx4 = new DevComponents.Editors.ComboItem();
+            var comboItemx5 = new DevComponents.Editors.ComboItem();
+            var comboItemx6 = new DevComponents.Editors.ComboItem();
+            var comboItemx7 = new DevComponents.Editors.ComboItem();
+            var comboItemx8 = new DevComponents.Editors.ComboItem();
+            var comboItemx9 = new DevComponents.Editors.ComboItem();
+            var comboItemx10 = new DevComponents.Editors.ComboItem();
+            var comboItemx11 = new DevComponents.Editors.ComboItem();
+            var comboItemx12 = new DevComponents.Editors.ComboItem();
+            var comboItemx13 = new DevComponents.Editors.ComboItem();
+            var comboItemx14 = new DevComponents.Editors.ComboItem();
+            var comboItemx15 = new DevComponents.Editors.ComboItem();
+            var comboItemx16 = new DevComponents.Editors.ComboItem();
+            var comboItemx17 = new DevComponents.Editors.ComboItem();
+
+            // setup item values
+            comboItemx0.Text = Resources.Atk;
+            comboItemx0.FontStyle = FontStyle.Bold;
+
+            comboItemx1.Text = Resources.CastSkill;
+            comboItemx1.FontStyle = FontStyle.Bold;
+
+            comboItemx2.Text = Resources.Broadcast;
+            comboItemx2.FontStyle = FontStyle.Bold;
+
+            comboItemx3.Text = Resources.ResetAggro;
+            comboItemx3.FontStyle = FontStyle.Bold;
+
+            comboItemx4.Text = Resources.Exec_AS;
+            comboItemx4.FontStyle = FontStyle.Bold;
+
+            comboItemx5.Text = Resources.DisableAS;
+            comboItemx5.FontStyle = FontStyle.Bold;
+
+            comboItemx6.Text = Resources.EnableAS;
+            comboItemx6.FontStyle = FontStyle.Bold;
+
+            comboItemx7.Text = Resources.CreateTimer;
+            comboItemx7.FontStyle = FontStyle.Bold;
+
+            comboItemx8.Text = Resources.DelTimer;
+            comboItemx8.FontStyle = FontStyle.Bold;
+
+            comboItemx9.Text = Resources.Flee;
+            comboItemx9.FontStyle = FontStyle.Bold;
+
+            comboItemx10.Text = Resources.BeTaunted;
+            comboItemx10.FontStyle = FontStyle.Bold;
+
+            comboItemx11.Text = Resources.Unk + Resources.ONE + Resources.ONE;
+            comboItemx11.FontStyle = FontStyle.Bold;
+
+            comboItemx12.Text = Resources.FadeAggro;
+            comboItemx12.FontStyle = FontStyle.Bold;
+
+            comboItemx13.Text = Resources.Unk + Resources.ONE + Resources.THREE;
+            comboItemx13.FontStyle = FontStyle.Bold;
+
+            comboItemx14.Text = Resources.Trigger;
+            comboItemx14.FontStyle = FontStyle.Bold;
+
+            comboItemx15.Text = Resources.SumMob;
+            comboItemx15.FontStyle = FontStyle.Bold;
+
+            comboItemx16.Text = Resources.Unk + Resources.ONE + Resources.SIX;
+            comboItemx16.FontStyle = FontStyle.Bold;
+
+            comboItemx17.Text = Resources.SetPath;
+            comboItemx17.FontStyle = FontStyle.Bold;
+
+            // add created range to comboBox
+            comboBoxEx_CondEx.Items.AddRange(new object[]
+            {
+                comboItemx0,
+                comboItemx1,
+                comboItemx2,
+                comboItemx3,
+                comboItemx4,
+                comboItemx5,
+                comboItemx6,
+                comboItemx7,
+                comboItemx8,
+                comboItemx9,
+                comboItemx10,
+                comboItemx11,
+                comboItemx12,
+                comboItemx13,
+                comboItemx14,
+                comboItemx15,
+                comboItemx16,
+                comboItemx17
+            });
         }
 
         private void ButtonItemMenuSaveClick(object sender, EventArgs e)
@@ -4744,7 +5180,7 @@ namespace AIPolicy
 
         private void ButtonXMsgCancelClick(object sender, EventArgs e)
         {
-            panelEx_Target.Visible = false;
+            panelEx_Msg.Visible = false;
         }
 
         // Target "Editor"
@@ -4765,32 +5201,596 @@ namespace AIPolicy
         }
 
         // Condition "Editor"
-        private void GroupPanelConditionClick(object sender, EventArgs e)
-        {
-            panelEx_CondEdit.Visible = true;
-        }
-
         private void LabelXClickMeClick(object sender, EventArgs e)
         {
-            GroupPanelConditionClick(sender, e);
+            comboBoxEx_CondEx.Text = "";
+            textBoxX_Exp.Text = "";
+            Encode = "";
+            panelEx_CondCalc.Visible = true;
         }
 
         private void ButtonXCondEdOKClick(object sender, EventArgs e)
         {
-            panelEx_CondEdit.Visible = false;
+            // Clear Hint/Example
+            labelX_HintText.Text = "";
+            labelX_Hint.Visible = false;
+            labelX_ExampleText.Text = "";
+            labelX_Example.Visible = false;
+            // Transfer Encoded to textbox
+            textBoxX_Condition.Text = Encode;
+            panelEx_CondCalc.Visible = false;
         }
 
         private void ButtonXCondEdCancelClick(object sender, EventArgs e)
         {
-            panelEx_CondEdit.Visible = false;
+            labelX_HintText.Text = "";
+            labelX_Hint.Visible = false;
+            labelX_ExampleText.Text = "";
+            labelX_Example.Visible = false;
+            Encode = "";
+            panelEx_CondCalc.Visible = false;
         }
 
         private void ComboBoxExCondEdSelectedIndexChanged(object sender, EventArgs e)
         {
+            // Clear Hint/Example
+            labelX_HintText.Text = "";
+            labelX_Hint.Visible = false;
+            labelX_ExampleText.Text = "";
+            labelX_Example.Visible = false;
+            // Set undo buffer
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            // Set condition in textbox
+            textBoxX_Exp.Text += comboBoxEx_CondEx.Text;
+
+            // Is_Timer_Ticking[x]
+            if (comboBoxEx_CondEx.Text == Resources.IsTimerTicking)
+            {
+                // Give Hint/Example
+                labelX_Hint.Visible = true;
+                labelX_HintText.Text = Resources.ITT1P;
+                labelX_Example.Visible = true;
+                labelX_ExampleText.Text = Resources.ITTEx;
+                // Encode
+                Encode += "a";
+            }
+
+            // Is_HP_Less[x]
+            if (comboBoxEx_CondEx.Text == Resources.IsHPLess)
+            {
+                // Give Hint/Example
+                labelX_Hint.Visible = true;
+                labelX_HintText.Text = Resources.IHPL1P;
+                labelX_Example.Visible = true;
+                labelX_ExampleText.Text = Resources.IHPLEx;
+                // Encode
+                Encode += "b";
+            }
+
+            // Is_Combat_Started[]
+            if (comboBoxEx_CondEx.Text == Resources.IsCombatStarted)
+            {
+                // Give Hint/Example
+                labelX_Hint.Visible = true;
+                labelX_HintText.Text = Resources.ICS;
+                labelX_Example.Visible = true;
+                labelX_ExampleText.Text = Resources.ICSEx;
+                // Encode
+                Encode += "c[]";
+            }
+
+            // Randomize[x]
+            if (comboBoxEx_CondEx.Text == Resources.Randomize)
+            {
+                // Give Hint/Example
+                labelX_Hint.Visible = true;
+                labelX_HintText.Text = Resources.R1P;
+                labelX_Example.Visible = true;
+                labelX_ExampleText.Text = Resources.R1PEx;
+                // Encode
+                Encode += "d";
+            }
+            // Is_Target_Dead[]
+            if (comboBoxEx_CondEx.Text == Resources.IsTargetDead)
+            {
+                // Give Hint/Example
+                labelX_Hint.Visible = true;
+                labelX_HintText.Text = Resources.ITD;
+                labelX_Example.Visible = true;
+                labelX_ExampleText.Text = Resources.ITDEx;
+                // Encode
+                Encode += "e[]";
+            }
+
+            // Is_Dead[]
+            if (comboBoxEx_CondEx.Text == Resources.IsDead)
+            {
+                // Give Hint/Example
+                labelX_Hint.Visible = true;
+                labelX_HintText.Text = Resources.IDnoP;
+                labelX_Example.Visible = true;
+                labelX_ExampleText.Text = Resources.IDnoPEx;
+                // Encode
+                Encode += "h[]";
+            }
+
+            // Perfect World - Public_Counter[x]
+            if (PWSelected)
+            {
+                if (comboBoxEx_CondEx.Text == Resources.PubCtr)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.PC1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.PC1PEx;
+                    // Encode
+                    Encode += "i";
+                }
+
+                // Perfect World - Value[0]
+                if (comboBoxEx_CondEx.Text == Resources.Value)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.V1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.V1PEx;
+                    // Encode
+                    Encode += "j";
+                }
+
+                // Perfect World - Is_Event[]
+                if (comboBoxEx_CondEx.Text == Resources.IsEvent)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.IE;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.IEEx;
+                    // Encode
+                    Encode += "k[]";
+                }
+            } // End Perfect World
+
+            // Jade Dynasty
+            if (JDSelected)
+            {
+                // Jade Dynasty - Path_To[0]
+                if (comboBoxEx_CondEx.Text == Resources.PathTo)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.PT1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.PT1PEx;
+                    // Encode
+                    Encode += "i";
+                }
+
+                // Jade Dynasty - More_Than[0]
+                if (comboBoxEx_CondEx.Text == Resources.MoreThan)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.MT1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.MT1PEx;
+                    // Encode
+                    Encode += "j";
+                }
+
+                // Jade Dynasty - Distance_To[0.00]
+                if (comboBoxEx_CondEx.Text == Resources.DistanceTo)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.DT1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.DT1PEx;
+                    // Encode
+                    Encode += "k";
+                }
+
+                // Jade Dynasty - Unknown12[]
+                if (comboBoxEx_CondEx.Text == Resources.Unk + Resources.ONE + Resources.TWO)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.U12;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.U12Ex;
+                    // Encode
+                    Encode += "l[]";
+                }
+
+                // Jade Dynasty - Unknown13[]
+                if (comboBoxEx_CondEx.Text == Resources.Unk + Resources.ONE + Resources.THREE)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.U13;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.U13Ex;
+                    // Encode
+                    Encode += "m[]";
+                }
+
+                // Jade Dynasty - Unknown14[]
+                if (comboBoxEx_CondEx.Text == Resources.Unk + Resources.ONE + Resources.FOUR)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.U14;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.U14Ex;
+                    // Encode
+                    Encode += "n[]";
+                }
+
+                // Jade Dynasty - Unknown15[]
+                if (comboBoxEx_CondEx.Text == Resources.Unk + Resources.ONE + Resources.FIVE)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.U15;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.U15Ex;
+                    // Encode
+                    Encode += "o[]";
+                }
+
+                // Jade Dynasty - Variable_Value[0]
+                if (comboBoxEx_CondEx.Text == Resources.VariableValue)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.VV1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.VV1PEx;
+                    // Encode
+                    Encode += "q";
+                }
+
+                // Jade Dynasty - Variable[0]
+                if (comboBoxEx_CondEx.Text == Resources.Variable)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.Var1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.Var1PEx;
+                    // Encode
+                    Encode += "p";
+                }
+
+                // Jade Dynasty - Rank[0]
+                if (comboBoxEx_CondEx.Text == Resources.Rank)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.Ra1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.Ra1PEx;
+                    // Encode
+                    Encode += "r";
+                }
+
+                // Jade Dynasty - NPC_Vent[0]
+                if (comboBoxEx_CondEx.Text == Resources.NPCVent)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.NPCV;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.NPCVEx;
+                    // Encode
+                    Encode += "s[]";
+                }
+
+                // Jade Dynasty - Cast_Skill[0]
+                if (comboBoxEx_CondEx.Text == Resources.CastSkill)
+                {
+                    // Give Hint/Example
+                    labelX_Hint.Visible = true;
+                    labelX_HintText.Text = Resources.CS1P;
+                    labelX_Example.Visible = true;
+                    labelX_ExampleText.Text = Resources.CS1PEx;
+                    // Encode
+                    Encode += "t";
+                }
+            }
+
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
         }
 
-        private void ButtonXCreateCondClick(object sender, EventArgs e)
+        // Condition Keys
+        private void ButtonXKey0Click(object sender, EventArgs e)
         {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.ZERO;
+            Encode += Resources.ZERO;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey1Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.ONE;
+            Encode += Resources.ONE;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey2Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.TWO;
+            Encode += Resources.TWO;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey3Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.THREE;
+            Encode += Resources.THREE;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey4Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.FOUR;
+            Encode += Resources.FOUR;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey5Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.FIVE;
+            Encode += Resources.FIVE;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey6Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.SIX;
+            Encode += Resources.SIX;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey7Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.SEVEN;
+            Encode += Resources.SEVEN;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey8Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.EIGHT;
+            Encode += Resources.EIGHT;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKey9Click(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.NINE;
+            Encode += Resources.NINE;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXLThanClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.LTHAN;
+            Encode += Resources.LTHAN;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXMThanClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.MTHAN;
+            Encode += Resources.MTHAN;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyLParenClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.LPAREN;
+            Encode += Resources.LPAREN;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyRParenClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.RPAREN;
+            Encode += Resources.RPAREN;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyLBracketClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.LBRACKET;
+            Encode += Resources.LBRACKET;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyRBrackeyClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.RBRACKET;
+            Encode += Resources.RBRACKET;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyORClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.OR;
+            Encode += "f";
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyANDClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.AND;
+            Encode += "g";
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyNOTClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.NOT;
+            Encode += Resources.NOT;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyEqualsClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.EQUAL;
+            Encode += Resources.EQUAL;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyPointClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.POINT;
+            Encode += Resources.POINT;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyPlusClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.PLUS;
+            Encode += Resources.PLUS;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyMinusClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.MINUS;
+            Encode += Resources.MINUS;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
+        }
+
+        private void ButtonXKeyUndoClick(object sender, EventArgs e)
+        {
+            labelX_HintText.Text = "";
+            labelX_Hint.Visible = false;
+            labelX_ExampleText.Text = "";
+            labelX_Example.Visible = false;
+            if (undoBuffer.CanUndo)
+            {
+                undoBuffer.Undo();
+                encodeBuffer.Undo();
+            }
+            textBoxX_Exp.Text = undoBuffer.Value;
+            Encode = encodeBuffer.Value;
+        }
+
+        private void ButtonXKeyClearClick(object sender, EventArgs e)
+        {
+            if (textBoxX_Exp.Text == "") return;
+            while (undoBuffer.CanUndo)
+            {
+                undoBuffer.Undo();
+                encodeBuffer.Undo();
+            }
+            textBoxX_Exp.Text = undoBuffer.Value;
+            Encode = encodeBuffer.Value;
+            labelX_HintText.Text = "";
+            labelX_Hint.Visible = false;
+            labelX_ExampleText.Text = "";
+            labelX_Example.Visible = false;
+        }
+
+        private void ButtonXKeyRedoClick(object sender, EventArgs e)
+        {
+            labelX_HintText.Text = "";
+            labelX_Hint.Visible = false;
+            labelX_ExampleText.Text = "";
+            labelX_Example.Visible = false;
+            if (undoBuffer.CanRedo)
+            {
+                undoBuffer.Redo();
+                encodeBuffer.Redo();
+            }
+            textBoxX_Exp.Text = undoBuffer.Value;
+            Encode = encodeBuffer.Value;
+        }
+
+        private void ButtonXSpaceClick(object sender, EventArgs e)
+        {
+            undoBuffer.SaveState();
+            encodeBuffer.SaveState();
+            textBoxX_Exp.Text += Resources.SPACE;
+            Encode += Resources.SPACE;
+            undoBuffer.Value = textBoxX_Exp.Text;
+            encodeBuffer.Value = Encode;
         }
     }
 }

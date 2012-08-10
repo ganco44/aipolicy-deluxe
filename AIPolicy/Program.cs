@@ -5,9 +5,12 @@ using System.Windows.Forms;
 
 namespace AIPolicy
 {
-    public enum Target {AGGRO_MOST, AGGRO_LEAST, AGGRO_LEAST_RAND, MOST_HP, MOST_MP, LEAST_HP, TEAM, SELF};
     static class Program
     {
+        internal static bool _jdState;
+        internal static bool _pwState;
+        internal static bool _fwState;
+
         internal static string GetNumber(string s)
         {
             var num = -1;
@@ -27,43 +30,93 @@ namespace AIPolicy
 
         internal static int GetOperArgBytes(int operID)
         {
-            switch (operID)
+            // Jade Dynasty
+            if (_jdState)
             {
-                case 0:
-                case 1:
-                case 3:
-                case 9:
-                case 10:
-                case 11:
-                case 19:
-                case 20:
-                case 21:
-                case 23:
-                    return 4;
-                default:
-                    return 0;
+                switch (operID)
+                {
+                    case 0:
+                    case 1:
+                    case 3:
+                    case 9:
+                    case 10:
+                    case 11:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 23:
+                        return 4;
+                    default:
+                        return 0;
+                }
             }
+
+            // Perfect World
+            if (_pwState)
+            {
+                switch (operID)
+                {
+                    case 0:
+                    case 1:
+                    case 3:
+                    case 16:
+                    case 17:
+                        return 4;
+                    default:
+                        return 0;
+                }
+            }
+
+            // Forsaken World - TO DO
+            return 0;
         }
 
         internal static int GetOperPrime(int operID)
         {
-            switch (operID)
+            if (_jdState)
             {
+                switch (operID)
+                {
 
-                case 5:
-                    return 2;
-                case 6:
-                case 7:
-                case 16:
-                case 17:
-                case 18:
-                    return 1;
-                default:
-                    return 3;
+                    case 5:
+                        return 2;
+                    case 6:
+                    case 7:
+                    case 16:
+                    case 17:
+                    case 18:
+                        return 1;
+                    default:
+                        return 3;
+                }
             }
+
+            // Perfect World
+            if (_pwState)
+            {
+                switch (operID)
+                {
+
+                    case 5:
+                        return 2;
+                    case 6:
+                    case 7:
+                    case 9:
+                    case 10:
+                    case 11:
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                        return 1;
+                    default:
+                        return 3;
+                }
+            }
+            return 0;
         }
 
-        internal static int IDOper(string s)
+        internal static int JDIDOper(string s)
         {
             switch (s)
             {
@@ -116,6 +169,53 @@ namespace AIPolicy
                 case "t":
                     return 23;
                 default:
+                    return -1;
+            }
+        }
+
+        internal static int PWIDOper(string s)
+        {
+            switch (s)
+            {
+                case "a":        // Is_Timer_Ticking[0]
+                    return 0;
+                case "b":        // Is_HP_Less[0.00]
+                    return 1;
+                case "c":        // Is_Combat_Started[]
+                    return 2;
+                case "d":        // Randomize[0.00]
+                    return 3;
+                case "e":        // Is_Target_Dead[]
+                    return 4;
+                case "!":        // !
+                    return 5;
+                case "f":        // ||
+                    return 6;
+                case "g":        // &&
+                    return 7;
+                case "h":        // Is_Dead[]
+                    return 8;
+                case "+":        // +
+                    return 9;
+                case "-":        // -
+                    return 10;
+                case "==":        // ==
+                    return 11;
+                case ">=":        // >=
+                    return 12;
+                case "<=":        // <=
+                    return 13;
+                case "<":        // <
+                    return 14;
+                case ">":        // >
+                    return 15;
+                case "i":        // Public_Counter[0]
+                    return 16;
+                case "j":        // Value[0]
+                    return 17;
+                case "k":        // Is_Event[]
+                    return 18;                
+                default:        // 
                     return -1;
             }
         }
