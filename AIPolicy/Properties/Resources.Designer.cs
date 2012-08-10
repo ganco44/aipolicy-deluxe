@@ -1465,7 +1465,7 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search reached the nend of the file without results.
+        ///   Looks up a localized string similar to Search reached the end of the file without results.
         ///Try searching from the beginning (Controller 1)..
         /// </summary>
         internal static string SearchNoResults {

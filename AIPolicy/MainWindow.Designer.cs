@@ -1684,6 +1684,7 @@ namespace AIPolicy
             this.buttonX_FindNext.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_FindNext.TabIndex = 3;
             this.buttonX_FindNext.Text = "Find Next";
+            this.buttonX_FindNext.Click += new System.EventHandler(this.ButtonXFindNextClick);
             // 
             // textBoxX_SearchPattern
             // 
@@ -1731,12 +1732,13 @@ namespace AIPolicy
             this.comboBoxEx_Cat.Size = new System.Drawing.Size(179, 22);
             this.comboBoxEx_Cat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.comboBoxEx_Cat.TabIndex = 0;
+            this.comboBoxEx_Cat.SelectedIndexChanged += new System.EventHandler(this.ComboBoxExCatSelectedIndexChanged);
             // 
             // comboItem_AICtrl
             // 
             this.comboItem_AICtrl.FontSize = 10F;
             this.comboItem_AICtrl.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AICtrl.Text = "AI Control Link";
+            this.comboItem_AICtrl.Text = "AI Control";
             // 
             // comboItem_Conditions
             // 

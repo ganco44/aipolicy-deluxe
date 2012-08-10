@@ -5792,5 +5792,280 @@ namespace AIPolicy
             undoBuffer.Value = textBoxX_Exp.Text;
             encodeBuffer.Value = Encode;
         }
+
+        private void ButtonXFindNextClick(object sender, EventArgs e)
+        {
+            if (AI != null && comboBoxEx_Cat.SelectedIndex > -1)
+            {
+                var i = 0;
+                var j = 0;
+                var k = 0;
+
+                if (listBox_Controller.SelectedIndex > -1) i = listBox_Controller.SelectedIndex;
+
+                // Conditions
+                if (listBox_ActionSet.SelectedIndex > -1)
+                {
+                    j = listBox_ActionSet.SelectedIndex;
+                    if (comboBoxEx_Cat.SelectedItem.ToString() == "Conditions") j++;
+                }
+
+                // Procedures
+                if (listBox_Procedure.SelectedIndex > -1)
+                {
+                    k = listBox_Procedure.SelectedIndex;
+                    if (comboBoxEx_Cat.SelectedItem.ToString() == "Procedures") k++;
+                }
+
+                // AI Control
+                while (i < AI.ActionController.Length)
+                {
+                    if (comboBoxEx_Cat.SelectedItem.ToString() == "AI Control" &&
+                        comboBoxEx_SubCat.SelectedIndex > -1 && textBoxX_SearchPattern.Text != "")
+                    {
+                        var ndx = 0;
+
+                        if (comboBoxEx_SubCat.SelectedItem.ToString() == "Task")
+                        {
+                            MessageBox.Show("Task AI Control not found...");
+                            return;
+                        }
+
+                        if (comboBoxEx_SubCat.SelectedItem.ToString() == "Element NPC")
+                            ndx = Convert.ToInt32(textBoxX_SearchPattern.Text);
+
+                        if (AI.ActionController[i].ID == ndx)
+                        {
+                            listBox_Controller.SelectedIndex = i;
+                            return;
+                        }
+                    }
+
+                    while (j < AI.ActionController[i].ActionSet.Length)
+                    {
+                        // Jade Dynasty
+                        if (JDSelected)
+                        {
+                            // Conditions
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Conditions" && textBoxX_SearchPattern.Text != "" &&
+                                JDConditionExpression(AI.ActionController[i].ActionSet[j].Condition).Contains(textBoxX_SearchPattern.Text))
+                            {
+                                listBox_Controller.SelectedIndex = i;
+                                listBox_ActionSet.SelectedIndex = j;
+                                return;
+                            }
+
+                            // Procedures
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Procedures" && comboBoxEx_SubCat.SelectedIndex > -1)
+                            {
+                                while (k < AI.ActionController[i].ActionSet[j].Procedure.Length)
+                                {
+                                    if (AI.ActionController[i].ActionSet[j].Procedure[k].Type == comboBoxEx_SubCat.SelectedIndex &&
+                                        (textBoxX_SearchPattern.Text == "" ||
+                                        JDProcedureExpression(AI.ActionController[i].ActionSet[j].Procedure[k],
+                                        AI.ActionController[i].ActionSet[j].Version).Contains(textBoxX_SearchPattern.Text)))
+                                    {
+                                        listBox_Controller.SelectedIndex = i;
+                                        listBox_ActionSet.SelectedIndex = j;
+                                        listBox_Procedure.SelectedIndex = k;
+                                        return;
+                                    }
+                                    k++;
+                                }
+                                k = 0;
+                            }
+                            // Targets
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Targets" && comboBoxEx_SubCat.SelectedIndex > -1)
+                            {
+                                while (k < AI.ActionController[i].ActionSet[j].Procedure.Length)
+                                {
+                                    if (AI.ActionController[i].ActionSet[j].Procedure[k].Target == comboBoxEx_SubCat.SelectedIndex &&
+                                        (textBoxX_SearchPattern.Text == "" ||
+                                        JDProcedureExpression(AI.ActionController[i].ActionSet[j].Procedure[k],
+                                        AI.ActionController[i].ActionSet[j].Version).Contains(textBoxX_SearchPattern.Text)))
+                                    {
+                                        listBox_Controller.SelectedIndex = i;
+                                        listBox_ActionSet.SelectedIndex = j;
+                                        listBox_Procedure.SelectedIndex = k;
+                                        return;
+                                    }
+                                    k++;
+                                }
+                                k = 0;
+                            }
+                        }
+
+                        // Perfect World
+                        if (PWSelected)
+                        {
+                            // Conditions
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Conditions" && textBoxX_SearchPattern.Text != "" &&
+                                PWConditionExpression(AI.ActionController[i].ActionSet[j].Condition).Contains(textBoxX_SearchPattern.Text))
+                            {
+                                listBox_Controller.SelectedIndex = i;
+                                listBox_ActionSet.SelectedIndex = j;
+                                return;
+                            }
+
+                            // Procedures
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Procedures" && comboBoxEx_SubCat.SelectedIndex > -1)
+                            {
+                                while (k < AI.ActionController[i].ActionSet[j].Procedure.Length)
+                                {
+                                    if (AI.ActionController[i].ActionSet[j].Procedure[k].Type == comboBoxEx_SubCat.SelectedIndex &&
+                                        (textBoxX_SearchPattern.Text == "" ||
+                                        PWProcedureExpression(AI.ActionController[i].ActionSet[j].Procedure[k]).Contains(textBoxX_SearchPattern.Text)))
+                                    {
+                                        listBox_Controller.SelectedIndex = i;
+                                        listBox_ActionSet.SelectedIndex = j;
+                                        listBox_Procedure.SelectedIndex = k;
+                                        return;
+                                    }
+                                    k++;
+                                }
+                                k = 0;
+                            }
+
+                            // Targets
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Targets" && comboBoxEx_SubCat.SelectedIndex > -1)
+                            {
+                                while (k < AI.ActionController[i].ActionSet[j].Procedure.Length)
+                                {
+                                    if (AI.ActionController[i].ActionSet[j].Procedure[k].Target == comboBoxEx_SubCat.SelectedIndex &&
+                                        (textBoxX_SearchPattern.Text == "" ||
+                                        PWProcedureExpression(AI.ActionController[i].ActionSet[j].Procedure[k]).Contains(textBoxX_SearchPattern.Text)))
+                                    {
+                                        listBox_Controller.SelectedIndex = i;
+                                        listBox_ActionSet.SelectedIndex = j;
+                                        listBox_Procedure.SelectedIndex = k;
+                                        return;
+                                    }
+                                    k++;
+                                }
+                                k = 0;
+                            }
+                        }
+
+                        // Forsaken World
+                        if(FWSelected)
+                        {
+                            // Conditions
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Conditions" && textBoxX_SearchPattern.Text != "" &&
+                                FWConditionExpression(AI.ActionController[i].ActionSet[j].Condition).Contains(textBoxX_SearchPattern.Text))
+                            {
+                                listBox_Controller.SelectedIndex = i;
+                                listBox_ActionSet.SelectedIndex = j;
+                                return;
+                            }
+
+                            // Procedures
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Procedures" && comboBoxEx_SubCat.SelectedIndex > -1)
+                            {
+                                while (k < AI.ActionController[i].ActionSet[j].Procedure.Length)
+                                {
+                                    if (AI.ActionController[i].ActionSet[j].Procedure[k].Type == comboBoxEx_SubCat.SelectedIndex &&
+                                        (textBoxX_SearchPattern.Text == "" ||
+                                        FWProcedureExpression(AI.ActionController[i].ActionSet[j].Procedure[k]).Contains(textBoxX_SearchPattern.Text)))
+                                    {
+                                        listBox_Controller.SelectedIndex = i;
+                                        listBox_ActionSet.SelectedIndex = j;
+                                        listBox_Procedure.SelectedIndex = k;
+                                        return;
+                                    }
+                                    k++;
+                                }
+                                k = 0;
+                            }
+
+                            // Targets
+                            if (comboBoxEx_Cat.SelectedItem.ToString() == "Targets" && comboBoxEx_SubCat.SelectedIndex > -1)
+                            {
+                                while (k < AI.ActionController[i].ActionSet[j].Procedure.Length)
+                                {
+                                    if (AI.ActionController[i].ActionSet[j].Procedure[k].Target == comboBoxEx_SubCat.SelectedIndex &&
+                                        (textBoxX_SearchPattern.Text == "" ||
+                                        FWProcedureExpression(AI.ActionController[i].ActionSet[j].Procedure[k]).Contains(textBoxX_SearchPattern.Text)))
+                                    {
+                                        listBox_Controller.SelectedIndex = i;
+                                        listBox_ActionSet.SelectedIndex = j;
+                                        listBox_Procedure.SelectedIndex = k;
+                                        return;
+                                    }
+                                    k++;
+                                }
+                                k = 0;
+                            }
+                        }
+                        j++;
+                    }
+                    j = 0;
+                    i++;
+                }
+            }
+            MessageBox.Show(Resources.SearchNoResults);
+        }
+
+        private void ComboBoxExCatSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxEx_Cat.SelectedIndex <= -1) return;
+            comboBoxEx_SubCat.Items.Clear();
+            if (comboBoxEx_Cat.SelectedItem.ToString() == "Conditions")
+            {
+                comboBoxEx_SubCat.Items.Add("All");
+                comboBoxEx_SubCat.SelectedIndex = 0;
+            }
+            if (comboBoxEx_Cat.SelectedItem.ToString() == "AI Control")
+            {
+                var items = new object[]
+                {
+                    "Task",
+                    "Element NPC"
+                };
+                comboBoxEx_SubCat.Items.AddRange(items);
+                comboBoxEx_SubCat.SelectedIndex = 0;
+            }
+            if (comboBoxEx_Cat.SelectedItem.ToString() == "Procedures")
+            {
+                var items2 = new object[]
+                {
+                    "Attack",
+                    "Cast_Skill",
+                    "Broadcast_Message",
+                    "Reset_Aggro",
+                    "Execute_ActionSet",
+                    "Disable_ActionSet",
+                    "Enable_ActionSet",
+                    "Create_Timer",
+                    "Remove_Timer",
+                    "Run_Away",
+                    "Be_Taunted",
+                    "Fade_Target",
+                    "Fade_Aggro",
+                    "Break",
+                    "NPC_Generator",
+                    "Initialize_Public_Counter",
+                    "Increment_Public_Counter",
+                    "Player_Aimed_NPC_Spawn",
+                    "Change_Path",
+                    "Play_Action"
+                };
+                comboBoxEx_SubCat.Items.AddRange(items2);
+                comboBoxEx_SubCat.SelectedIndex = 0;
+            }
+            if (comboBoxEx_Cat.SelectedItem.ToString() != "Targets") return;
+            var items3 = new object[]
+            {
+                "AGGRO_MOST",
+                "AGGRO_LEAST",
+                "AGGRO_LEAST_RAND",
+                "MOST_HP",
+                "MOST_MP",
+                "LEAST_HP",
+                "CLASS_COMBO",
+                "SELF"
+            };
+            comboBoxEx_SubCat.Items.AddRange(items3);
+            comboBoxEx_SubCat.SelectedIndex = 0;
+        }
     }
 }

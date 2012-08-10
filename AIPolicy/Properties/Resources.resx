@@ -350,7 +350,7 @@ Please recheck.</value>
     <value>Refresh Range</value>
   </data>
   <data name="SearchNoResults" xml:space="preserve">
-    <value>Search reached the nend of the file without results.
+    <value>Search reached the end of the file without results.
 Try searching from the beginning (Controller 1).</value>
   </data>
   <data name="SetMobAttr" xml:space="preserve">
