@@ -1649,7 +1649,7 @@ namespace AIPolicy
                 case 3:
                     return Resources.Randomize;
                 case 4:
-                    return "Is_Target_Killed";
+                    return "Is_Target_Dead";
                 case 5:
                     return "!";
                 case 6:
