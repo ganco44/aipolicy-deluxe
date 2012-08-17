@@ -85,6 +85,7 @@
     <Compile Include="Condition.cs" />
     <Compile Include="IUndoable.cs" />
     <Compile Include="IUndoState.cs" />
+    <Compile Include="JDProcedure.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

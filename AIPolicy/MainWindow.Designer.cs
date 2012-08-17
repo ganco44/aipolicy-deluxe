@@ -58,7 +58,7 @@ namespace AIPolicy
             this.labelX_HintText = new DevComponents.DotNetBar.LabelX();
             this.labelX_Example = new DevComponents.DotNetBar.LabelX();
             this.labelX_Hint = new DevComponents.DotNetBar.LabelX();
-            this.buttonX_Space = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX_Comma = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_KeyRedo = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_KeyMinus = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_KeyPlus = new DevComponents.DotNetBar.ButtonX();
@@ -619,7 +619,7 @@ namespace AIPolicy
             this.panelEx_CondCalc.Controls.Add(this.labelX_HintText);
             this.panelEx_CondCalc.Controls.Add(this.labelX_Example);
             this.panelEx_CondCalc.Controls.Add(this.labelX_Hint);
-            this.panelEx_CondCalc.Controls.Add(this.buttonX_Space);
+            this.panelEx_CondCalc.Controls.Add(this.buttonX_Comma);
             this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyRedo);
             this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyMinus);
             this.panelEx_CondCalc.Controls.Add(this.buttonX_KeyPlus);
@@ -665,6 +665,7 @@ namespace AIPolicy
             this.panelEx_CondCalc.Style.GradientAngle = 90;
             this.panelEx_CondCalc.TabIndex = 16;
             this.panelEx_CondCalc.Visible = false;
+            this.panelEx_CondCalc.Click += new System.EventHandler(this.panelEx_CondCalc_Click);
             // 
             // labelX_ExampleText
             // 
@@ -722,16 +723,17 @@ namespace AIPolicy
             this.labelX_Hint.Text = "Hint:";
             this.labelX_Hint.Visible = false;
             // 
-            // buttonX_Space
+            // buttonX_Comma
             // 
-            this.buttonX_Space.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX_Space.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX_Space.Location = new System.Drawing.Point(116, 220);
-            this.buttonX_Space.Name = "buttonX_Space";
-            this.buttonX_Space.Size = new System.Drawing.Size(23, 23);
-            this.buttonX_Space.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX_Space.TabIndex = 35;
-            this.buttonX_Space.Click += new System.EventHandler(this.ButtonXSpaceClick);
+            this.buttonX_Comma.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_Comma.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_Comma.Location = new System.Drawing.Point(116, 220);
+            this.buttonX_Comma.Name = "buttonX_Comma";
+            this.buttonX_Comma.Size = new System.Drawing.Size(23, 23);
+            this.buttonX_Comma.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_Comma.TabIndex = 35;
+            this.buttonX_Comma.Text = ",";
+            this.buttonX_Comma.Click += new System.EventHandler(this.ButtonXSpaceClick);
             // 
             // buttonX_KeyRedo
             // 
@@ -1885,6 +1887,7 @@ namespace AIPolicy
             this.buttonItem_Save,
             this.buttonItem_Exit});
             this.buttonItem_File.Text = "&File";
+            this.buttonItem_File.Click += new System.EventHandler(this.buttonItem_File_Click);
             // 
             // buttonItem_Open
             // 
@@ -2261,19 +2264,19 @@ namespace AIPolicy
             // 
             this.comboItem_AggroMost.FontSize = 10F;
             this.comboItem_AggroMost.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AggroMost.Text = "AGGRO_MOST";
+            this.comboItem_AggroMost.Text = "AGGRO_FIRST";
             // 
             // comboItem_AggroLeast
             // 
             this.comboItem_AggroLeast.FontSize = 10F;
             this.comboItem_AggroLeast.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AggroLeast.Text = "AGGRO_LEAST";
+            this.comboItem_AggroLeast.Text = "AGGRO_SECOND";
             // 
             // comboItem_AggroLeastRand
             // 
             this.comboItem_AggroLeastRand.FontSize = 10F;
             this.comboItem_AggroLeastRand.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AggroLeastRand.Text = "AGGRO_LEAST_RAND";
+            this.comboItem_AggroLeastRand.Text = "AGGRO_SECOND_RAND";
             // 
             // comboItem_MostHP
             // 
@@ -2297,7 +2300,7 @@ namespace AIPolicy
             // 
             this.comboItem_TEAM.FontSize = 10F;
             this.comboItem_TEAM.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_TEAM.Text = "TEAM";
+            this.comboItem_TEAM.Text = "COMBO";
             // 
             // comboItem_Self
             // 
@@ -2524,7 +2527,7 @@ namespace AIPolicy
         private DevComponents.DotNetBar.ButtonX buttonX_KeyMinus;
         private DevComponents.DotNetBar.ButtonX buttonX_KeyPlus;
         private DevComponents.DotNetBar.ButtonX buttonX_KeyRedo;
-        private DevComponents.DotNetBar.ButtonX buttonX_Space;
+        private DevComponents.DotNetBar.ButtonX buttonX_Comma;
         private DevComponents.DotNetBar.LabelX labelX_Hint;
         private DevComponents.DotNetBar.LabelX labelX_Example;
         private DevComponents.DotNetBar.LabelX labelX_ExampleText;

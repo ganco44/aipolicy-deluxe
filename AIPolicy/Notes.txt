@@ -255,3 +255,4 @@ Type = 3
             text = text.Replace(")", ")");
             text = text.Replace("[", "");
             text = text.Replace("]", "");
+

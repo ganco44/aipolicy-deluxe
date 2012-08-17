@@ -268,6 +268,15 @@ namespace AIPolicy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ,.
+        /// </summary>
+        internal static string COMMA {
+            get {
+                return ResourceManager.GetString("COMMA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create_Timer.
         /// </summary>
         internal static string CreateTimer {
@@ -633,6 +642,15 @@ namespace AIPolicy.Properties {
         internal static string FadeTarget {
             get {
                 return ResourceManager.GetString("FadeTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File saved..
+        /// </summary>
+        internal static string FileSaved {
+            get {
+                return ResourceManager.GetString("FileSaved", resourceCulture);
             }
         }
         

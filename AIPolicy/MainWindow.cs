@@ -3218,14 +3218,15 @@ namespace AIPolicy
 
         private void ListBoxControllerSelectedIndexChanged(object sender, EventArgs e)
         {
-
             labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1) return;
             var cSelectedIndex = listBox_Controller.SelectedIndex;
             listBox_ActionSet.Items.Clear();
             var actionSet = AI.ActionController[cSelectedIndex].ActionSet;
-            
+
+            textBoxX_CtrlID.Text = listBox_Controller.SelectedItem.ToString();
+
             foreach (var aSet in actionSet)
             {
                 var iD = aSet.ID;
@@ -3905,7 +3906,7 @@ namespace AIPolicy
 
         private void ButtonXAddActionClick(object sender, EventArgs e)
         {
-            int actionID = 0;
+            var actionID = 0;
             if (AI == null)
             {
                 MessageBox.Show(Resources.openAIPolicy + Resources.AddAS);
@@ -4474,6 +4475,7 @@ namespace AIPolicy
                 saveFileDialog.Dispose();
             }
             Cursor = Cursors.Default;
+            MessageBox.Show(Resources.FileSaved);
         }
 
         private void SwitchButtonItemSafeModeValueChanged(object sender, EventArgs e)
@@ -5787,8 +5789,8 @@ namespace AIPolicy
         {
             undoBuffer.SaveState();
             encodeBuffer.SaveState();
-            textBoxX_Exp.Text += Resources.SPACE;
-            Encode += Resources.SPACE;
+            textBoxX_Exp.Text += Resources.COMMA;
+            Encode += Resources.COMMA;
             undoBuffer.Value = textBoxX_Exp.Text;
             encodeBuffer.Value = Encode;
         }
@@ -6066,6 +6068,16 @@ namespace AIPolicy
             };
             comboBoxEx_SubCat.Items.AddRange(items3);
             comboBoxEx_SubCat.SelectedIndex = 0;
+        }
+
+        private void panelEx_CondCalc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem_File_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
