@@ -3218,6 +3218,20 @@ namespace AIPolicy
 
         private void ListBoxControllerSelectedIndexChanged(object sender, EventArgs e)
         {
+            if (switchButtonItem_SortActionSet.Value)
+            {
+                SortAS = true;
+                listBox_ActionSet.Sorted = true;
+                ListBoxActionSetSelectedIndexChanged(sender, e);
+            }
+
+            if (switchButtonItem_SortActionSet.Value == false)
+            {
+                SortAS = false;
+                listBox_ActionSet.Sorted = false;
+                ListBoxActionSetSelectedIndexChanged(sender, e);
+            }
+
             labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1) return;
@@ -3245,18 +3259,6 @@ namespace AIPolicy
 
         private void ListBoxActionSetSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (switchButtonItem_SortActionSet.Value)
-            {
-                SortAS = true;
-                listBox_ActionSet.Sorted = true;
-            }
-
-            if (switchButtonItem_SortActionSet.Value == false)
-            {
-                SortAS = false;
-                listBox_ActionSet.Sorted = false;
-            }
-
             labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1 || listBox_ActionSet.SelectedIndex <= -1) return;
