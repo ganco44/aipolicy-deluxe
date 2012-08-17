@@ -3245,6 +3245,18 @@ namespace AIPolicy
 
         private void ListBoxActionSetSelectedIndexChanged(object sender, EventArgs e)
         {
+            if (switchButtonItem_SortActionSet.Value)
+            {
+                SortAS = true;
+                listBox_ActionSet.Sorted = true;
+            }
+
+            if (switchButtonItem_SortActionSet.Value == false)
+            {
+                SortAS = false;
+                listBox_ActionSet.Sorted = false;
+            }
+
             labelX_Param2.BackColor = Color.Transparent;
             ClearParams();
             if (AI == null || listBox_Controller.SelectedIndex <= -1 || listBox_ActionSet.SelectedIndex <= -1) return;
@@ -4353,18 +4365,54 @@ namespace AIPolicy
                 for (var i = 0; i < text.Length; i++)
                 {
                     var expr = text.Substring(i, 1);
+
+                    // Jade Dynasty
                     if (JDSelected)
                     {
-                        if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.JDIDOper(expr) >= 0)
-                            continue;
+                        switch (comboBoxItem_Localization.SelectedIndex)
+                        {
+                            case 0:
+                                if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.JDIDOper(expr) >= 0)
+                                    continue;
+                                break;
+                            case 1:
+                                if (expr == "(" || expr == ")" || expr == "," || Program.IsNumber(expr) || Program.JDIDOper(expr) >= 0)
+                                    continue;
+                                break;
+                        }
                     }
+
+                    // Perfect World
                     if (PWSelected)
                     {
-                        if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.PWIDOper(expr) >= 0)
-                            continue;
+                        switch (comboBoxItem_Localization.SelectedIndex)
+                        {
+                            case 0:
+                                if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.PWIDOper(expr) >= 0)
+                                    continue;
+                                break;
+                            case 1:
+                                if (expr == "(" || expr == ")" || expr == "," || Program.IsNumber(expr) || Program.PWIDOper(expr) >= 0)
+                                    continue;
+                                break;
+                        }
                     }
-                    //if (expr == "(" || expr == ")" ||  expr == "." || Program.IsNumber(expr) || Program.JDIDOper(expr) >= 0)
-                    //    continue;
+
+                    // Forsaken World
+                    /*if (FWSelected)
+                    {
+                        if (comboBoxItem_Localization.SelectedIndex == 0)
+                        {
+                            if (expr == "(" || expr == ")" || expr == "," || Program.IsNumber(expr) || Program.FWIDOper(expr) >= 0)
+                                continue;
+                        }
+                        else if (comboBoxItem_Localization.SelectedIndex == 1)
+                        {
+                            if (expr == "(" || expr == ")" || expr == "." || Program.IsNumber(expr) || Program.FWIDOper(expr) >= 0)
+                                continue;
+                        }
+                    }*/
+                    
                     MessageBox.Show(Resources.NoResolveCond + expr);
                     return;
                 }
@@ -5161,6 +5209,8 @@ namespace AIPolicy
         private void MainWindowLoad(object sender, EventArgs e)
         {
             ButtonItemJDClick(sender, e);
+            comboBoxItem_Localization.SelectedIndex = 0;
+            comboBoxItem_Language.SelectedIndex = 0;
         }
 
         // Broadcast_Message "Editor"
@@ -6070,14 +6120,11 @@ namespace AIPolicy
             comboBoxEx_SubCat.SelectedIndex = 0;
         }
 
-        private void panelEx_CondCalc_Click(object sender, EventArgs e)
+        private void switchButtonItem_SafeMode_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonItem_File_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -113,9 +113,6 @@ namespace AIPolicy
             this.textBoxX_Param3 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX_Param2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX_Param1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.groupPanel_TranslationService = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.textBoxX_Language = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.comboBoxEx_Language = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.groupPanel_Search = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.buttonX_FindNext = new DevComponents.DotNetBar.ButtonX();
             this.textBoxX_SearchPattern = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -149,16 +146,25 @@ namespace AIPolicy
             this.buttonItemPW = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItemFW = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem_MenuExit = new DevComponents.DotNetBar.ButtonItem();
+            this.bar2 = new DevComponents.DotNetBar.Bar();
+            this.labelItem_SafeMode = new DevComponents.DotNetBar.LabelItem();
+            this.switchButtonItem_SafeMode = new DevComponents.DotNetBar.SwitchButtonItem();
+            this.labelItem_ModeLock = new DevComponents.DotNetBar.LabelItem();
+            this.switchButtonItem_ModeLock = new DevComponents.DotNetBar.SwitchButtonItem();
+            this.labelItem_SortActionSet = new DevComponents.DotNetBar.LabelItem();
+            this.switchButtonItem_SortActionSet = new DevComponents.DotNetBar.SwitchButtonItem();
+            this.bar3 = new DevComponents.DotNetBar.Bar();
+            this.labelItem_EditMode = new DevComponents.DotNetBar.LabelItem();
+            this.labelItem_ModeImg = new DevComponents.DotNetBar.LabelItem();
+            this.bar1 = new DevComponents.DotNetBar.Bar();
             this.comboBoxItem_Language = new DevComponents.DotNetBar.ComboBoxItem();
             this.comboItem_English = new DevComponents.Editors.ComboItem();
             this.comboItem_Chinese = new DevComponents.Editors.ComboItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
-            this.labelItem_SafeMode = new DevComponents.DotNetBar.LabelItem();
-            this.switchButtonItem_SafeMode = new DevComponents.DotNetBar.SwitchButtonItem();
-            this.labelItem_EditMode = new DevComponents.DotNetBar.LabelItem();
-            this.labelItem_ModeImg = new DevComponents.DotNetBar.LabelItem();
-            this.labelItem_ModeLock = new DevComponents.DotNetBar.LabelItem();
-            this.switchButtonItem_ModeLock = new DevComponents.DotNetBar.SwitchButtonItem();
+            this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
+            this.comboBoxItem_Localization = new DevComponents.DotNetBar.ComboBoxItem();
+            this.comboItem_DecimalPeriod = new DevComponents.Editors.ComboItem();
+            this.comboItem_DecimalComma = new DevComponents.Editors.ComboItem();
             this.dockSite3 = new DevComponents.DotNetBar.DockSite();
             this.bar_StatusBar = new DevComponents.DotNetBar.Bar();
             this.panelEx_Msg = new DevComponents.DotNetBar.PanelEx();
@@ -185,11 +191,13 @@ namespace AIPolicy
             this.panelEx_CondCalc.SuspendLayout();
             this.groupPanel_Proc.SuspendLayout();
             this.groupPanel_ProcParams.SuspendLayout();
-            this.groupPanel_TranslationService.SuspendLayout();
             this.groupPanel_Search.SuspendLayout();
             this.dockSite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar_MenuBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar_ToolBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar_StatusBar)).BeginInit();
             this.panelEx_Msg.SuspendLayout();
             this.panelEx_Target.SuspendLayout();
@@ -205,7 +213,7 @@ namespace AIPolicy
             this.groupPanel_Controllers.Controls.Add(this.buttonX_AddCtrl);
             this.groupPanel_Controllers.Controls.Add(this.listBox_Controller);
             this.groupPanel_Controllers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_Controllers.Location = new System.Drawing.Point(15, 71);
+            this.groupPanel_Controllers.Location = new System.Drawing.Point(15, 129);
             this.groupPanel_Controllers.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_Controllers.Name = "groupPanel_Controllers";
             this.groupPanel_Controllers.Padding = new System.Windows.Forms.Padding(6);
@@ -278,6 +286,7 @@ namespace AIPolicy
             this.buttonX_DelCtrl.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_DelCtrl.TabIndex = 3;
             this.buttonX_DelCtrl.Text = "Del Ctrl";
+            this.buttonX_DelCtrl.Tooltip = "Delete a selected Controller";
             this.buttonX_DelCtrl.Click += new System.EventHandler(this.ButtonXDelCtrlClick);
             // 
             // buttonX_AddCtrl
@@ -290,6 +299,7 @@ namespace AIPolicy
             this.buttonX_AddCtrl.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_AddCtrl.TabIndex = 2;
             this.buttonX_AddCtrl.Text = "Add Ctrl";
+            this.buttonX_AddCtrl.Tooltip = "Add a new Controller";
             this.buttonX_AddCtrl.Click += new System.EventHandler(this.ButtonXAddCtrlClick);
             // 
             // listBox_Controller
@@ -320,7 +330,7 @@ namespace AIPolicy
             this.groupPanel_ActionSets.Controls.Add(this.buttonX_AddAction);
             this.groupPanel_ActionSets.Controls.Add(this.listBox_ActionSet);
             this.groupPanel_ActionSets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_ActionSets.Location = new System.Drawing.Point(208, 71);
+            this.groupPanel_ActionSets.Location = new System.Drawing.Point(208, 129);
             this.groupPanel_ActionSets.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_ActionSets.Name = "groupPanel_ActionSets";
             this.groupPanel_ActionSets.Padding = new System.Windows.Forms.Padding(6);
@@ -482,6 +492,7 @@ namespace AIPolicy
             this.buttonX_EditAction.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_EditAction.TabIndex = 13;
             this.buttonX_EditAction.Text = "Edit Action";
+            this.buttonX_EditAction.Tooltip = "Edit a selected ActionSet";
             this.buttonX_EditAction.Click += new System.EventHandler(this.ButtonXEditActionClick);
             // 
             // buttonX_DelAction
@@ -495,6 +506,7 @@ namespace AIPolicy
             this.buttonX_DelAction.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_DelAction.TabIndex = 12;
             this.buttonX_DelAction.Text = "Del Action";
+            this.buttonX_DelAction.Tooltip = "Delete a selected ActionSet";
             this.buttonX_DelAction.Click += new System.EventHandler(this.ButtonXDelActionClick);
             // 
             // buttonX_AddAction
@@ -508,6 +520,7 @@ namespace AIPolicy
             this.buttonX_AddAction.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_AddAction.TabIndex = 11;
             this.buttonX_AddAction.Text = "Add Action";
+            this.buttonX_AddAction.Tooltip = "Add a new ActionSet";
             this.buttonX_AddAction.Click += new System.EventHandler(this.ButtonXAddActionClick);
             // 
             // listBox_ActionSet
@@ -519,7 +532,6 @@ namespace AIPolicy
             this.listBox_ActionSet.Location = new System.Drawing.Point(9, 9);
             this.listBox_ActionSet.Name = "listBox_ActionSet";
             this.listBox_ActionSet.Size = new System.Drawing.Size(237, 228);
-            this.listBox_ActionSet.Sorted = true;
             this.listBox_ActionSet.TabIndex = 5;
             this.listBox_ActionSet.SelectedIndexChanged += new System.EventHandler(this.ListBoxActionSetSelectedIndexChanged);
             // 
@@ -531,7 +543,7 @@ namespace AIPolicy
             this.groupPanel_Condition.Controls.Add(this.buttonX_CondSave);
             this.groupPanel_Condition.Controls.Add(this.textBoxX_Condition);
             this.groupPanel_Condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_Condition.Location = new System.Drawing.Point(482, 71);
+            this.groupPanel_Condition.Location = new System.Drawing.Point(482, 129);
             this.groupPanel_Condition.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_Condition.Name = "groupPanel_Condition";
             this.groupPanel_Condition.Padding = new System.Windows.Forms.Padding(6);
@@ -574,11 +586,11 @@ namespace AIPolicy
             // 
             // 
             this.labelX_ClickMe.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX_ClickMe.Location = new System.Drawing.Point(227, 48);
+            this.labelX_ClickMe.Location = new System.Drawing.Point(135, 51);
             this.labelX_ClickMe.Name = "labelX_ClickMe";
-            this.labelX_ClickMe.Size = new System.Drawing.Size(50, 15);
+            this.labelX_ClickMe.Size = new System.Drawing.Size(172, 15);
             this.labelX_ClickMe.TabIndex = 17;
-            this.labelX_ClickMe.Text = "Click Me!";
+            this.labelX_ClickMe.Text = "[Condition Expression Calculator]";
             this.labelX_ClickMe.Click += new System.EventHandler(this.LabelXClickMeClick);
             // 
             // buttonX_CondSave
@@ -591,6 +603,7 @@ namespace AIPolicy
             this.buttonX_CondSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_CondSave.TabIndex = 15;
             this.buttonX_CondSave.Text = "Edit / Save";
+            this.buttonX_CondSave.Tooltip = "Edit/Save a Condition Expression";
             this.buttonX_CondSave.Click += new System.EventHandler(this.ButtonXCondSaveClick);
             // 
             // textBoxX_Condition
@@ -651,7 +664,7 @@ namespace AIPolicy
             this.panelEx_CondCalc.Controls.Add(this.comboBoxEx_CondEx);
             this.panelEx_CondCalc.Controls.Add(this.textBoxX_Exp);
             this.panelEx_CondCalc.Controls.Add(this.labelX_BCondEx);
-            this.panelEx_CondCalc.Location = new System.Drawing.Point(533, 64);
+            this.panelEx_CondCalc.Location = new System.Drawing.Point(543, 122);
             this.panelEx_CondCalc.Margin = new System.Windows.Forms.Padding(6);
             this.panelEx_CondCalc.Name = "panelEx_CondCalc";
             this.panelEx_CondCalc.Padding = new System.Windows.Forms.Padding(6);
@@ -665,7 +678,6 @@ namespace AIPolicy
             this.panelEx_CondCalc.Style.GradientAngle = 90;
             this.panelEx_CondCalc.TabIndex = 16;
             this.panelEx_CondCalc.Visible = false;
-            this.panelEx_CondCalc.Click += new System.EventHandler(this.panelEx_CondCalc_Click);
             // 
             // labelX_ExampleText
             // 
@@ -1164,7 +1176,7 @@ namespace AIPolicy
             this.groupPanel_Proc.Controls.Add(this.buttonX_AddProc);
             this.groupPanel_Proc.Controls.Add(this.listBox_Procedure);
             this.groupPanel_Proc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_Proc.Location = new System.Drawing.Point(482, 167);
+            this.groupPanel_Proc.Location = new System.Drawing.Point(482, 225);
             this.groupPanel_Proc.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_Proc.Name = "groupPanel_Proc";
             this.groupPanel_Proc.Padding = new System.Windows.Forms.Padding(6);
@@ -1226,6 +1238,7 @@ namespace AIPolicy
             this.buttonX_EditProc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_EditProc.TabIndex = 20;
             this.buttonX_EditProc.Text = "Edit Proc";
+            this.buttonX_EditProc.Tooltip = "Edit a selected Procedure";
             this.buttonX_EditProc.Click += new System.EventHandler(this.ButtonXEditProcClick);
             // 
             // buttonX_DelProc
@@ -1239,6 +1252,7 @@ namespace AIPolicy
             this.buttonX_DelProc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_DelProc.TabIndex = 19;
             this.buttonX_DelProc.Text = "Del Proc";
+            this.buttonX_DelProc.Tooltip = "Delete a selected Procedure";
             this.buttonX_DelProc.Click += new System.EventHandler(this.ButtonXDelProcClick);
             // 
             // buttonX_AddProc
@@ -1252,6 +1266,7 @@ namespace AIPolicy
             this.buttonX_AddProc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_AddProc.TabIndex = 18;
             this.buttonX_AddProc.Text = "Add Proc";
+            this.buttonX_AddProc.Tooltip = "Add a new Procedure";
             this.buttonX_AddProc.Click += new System.EventHandler(this.ButtonXAddProcClick);
             // 
             // listBox_Procedure
@@ -1287,7 +1302,7 @@ namespace AIPolicy
             this.groupPanel_ProcParams.Controls.Add(this.textBoxX_Param2);
             this.groupPanel_ProcParams.Controls.Add(this.textBoxX_Param1);
             this.groupPanel_ProcParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_ProcParams.Location = new System.Drawing.Point(15, 440);
+            this.groupPanel_ProcParams.Location = new System.Drawing.Point(15, 498);
             this.groupPanel_ProcParams.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_ProcParams.Name = "groupPanel_ProcParams";
             this.groupPanel_ProcParams.Padding = new System.Windows.Forms.Padding(6);
@@ -1558,78 +1573,6 @@ namespace AIPolicy
             this.textBoxX_Param1.Size = new System.Drawing.Size(112, 22);
             this.textBoxX_Param1.TabIndex = 21;
             // 
-            // groupPanel_TranslationService
-            // 
-            this.groupPanel_TranslationService.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel_TranslationService.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel_TranslationService.Controls.Add(this.textBoxX_Language);
-            this.groupPanel_TranslationService.Controls.Add(this.comboBoxEx_Language);
-            this.groupPanel_TranslationService.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_TranslationService.Location = new System.Drawing.Point(15, 549);
-            this.groupPanel_TranslationService.Margin = new System.Windows.Forms.Padding(6);
-            this.groupPanel_TranslationService.Name = "groupPanel_TranslationService";
-            this.groupPanel_TranslationService.Padding = new System.Windows.Forms.Padding(6);
-            this.groupPanel_TranslationService.Size = new System.Drawing.Size(978, 66);
-            // 
-            // 
-            // 
-            this.groupPanel_TranslationService.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel_TranslationService.Style.BackColorGradientAngle = 90;
-            this.groupPanel_TranslationService.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel_TranslationService.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel_TranslationService.Style.BorderBottomWidth = 1;
-            this.groupPanel_TranslationService.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel_TranslationService.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel_TranslationService.Style.BorderLeftWidth = 1;
-            this.groupPanel_TranslationService.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel_TranslationService.Style.BorderRightWidth = 1;
-            this.groupPanel_TranslationService.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel_TranslationService.Style.BorderTopWidth = 1;
-            this.groupPanel_TranslationService.Style.CornerDiameter = 4;
-            this.groupPanel_TranslationService.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel_TranslationService.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel_TranslationService.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel_TranslationService.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel_TranslationService.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel_TranslationService.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel_TranslationService.TabIndex = 5;
-            this.groupPanel_TranslationService.Text = "Translation Service";
-            // 
-            // textBoxX_Language
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX_Language.Border.Class = "TextBoxBorder";
-            this.textBoxX_Language.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX_Language.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxX_Language.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBoxX_Language.Location = new System.Drawing.Point(224, 9);
-            this.textBoxX_Language.Name = "textBoxX_Language";
-            this.textBoxX_Language.Size = new System.Drawing.Size(739, 22);
-            this.textBoxX_Language.TabIndex = 30;
-            this.textBoxX_Language.Text = "As Bing wil be discontinued, this feature will not appear.";
-            // 
-            // comboBoxEx_Language
-            // 
-            this.comboBoxEx_Language.DisplayMember = "Text";
-            this.comboBoxEx_Language.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx_Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEx_Language.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxEx_Language.FormattingEnabled = true;
-            this.comboBoxEx_Language.ItemHeight = 16;
-            this.comboBoxEx_Language.Location = new System.Drawing.Point(9, 9);
-            this.comboBoxEx_Language.Name = "comboBoxEx_Language";
-            this.comboBoxEx_Language.Size = new System.Drawing.Size(179, 22);
-            this.comboBoxEx_Language.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx_Language.TabIndex = 29;
-            // 
             // groupPanel_Search
             // 
             this.groupPanel_Search.CanvasColor = System.Drawing.SystemColors.Control;
@@ -1639,7 +1582,7 @@ namespace AIPolicy
             this.groupPanel_Search.Controls.Add(this.comboBoxEx_SubCat);
             this.groupPanel_Search.Controls.Add(this.comboBoxEx_Cat);
             this.groupPanel_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_Search.Location = new System.Drawing.Point(15, 627);
+            this.groupPanel_Search.Location = new System.Drawing.Point(15, 607);
             this.groupPanel_Search.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_Search.Name = "groupPanel_Search";
             this.groupPanel_Search.Padding = new System.Windows.Forms.Padding(6);
@@ -1686,6 +1629,7 @@ namespace AIPolicy
             this.buttonX_FindNext.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX_FindNext.TabIndex = 3;
             this.buttonX_FindNext.Text = "Find Next";
+            this.buttonX_FindNext.Tooltip = "Find next...";
             this.buttonX_FindNext.Click += new System.EventHandler(this.ButtonXFindNextClick);
             // 
             // textBoxX_SearchPattern
@@ -1788,7 +1732,7 @@ namespace AIPolicy
             this.dockSite4.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dockSite4.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite4.Location = new System.Drawing.Point(0, 732);
+            this.dockSite4.Location = new System.Drawing.Point(0, 705);
             this.dockSite4.Name = "dockSite4";
             this.dockSite4.Size = new System.Drawing.Size(1008, 0);
             this.dockSite4.TabIndex = 10;
@@ -1799,9 +1743,9 @@ namespace AIPolicy
             this.dockSite1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite1.Location = new System.Drawing.Point(0, 64);
+            this.dockSite1.Location = new System.Drawing.Point(0, 93);
             this.dockSite1.Name = "dockSite1";
-            this.dockSite1.Size = new System.Drawing.Size(0, 668);
+            this.dockSite1.Size = new System.Drawing.Size(0, 612);
             this.dockSite1.TabIndex = 7;
             this.dockSite1.TabStop = false;
             // 
@@ -1810,9 +1754,9 @@ namespace AIPolicy
             this.dockSite2.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
             this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite2.Location = new System.Drawing.Point(1008, 64);
+            this.dockSite2.Location = new System.Drawing.Point(1008, 93);
             this.dockSite2.Name = "dockSite2";
-            this.dockSite2.Size = new System.Drawing.Size(0, 668);
+            this.dockSite2.Size = new System.Drawing.Size(0, 612);
             this.dockSite2.TabIndex = 8;
             this.dockSite2.TabStop = false;
             // 
@@ -1820,7 +1764,7 @@ namespace AIPolicy
             // 
             this.dockSite8.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dockSite8.Location = new System.Drawing.Point(0, 732);
+            this.dockSite8.Location = new System.Drawing.Point(0, 705);
             this.dockSite8.Name = "dockSite8";
             this.dockSite8.Size = new System.Drawing.Size(1008, 0);
             this.dockSite8.TabIndex = 14;
@@ -1830,9 +1774,9 @@ namespace AIPolicy
             // 
             this.dockSite5.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dockSite5.Location = new System.Drawing.Point(0, 64);
+            this.dockSite5.Location = new System.Drawing.Point(0, 93);
             this.dockSite5.Name = "dockSite5";
-            this.dockSite5.Size = new System.Drawing.Size(0, 668);
+            this.dockSite5.Size = new System.Drawing.Size(0, 612);
             this.dockSite5.TabIndex = 11;
             this.dockSite5.TabStop = false;
             // 
@@ -1840,9 +1784,9 @@ namespace AIPolicy
             // 
             this.dockSite6.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dockSite6.Location = new System.Drawing.Point(1008, 64);
+            this.dockSite6.Location = new System.Drawing.Point(1008, 93);
             this.dockSite6.Name = "dockSite6";
-            this.dockSite6.Size = new System.Drawing.Size(0, 668);
+            this.dockSite6.Size = new System.Drawing.Size(0, 612);
             this.dockSite6.TabIndex = 12;
             this.dockSite6.TabStop = false;
             // 
@@ -1851,10 +1795,13 @@ namespace AIPolicy
             this.dockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite.Controls.Add(this.bar_MenuBar);
             this.dockSite.Controls.Add(this.bar_ToolBar);
+            this.dockSite.Controls.Add(this.bar2);
+            this.dockSite.Controls.Add(this.bar3);
+            this.dockSite.Controls.Add(this.bar1);
             this.dockSite.Dock = System.Windows.Forms.DockStyle.Top;
             this.dockSite.Location = new System.Drawing.Point(0, 0);
             this.dockSite.Name = "dockSite";
-            this.dockSite.Size = new System.Drawing.Size(1008, 64);
+            this.dockSite.Size = new System.Drawing.Size(1008, 93);
             this.dockSite.TabIndex = 13;
             this.dockSite.TabStop = false;
             // 
@@ -1887,7 +1834,6 @@ namespace AIPolicy
             this.buttonItem_Save,
             this.buttonItem_Exit});
             this.buttonItem_File.Text = "&File";
-            this.buttonItem_File.Click += new System.EventHandler(this.buttonItem_File_Click);
             // 
             // buttonItem_Open
             // 
@@ -1953,17 +1899,10 @@ namespace AIPolicy
             this.buttonItemJD,
             this.buttonItemPW,
             this.buttonItemFW,
-            this.buttonItem_MenuExit,
-            this.comboBoxItem_Language,
-            this.labelItem_SafeMode,
-            this.switchButtonItem_SafeMode,
-            this.labelItem_EditMode,
-            this.labelItem_ModeImg,
-            this.labelItem_ModeLock,
-            this.switchButtonItem_ModeLock});
+            this.buttonItem_MenuExit});
             this.bar_ToolBar.Location = new System.Drawing.Point(0, 27);
             this.bar_ToolBar.Name = "bar_ToolBar";
-            this.bar_ToolBar.Size = new System.Drawing.Size(710, 37);
+            this.bar_ToolBar.Size = new System.Drawing.Size(153, 25);
             this.bar_ToolBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar_ToolBar.TabIndex = 1;
             this.bar_ToolBar.TabStop = false;
@@ -2018,8 +1957,133 @@ namespace AIPolicy
             this.buttonItem_MenuExit.Tooltip = "Quick Exit";
             this.buttonItem_MenuExit.Click += new System.EventHandler(this.ButtonItemMenuExitClick);
             // 
+            // bar2
+            // 
+            this.bar2.AccessibleDescription = "DotNetBar Bar (bar2)";
+            this.bar2.AccessibleName = "DotNetBar Bar";
+            this.bar2.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+            this.bar2.DockLine = 1;
+            this.bar2.DockOffset = 153;
+            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Top;
+            this.bar2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bar2.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Office2003;
+            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.labelItem_SafeMode,
+            this.switchButtonItem_SafeMode,
+            this.labelItem_ModeLock,
+            this.switchButtonItem_ModeLock,
+            this.labelItem_SortActionSet,
+            this.switchButtonItem_SortActionSet});
+            this.bar2.Location = new System.Drawing.Point(155, 27);
+            this.bar2.Name = "bar2";
+            this.bar2.Size = new System.Drawing.Size(436, 25);
+            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar2.TabIndex = 3;
+            this.bar2.TabStop = false;
+            this.bar2.Text = "Mode Control";
+            // 
+            // labelItem_SafeMode
+            // 
+            this.labelItem_SafeMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItem_SafeMode.Name = "labelItem_SafeMode";
+            this.labelItem_SafeMode.Text = "   Safe Mode:";
+            // 
+            // switchButtonItem_SafeMode
+            // 
+            this.switchButtonItem_SafeMode.Name = "switchButtonItem_SafeMode";
+            this.switchButtonItem_SafeMode.OffBackColor = System.Drawing.Color.Red;
+            this.switchButtonItem_SafeMode.OffTextColor = System.Drawing.Color.White;
+            this.switchButtonItem_SafeMode.OnBackColor = System.Drawing.Color.Green;
+            this.switchButtonItem_SafeMode.OnTextColor = System.Drawing.Color.White;
+            this.switchButtonItem_SafeMode.Tooltip = "Safe Mode switch";
+            this.switchButtonItem_SafeMode.Value = true;
+            this.switchButtonItem_SafeMode.ValueChanged += new System.EventHandler(this.switchButtonItem_SafeMode_ValueChanged);
+            // 
+            // labelItem_ModeLock
+            // 
+            this.labelItem_ModeLock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItem_ModeLock.Name = "labelItem_ModeLock";
+            this.labelItem_ModeLock.Text = "   Mode Lock:";
+            // 
+            // switchButtonItem_ModeLock
+            // 
+            this.switchButtonItem_ModeLock.Name = "switchButtonItem_ModeLock";
+            this.switchButtonItem_ModeLock.OffBackColor = System.Drawing.Color.Red;
+            this.switchButtonItem_ModeLock.OffTextColor = System.Drawing.Color.White;
+            this.switchButtonItem_ModeLock.OnBackColor = System.Drawing.Color.Green;
+            this.switchButtonItem_ModeLock.OnTextColor = System.Drawing.Color.White;
+            // 
+            // labelItem_SortActionSet
+            // 
+            this.labelItem_SortActionSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItem_SortActionSet.Name = "labelItem_SortActionSet";
+            this.labelItem_SortActionSet.Text = "   Sort ActionSet:";
+            // 
+            // switchButtonItem_SortActionSet
+            // 
+            this.switchButtonItem_SortActionSet.Name = "switchButtonItem_SortActionSet";
+            this.switchButtonItem_SortActionSet.OffBackColor = System.Drawing.Color.Red;
+            this.switchButtonItem_SortActionSet.OffTextColor = System.Drawing.Color.White;
+            this.switchButtonItem_SortActionSet.OnBackColor = System.Drawing.Color.Green;
+            this.switchButtonItem_SortActionSet.OnTextColor = System.Drawing.Color.White;
+            // 
+            // bar3
+            // 
+            this.bar3.AccessibleDescription = "DotNetBar Bar (bar3)";
+            this.bar3.AccessibleName = "DotNetBar Bar";
+            this.bar3.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+            this.bar3.DockLine = 1;
+            this.bar3.DockOffset = 817;
+            this.bar3.DockSide = DevComponents.DotNetBar.eDockSide.Top;
+            this.bar3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bar3.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Office2003;
+            this.bar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.labelItem_EditMode,
+            this.labelItem_ModeImg});
+            this.bar3.Location = new System.Drawing.Point(817, 27);
+            this.bar3.Name = "bar3";
+            this.bar3.Size = new System.Drawing.Size(161, 37);
+            this.bar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar3.TabIndex = 4;
+            this.bar3.TabStop = false;
+            this.bar3.Text = "Edit Mode";
+            // 
+            // labelItem_EditMode
+            // 
+            this.labelItem_EditMode.BackColor = System.Drawing.Color.Transparent;
+            this.labelItem_EditMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItem_EditMode.Name = "labelItem_EditMode";
+            this.labelItem_EditMode.Text = "   Selected Edit Mode:";
+            // 
+            // labelItem_ModeImg
+            // 
+            this.labelItem_ModeImg.Image = global::AIPolicy.Properties.Resources.JD2;
+            this.labelItem_ModeImg.Name = "labelItem_ModeImg";
+            // 
+            // bar1
+            // 
+            this.bar1.AccessibleDescription = "DotNetBar Bar (bar1)";
+            this.bar1.AccessibleName = "DotNetBar Bar";
+            this.bar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+            this.bar1.DockLine = 2;
+            this.bar1.DockSide = DevComponents.DotNetBar.eDockSide.Top;
+            this.bar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Office2003;
+            this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.comboBoxItem_Language,
+            this.labelItem1,
+            this.comboBoxItem_Localization});
+            this.bar1.Location = new System.Drawing.Point(0, 65);
+            this.bar1.Name = "bar1";
+            this.bar1.Size = new System.Drawing.Size(381, 28);
+            this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar1.TabIndex = 2;
+            this.bar1.TabStop = false;
+            this.bar1.Text = "Localization";
+            // 
             // comboBoxItem_Language
             // 
+            this.comboBoxItem_Language.BeginGroup = true;
             this.comboBoxItem_Language.ComboWidth = 128;
             this.comboBoxItem_Language.DisplayMember = "English";
             this.comboBoxItem_Language.DropDownHeight = 106;
@@ -2052,55 +2116,43 @@ namespace AIPolicy
             this.controlContainerItem1.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
             this.controlContainerItem1.Name = "controlContainerItem1";
             // 
-            // labelItem_SafeMode
+            // labelItem1
             // 
-            this.labelItem_SafeMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItem_SafeMode.Name = "labelItem_SafeMode";
-            this.labelItem_SafeMode.Text = "   Safe Mode:";
+            this.labelItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItem1.Name = "labelItem1";
+            this.labelItem1.Text = "   Localization:";
             // 
-            // switchButtonItem_SafeMode
+            // comboBoxItem_Localization
             // 
-            this.switchButtonItem_SafeMode.Name = "switchButtonItem_SafeMode";
-            this.switchButtonItem_SafeMode.OffBackColor = System.Drawing.Color.Red;
-            this.switchButtonItem_SafeMode.OffTextColor = System.Drawing.Color.White;
-            this.switchButtonItem_SafeMode.OnBackColor = System.Drawing.Color.Green;
-            this.switchButtonItem_SafeMode.OnTextColor = System.Drawing.Color.White;
-            this.switchButtonItem_SafeMode.Tooltip = "Safe Mode switch";
-            this.switchButtonItem_SafeMode.Value = true;
-            this.switchButtonItem_SafeMode.ValueChanged += new System.EventHandler(this.SwitchButtonItemSafeModeValueChanged);
+            this.comboBoxItem_Localization.Caption = "Localization";
+            this.comboBoxItem_Localization.ComboWidth = 160;
+            this.comboBoxItem_Localization.DropDownHeight = 106;
+            this.comboBoxItem_Localization.ItemHeight = 17;
+            this.comboBoxItem_Localization.Items.AddRange(new object[] {
+            this.comboItem_DecimalPeriod,
+            this.comboItem_DecimalComma});
+            this.comboBoxItem_Localization.Name = "comboBoxItem_Localization";
+            this.comboBoxItem_Localization.Text = "Localization";
+            this.comboBoxItem_Localization.Tooltip = "Localization";
             // 
-            // labelItem_EditMode
+            // comboItem_DecimalPeriod
             // 
-            this.labelItem_EditMode.BackColor = System.Drawing.Color.Transparent;
-            this.labelItem_EditMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItem_EditMode.Name = "labelItem_EditMode";
-            this.labelItem_EditMode.Text = "   Selected Edit Mode:";
+            this.comboItem_DecimalPeriod.FontStyle = System.Drawing.FontStyle.Bold;
+            this.comboItem_DecimalPeriod.Text = "Use Period for Decimal";
+            this.comboItem_DecimalPeriod.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // labelItem_ModeImg
+            // comboItem_DecimalComma
             // 
-            this.labelItem_ModeImg.Image = global::AIPolicy.Properties.Resources.JD2;
-            this.labelItem_ModeImg.Name = "labelItem_ModeImg";
-            // 
-            // labelItem_ModeLock
-            // 
-            this.labelItem_ModeLock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItem_ModeLock.Name = "labelItem_ModeLock";
-            this.labelItem_ModeLock.Text = "   Mode Lock:";
-            // 
-            // switchButtonItem_ModeLock
-            // 
-            this.switchButtonItem_ModeLock.Name = "switchButtonItem_ModeLock";
-            this.switchButtonItem_ModeLock.OffBackColor = System.Drawing.Color.Red;
-            this.switchButtonItem_ModeLock.OffTextColor = System.Drawing.Color.White;
-            this.switchButtonItem_ModeLock.OnBackColor = System.Drawing.Color.Green;
-            this.switchButtonItem_ModeLock.OnTextColor = System.Drawing.Color.White;
+            this.comboItem_DecimalComma.FontStyle = System.Drawing.FontStyle.Bold;
+            this.comboItem_DecimalComma.Text = "Use Comma for Decimal";
+            this.comboItem_DecimalComma.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // dockSite3
             // 
             this.dockSite3.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite3.Dock = System.Windows.Forms.DockStyle.Top;
             this.dockSite3.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite3.Location = new System.Drawing.Point(0, 64);
+            this.dockSite3.Location = new System.Drawing.Point(0, 93);
             this.dockSite3.Name = "dockSite3";
             this.dockSite3.Size = new System.Drawing.Size(1008, 0);
             this.dockSite3.TabIndex = 9;
@@ -2111,7 +2163,7 @@ namespace AIPolicy
             this.bar_StatusBar.AntiAlias = true;
             this.bar_StatusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bar_StatusBar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bar_StatusBar.Location = new System.Drawing.Point(0, 707);
+            this.bar_StatusBar.Location = new System.Drawing.Point(0, 680);
             this.bar_StatusBar.Name = "bar_StatusBar";
             this.bar_StatusBar.Size = new System.Drawing.Size(1008, 25);
             this.bar_StatusBar.Stretch = true;
@@ -2129,7 +2181,7 @@ namespace AIPolicy
             this.panelEx_Msg.Controls.Add(this.textBoxX_Msg);
             this.panelEx_Msg.Controls.Add(this.labelX_Msg);
             this.panelEx_Msg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelEx_Msg.Location = new System.Drawing.Point(145, 437);
+            this.panelEx_Msg.Location = new System.Drawing.Point(145, 495);
             this.panelEx_Msg.Name = "panelEx_Msg";
             this.panelEx_Msg.Size = new System.Drawing.Size(232, 161);
             this.panelEx_Msg.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -2202,7 +2254,7 @@ namespace AIPolicy
             this.panelEx_Target.Controls.Add(this.comboBoxEx_Target);
             this.panelEx_Target.Controls.Add(this.labelX_STarget);
             this.panelEx_Target.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelEx_Target.Location = new System.Drawing.Point(752, 437);
+            this.panelEx_Target.Location = new System.Drawing.Point(752, 495);
             this.panelEx_Target.Name = "panelEx_Target";
             this.panelEx_Target.Size = new System.Drawing.Size(232, 135);
             this.panelEx_Target.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -2323,7 +2375,7 @@ namespace AIPolicy
             // 
             // MainWindow
             // 
-            this.ClientSize = new System.Drawing.Size(1008, 732);
+            this.ClientSize = new System.Drawing.Size(1008, 705);
             this.Controls.Add(this.panelEx_Target);
             this.Controls.Add(this.panelEx_CondCalc);
             this.Controls.Add(this.panelEx_Msg);
@@ -2331,7 +2383,6 @@ namespace AIPolicy
             this.Controls.Add(this.dockSite2);
             this.Controls.Add(this.dockSite1);
             this.Controls.Add(this.groupPanel_Search);
-            this.Controls.Add(this.groupPanel_TranslationService);
             this.Controls.Add(this.groupPanel_ProcParams);
             this.Controls.Add(this.groupPanel_Proc);
             this.Controls.Add(this.groupPanel_Condition);
@@ -2359,11 +2410,13 @@ namespace AIPolicy
             this.panelEx_CondCalc.PerformLayout();
             this.groupPanel_Proc.ResumeLayout(false);
             this.groupPanel_ProcParams.ResumeLayout(false);
-            this.groupPanel_TranslationService.ResumeLayout(false);
             this.groupPanel_Search.ResumeLayout(false);
             this.dockSite.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar_MenuBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar_ToolBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar_StatusBar)).EndInit();
             this.panelEx_Msg.ResumeLayout(false);
             this.panelEx_Msg.PerformLayout();
@@ -2376,19 +2429,20 @@ namespace AIPolicy
         #endregion
 
         private AIPolicy AI;
-        private bool SafeMode = true;
+        internal bool SafeMode = true;
+        internal bool SortAS = false;
         public bool JDSelected = true;
         public bool PWSelected = false;
         public bool FWSelected = false;
         private string Encode;
         IUndoable<string> encodeBuffer = new Undoable<string>("");
         IUndoable<string> undoBuffer   = new Undoable<string>("");
+
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Controllers;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_ActionSets;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Condition;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Proc;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_ProcParams;
-        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_TranslationService;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel_Search;
         private DevComponents.DotNetBar.DotNetBarManager dotNetBarManager1;
         private DevComponents.DotNetBar.DockSite dockSite4;
@@ -2443,8 +2497,6 @@ namespace AIPolicy
         private DevComponents.DotNetBar.LabelX labelX_Param6;
         private DevComponents.DotNetBar.LabelX labelX_Param7;
         private DevComponents.DotNetBar.LabelX labelX_ParamTarget;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_Language;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX_Language;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_SubCat;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_Cat;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX_SearchPattern;
@@ -2461,17 +2513,7 @@ namespace AIPolicy
         private DevComponents.DotNetBar.ButtonItem buttonItemPW;
         private DevComponents.DotNetBar.ButtonItem buttonItemFW;
         private DevComponents.DotNetBar.Bar bar_StatusBar;
-        private DevComponents.DotNetBar.ComboBoxItem comboBoxItem_Language;
-        private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem_SafeMode;
-        private DevComponents.DotNetBar.LabelItem labelItem_SafeMode;
-        private DevComponents.Editors.ComboItem comboItem_English;
-        private DevComponents.Editors.ComboItem comboItem_Chinese;
-        private DevComponents.DotNetBar.ControlContainerItem controlContainerItem1;
-        private DevComponents.DotNetBar.LabelItem labelItem_EditMode;
-        private DevComponents.DotNetBar.LabelItem labelItem_ModeImg;
         private DevComponents.DotNetBar.ButtonItem buttonItem_MenuExit;
-        private DevComponents.DotNetBar.LabelItem labelItem_ModeLock;
-        private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem_ModeLock;
         private DevComponents.Editors.ComboItem comboItem_AICtrl;
         private DevComponents.Editors.ComboItem comboItem_Conditions;
         private DevComponents.Editors.ComboItem comboItem_Procedures;
@@ -2532,5 +2574,24 @@ namespace AIPolicy
         private DevComponents.DotNetBar.LabelX labelX_Example;
         private DevComponents.DotNetBar.LabelX labelX_ExampleText;
         private DevComponents.DotNetBar.LabelX labelX_HintText;
+        private DevComponents.DotNetBar.Bar bar1;
+        private DevComponents.DotNetBar.ComboBoxItem comboBoxItem_Language;
+        private DevComponents.Editors.ComboItem comboItem_English;
+        private DevComponents.Editors.ComboItem comboItem_Chinese;
+        private DevComponents.DotNetBar.ControlContainerItem controlContainerItem1;
+        private DevComponents.DotNetBar.LabelItem labelItem1;
+        private DevComponents.DotNetBar.ComboBoxItem comboBoxItem_Localization;
+        private DevComponents.Editors.ComboItem comboItem_DecimalPeriod;
+        private DevComponents.Editors.ComboItem comboItem_DecimalComma;
+        private DevComponents.DotNetBar.Bar bar2;
+        private DevComponents.DotNetBar.LabelItem labelItem_SafeMode;
+        private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem_SafeMode;
+        private DevComponents.DotNetBar.LabelItem labelItem_ModeLock;
+        private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem_ModeLock;
+        private DevComponents.DotNetBar.Bar bar3;
+        private DevComponents.DotNetBar.LabelItem labelItem_EditMode;
+        private DevComponents.DotNetBar.LabelItem labelItem_ModeImg;
+        private DevComponents.DotNetBar.LabelItem labelItem_SortActionSet;
+        private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem_SortActionSet;
     }
 }
