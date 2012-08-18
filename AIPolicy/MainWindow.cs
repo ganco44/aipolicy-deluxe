@@ -3222,14 +3222,12 @@ namespace AIPolicy
             {
                 SortAS = true;
                 listBox_ActionSet.Sorted = true;
-                ListBoxActionSetSelectedIndexChanged(sender, e);
             }
 
             if (switchButtonItem_SortActionSet.Value == false)
             {
                 SortAS = false;
                 listBox_ActionSet.Sorted = false;
-                ListBoxActionSetSelectedIndexChanged(sender, e);
             }
 
             labelX_Param2.BackColor = Color.Transparent;
@@ -4879,7 +4877,18 @@ namespace AIPolicy
                 comboItem6,
                 comboItem7,
                 comboItem8,
-                comboItem9
+                comboItem9,
+                comboItem10,
+                comboItem11,
+                comboItem12,
+                comboItem13,
+                comboItem14,
+                comboItem15,
+                comboItem16,
+                comboItem17,
+                comboItem18,
+                comboItem19,
+                comboItem20
             });
 
             PWProcList();
@@ -6122,11 +6131,160 @@ namespace AIPolicy
             comboBoxEx_SubCat.SelectedIndex = 0;
         }
 
-        private void switchButtonItem_SafeMode_ValueChanged(object sender, EventArgs e)
+        private void ButtonXExpCalcClick(object sender, EventArgs e)
         {
-
+            comboBoxEx_CondEx.Text = "";
+            textBoxX_Exp.Text = "";
+            Encode = "";
+            panelEx_CondCalc.Visible = true;
         }
 
-       
+        private void SetEnglish()
+        {
+            TitleText = "AIPolicy Editor - Deluxe Edition: Version " + Program.Version;
+            buttonItem_File.Text = "File";
+            buttonItem_Open.Text = "Open";
+            buttonItem_Save.Text = "Save";
+            buttonItem_Exit.Text = "Exit";
+            buttonX_ExpCalc.Text = "Expression Calculator";
+            labelItem_SafeMode.Text = "   Safe Mode:";
+            switchButtonItem_SafeMode.OnText = "ON";
+            switchButtonItem_SafeMode.OffText = "OFF";
+            labelItem_ModeLock.Text = "   Mode Lock:";
+            switchButtonItem_ModeLock.OnText = "ON";
+            switchButtonItem_ModeLock.OffText = "OFF";
+            labelItem_SortActionSet.Text = "   Sort ActionSet:";
+            switchButtonItem_SortActionSet.OnText = "ON";
+            switchButtonItem_SortActionSet.OffText = "OFF";
+            labelItem_EditMode.Text = "   Selected Edit Mode:";
+            labelX_BCondEx.Text = "Condition Expression Calculator";
+            buttonItem_Tools.Text = "Tools";
+            buttonItem_Options.Text = "Options";
+            buttonItem_Help.Text = "Help";
+            buttonItem_About.Text = "About";
+            groupPanel_ActionSets.Text = "ActionSets";
+            groupPanel_Controllers.Text = "Controllers";
+            groupPanel_Proc.Text = "Procedures";
+            groupPanel_ProcParams.Text = "Procedure Parameters";
+            labelX_Hint.Text = "Hint:";
+            labelX_Example.Text = "Example:";
+            buttonX_CondEdOK.Text = "OK";
+            buttonX_KeyClear.Text = "Clear";
+            buttonX_KeyUndo.Text = "Undo";
+            buttonX_KeyRedo.Text = "Redo";
+            buttonX_CondEdCancel.Text = "Cancel";
+            labelX_Msg.Text = "Enter Message:";
+            buttonX_MsgOK.Text = "OK";
+            buttonX_MsgCancel.Text = "Cancel";
+            buttonX_TOK.Text = "OK";
+            buttonX_TCancel.Text = "Cancel";
+            labelX_STarget.Text = "Select Target:";
+            labelX_Flags.Text = "Flags:";
+            labelX_CtrlID.Text = "Ctrl ID:";
+            labelX_ActionID.Text = "Action ID:";
+            labelX_ActionName.Text = "Action Name:";
+            groupPanel_Condition.Text = "Condition";
+            comboItem_English.Text = "English";
+            comboItem_Chinese.Text = "Chinese";
+            labelX_Param1.Text = "Parameter 1";
+            labelX_Param2.Text = "Parameter 2";
+            labelX_Param3.Text = "Parameter 3";
+            labelX_Param4.Text = "Parameter 4";
+            labelX_Param5.Text = "Parameter 5";
+            labelX_Param6.Text = "Parameter 6";
+            labelX_Param7.Text = "Parameter 7";
+            labelX_ParamTarget.Text = "[ Target ]";
+            buttonX_FindNext.Text = "Find Next";
+            labelX_Containing.Text = "Containing:";
+            buttonX_AddProc.Text = "Add Proc";
+            buttonX_DelProc.Text = "Del Proc";
+            buttonX_EditProc.Text = "Edit Proc";
+            buttonX_AddAction.Text = "Add Action";
+            buttonX_DelAction.Text = "Del Action";
+            buttonX_EditAction.Text = "Edit Action";
+            buttonX_AddCtrl.Text = "Add Ctrl";
+            buttonX_DelCtrl.Text = "Del Ctrl";
+            buttonX_CondSave.Text = "Edit/Save";
+            comboItem_DecimalPeriod.Text = "Use Period for Decimal";
+            comboItem_DecimalComma.Text = "Use Comma for Decimal";
+            groupPanel_Search.Text = "Search";
+        }
+
+        private void SetChinese()
+        {
+            TitleText = "AIPolicy编辑器 - 豪华版：版本" + Program.Version;
+            buttonItem_File.Text = "文件";
+            buttonItem_Open.Text = "打开";
+            buttonItem_Save.Text = "保存";
+            buttonItem_Exit.Text = "退出";
+            buttonX_ExpCalc.Text = "表达式计算器";
+            labelItem_SafeMode.Text = "   安全模式：";
+            switchButtonItem_SafeMode.OnText = "打开";
+            switchButtonItem_SafeMode.OffText = "关闭";
+            labelItem_ModeLock.Text = "   模式锁定：";
+            switchButtonItem_ModeLock.OnText = "打开";
+            switchButtonItem_ModeLock.OffText = "关闭";
+            labelItem_SortActionSet.Text = "   排序动作集合：";
+            switchButtonItem_SortActionSet.OnText = "打开";
+            switchButtonItem_SortActionSet.OffText = "关闭";
+            labelItem_EditMode.Text = "   选择编辑模式：";
+            labelX_BCondEx.Text = "条件表达式计算器";
+            buttonItem_Tools.Text = "工具";
+            buttonItem_Options.Text = "选项";
+            buttonItem_Help.Text = "帮助";
+            buttonItem_About.Text = "关于";
+            groupPanel_ActionSets.Text = "动作集合";
+            groupPanel_Controllers.Text = "控制器";
+            groupPanel_Proc.Text = "过程";
+            groupPanel_ProcParams.Text = "过程解析";
+            labelX_Hint.Text = "提示：";
+            labelX_Example.Text = "例如：";
+            buttonX_CondEdOK.Text = "好";
+            buttonX_KeyClear.Text = "肃清";
+            buttonX_KeyUndo.Text = "复原";
+            buttonX_KeyRedo.Text = "重做";
+            buttonX_CondEdCancel.Text = "取消";
+            labelX_Msg.Text = "输入消息：";
+            buttonX_MsgOK.Text = "好";
+            buttonX_MsgCancel.Text = "取消";
+            buttonX_TOK.Text = "好";
+            buttonX_TCancel.Text = "取消";
+            labelX_STarget.Text = "选择目标：";
+            labelX_Flags.Text = "标志：";
+            labelX_CtrlID.Text = "ID：";
+            labelX_ActionID.Text = "ID：";
+            labelX_ActionName.Text = "名字：";
+            groupPanel_Condition.Text = "条件";
+            comboItem_English.Text = "英语";
+            comboItem_Chinese.Text = "中国语";
+            labelX_Param1.Text = "参数1";
+            labelX_Param2.Text = "参数2";
+            labelX_Param3.Text = "参数3";
+            labelX_Param4.Text = "参数4";
+            labelX_Param5.Text = "参数5";
+            labelX_Param6.Text = "参数6";
+            labelX_Param7.Text = "参数7";
+            labelX_ParamTarget.Text = "[ 靶 ]";
+            buttonX_FindNext.Text = "查找下一个";
+            labelX_Containing.Text = "包含内容：";
+            buttonX_AddProc.Text = "添加";
+            buttonX_DelProc.Text = "删除";
+            buttonX_EditProc.Text = "参数编辑";
+            buttonX_AddAction.Text = "添加";
+            buttonX_DelAction.Text = "删除";
+            buttonX_EditAction.Text = "参数编辑";
+            buttonX_AddCtrl.Text = "追加";
+            buttonX_DelCtrl.Text = "删除";
+            buttonX_CondSave.Text = "保存修改";
+            comboItem_DecimalPeriod.Text = "使用点为小数点";
+            comboItem_DecimalComma.Text = "使用逗号为小数点";
+            groupPanel_Search.Text = "搜索";
+        }
+
+        private void ChangeLanguage(object sender, EventArgs e)
+        {
+            if (comboBoxItem_Language.SelectedIndex == 0) SetEnglish();
+            if (comboBoxItem_Language.SelectedIndex == 1) SetChinese();
+        }
     }
 }

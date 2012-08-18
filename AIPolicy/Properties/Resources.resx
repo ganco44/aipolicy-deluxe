@@ -735,10 +735,16 @@ Try searching from the beginning (Controller 1).</value>
   <data name="CS1PEx" xml:space="preserve">
     <value>Cast_Skill[1202]</value>
   </data>
-  <data name="COMMA">
-    <value xml:space="preserve">,</value>
+  <data name="COMMA" xml:space="preserve">
+    <value>,</value>
   </data>
-  <data name="FileSaved">
-    <value xml:space="preserve">File saved.</value>
+  <data name="FileSaved" xml:space="preserve">
+    <value>File saved.</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Chinese" xml:space="preserve">
+    <value>Chinese</value>
   </data>
 </root>

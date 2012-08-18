@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -10,6 +12,16 @@ namespace AIPolicy
         internal static bool _jdState;
         internal static bool _pwState;
         internal static bool _fwState;
+
+        internal static string Version
+        {
+            get
+            {
+                var asm = Assembly.GetExecutingAssembly();
+                var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
+                return String.Format("{0}", fvi.FileVersion);
+            }
+        }
 
         internal static string GetNumber(string s)
         {

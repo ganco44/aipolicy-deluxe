@@ -1,4 +1,4 @@
-namespace AIPolicy
+﻿namespace AIPolicy
 {
     partial class MainWindow
     {
@@ -50,7 +50,7 @@ namespace AIPolicy
             this.buttonX_AddAction = new DevComponents.DotNetBar.ButtonX();
             this.listBox_ActionSet = new System.Windows.Forms.ListBox();
             this.groupPanel_Condition = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.labelX_ClickMe = new DevComponents.DotNetBar.LabelX();
+            this.buttonX_ExpCalc = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_CondSave = new DevComponents.DotNetBar.ButtonX();
             this.textBoxX_Condition = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panelEx_CondCalc = new DevComponents.DotNetBar.PanelEx();
@@ -176,15 +176,16 @@ namespace AIPolicy
             this.buttonX_TCancel = new DevComponents.DotNetBar.ButtonX();
             this.buttonX_TOK = new DevComponents.DotNetBar.ButtonX();
             this.comboBoxEx_Target = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem_AggroMost = new DevComponents.Editors.ComboItem();
-            this.comboItem_AggroLeast = new DevComponents.Editors.ComboItem();
-            this.comboItem_AggroLeastRand = new DevComponents.Editors.ComboItem();
+            this.comboItem_AggroFirst = new DevComponents.Editors.ComboItem();
+            this.comboItem_AggroSecond = new DevComponents.Editors.ComboItem();
+            this.comboItem_AggroSecondRand = new DevComponents.Editors.ComboItem();
             this.comboItem_MostHP = new DevComponents.Editors.ComboItem();
             this.comboItem_MostMP = new DevComponents.Editors.ComboItem();
             this.comboItem_LeastHP = new DevComponents.Editors.ComboItem();
-            this.comboItem_TEAM = new DevComponents.Editors.ComboItem();
+            this.comboItem_ClassCombo = new DevComponents.Editors.ComboItem();
             this.comboItem_Self = new DevComponents.Editors.ComboItem();
             this.labelX_STarget = new DevComponents.DotNetBar.LabelX();
+            this.labelX_Containing = new DevComponents.DotNetBar.LabelX();
             this.groupPanel_Controllers.SuspendLayout();
             this.groupPanel_ActionSets.SuspendLayout();
             this.groupPanel_Condition.SuspendLayout();
@@ -539,7 +540,7 @@ namespace AIPolicy
             // 
             this.groupPanel_Condition.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel_Condition.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel_Condition.Controls.Add(this.labelX_ClickMe);
+            this.groupPanel_Condition.Controls.Add(this.buttonX_ExpCalc);
             this.groupPanel_Condition.Controls.Add(this.buttonX_CondSave);
             this.groupPanel_Condition.Controls.Add(this.textBoxX_Condition);
             this.groupPanel_Condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -547,7 +548,7 @@ namespace AIPolicy
             this.groupPanel_Condition.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_Condition.Name = "groupPanel_Condition";
             this.groupPanel_Condition.Padding = new System.Windows.Forms.Padding(6);
-            this.groupPanel_Condition.Size = new System.Drawing.Size(511, 84);
+            this.groupPanel_Condition.Size = new System.Drawing.Size(511, 80);
             // 
             // 
             // 
@@ -579,25 +580,23 @@ namespace AIPolicy
             this.groupPanel_Condition.TabIndex = 2;
             this.groupPanel_Condition.Text = "Condition";
             // 
-            // labelX_ClickMe
+            // buttonX_ExpCalc
             // 
-            this.labelX_ClickMe.AutoSize = true;
-            // 
-            // 
-            // 
-            this.labelX_ClickMe.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX_ClickMe.Location = new System.Drawing.Point(135, 51);
-            this.labelX_ClickMe.Name = "labelX_ClickMe";
-            this.labelX_ClickMe.Size = new System.Drawing.Size(172, 15);
-            this.labelX_ClickMe.TabIndex = 17;
-            this.labelX_ClickMe.Text = "[Condition Expression Calculator]";
-            this.labelX_ClickMe.Click += new System.EventHandler(this.LabelXClickMeClick);
+            this.buttonX_ExpCalc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX_ExpCalc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX_ExpCalc.Location = new System.Drawing.Point(421, 9);
+            this.buttonX_ExpCalc.Name = "buttonX_ExpCalc";
+            this.buttonX_ExpCalc.Size = new System.Drawing.Size(75, 38);
+            this.buttonX_ExpCalc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX_ExpCalc.TabIndex = 18;
+            this.buttonX_ExpCalc.Text = "Expression Calculator";
+            this.buttonX_ExpCalc.Click += new System.EventHandler(this.ButtonXExpCalcClick);
             // 
             // buttonX_CondSave
             // 
             this.buttonX_CondSave.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_CondSave.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX_CondSave.Location = new System.Drawing.Point(421, 9);
+            this.buttonX_CondSave.Location = new System.Drawing.Point(340, 9);
             this.buttonX_CondSave.Name = "buttonX_CondSave";
             this.buttonX_CondSave.Size = new System.Drawing.Size(75, 38);
             this.buttonX_CondSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -620,7 +619,7 @@ namespace AIPolicy
             this.textBoxX_Condition.Multiline = true;
             this.textBoxX_Condition.Name = "textBoxX_Condition";
             this.textBoxX_Condition.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBoxX_Condition.Size = new System.Drawing.Size(406, 38);
+            this.textBoxX_Condition.Size = new System.Drawing.Size(325, 38);
             this.textBoxX_Condition.TabIndex = 14;
             this.textBoxX_Condition.WordWrap = false;
             // 
@@ -664,7 +663,7 @@ namespace AIPolicy
             this.panelEx_CondCalc.Controls.Add(this.comboBoxEx_CondEx);
             this.panelEx_CondCalc.Controls.Add(this.textBoxX_Exp);
             this.panelEx_CondCalc.Controls.Add(this.labelX_BCondEx);
-            this.panelEx_CondCalc.Location = new System.Drawing.Point(543, 122);
+            this.panelEx_CondCalc.Location = new System.Drawing.Point(542, 93);
             this.panelEx_CondCalc.Margin = new System.Windows.Forms.Padding(6);
             this.panelEx_CondCalc.Name = "panelEx_CondCalc";
             this.panelEx_CondCalc.Padding = new System.Windows.Forms.Padding(6);
@@ -752,7 +751,7 @@ namespace AIPolicy
             this.buttonX_KeyRedo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_KeyRedo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX_KeyRedo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_KeyRedo.Location = new System.Drawing.Point(207, 162);
+            this.buttonX_KeyRedo.Location = new System.Drawing.Point(207, 191);
             this.buttonX_KeyRedo.Name = "buttonX_KeyRedo";
             this.buttonX_KeyRedo.Size = new System.Drawing.Size(75, 23);
             this.buttonX_KeyRedo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -806,7 +805,7 @@ namespace AIPolicy
             this.buttonX_KeyUndo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_KeyUndo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX_KeyUndo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_KeyUndo.Location = new System.Drawing.Point(207, 133);
+            this.buttonX_KeyUndo.Location = new System.Drawing.Point(207, 162);
             this.buttonX_KeyUndo.Name = "buttonX_KeyUndo";
             this.buttonX_KeyUndo.Size = new System.Drawing.Size(75, 23);
             this.buttonX_KeyUndo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -819,7 +818,7 @@ namespace AIPolicy
             this.buttonX_KeyClear.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_KeyClear.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX_KeyClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_KeyClear.Location = new System.Drawing.Point(207, 104);
+            this.buttonX_KeyClear.Location = new System.Drawing.Point(207, 133);
             this.buttonX_KeyClear.Name = "buttonX_KeyClear";
             this.buttonX_KeyClear.Size = new System.Drawing.Size(75, 23);
             this.buttonX_KeyClear.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1114,7 +1113,7 @@ namespace AIPolicy
             this.buttonX_CondEdOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX_CondEdOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX_CondEdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX_CondEdOK.Location = new System.Drawing.Point(207, 191);
+            this.buttonX_CondEdOK.Location = new System.Drawing.Point(207, 104);
             this.buttonX_CondEdOK.Name = "buttonX_CondEdOK";
             this.buttonX_CondEdOK.Size = new System.Drawing.Size(75, 23);
             this.buttonX_CondEdOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1154,17 +1153,18 @@ namespace AIPolicy
             // 
             // labelX_BCondEx
             // 
-            this.labelX_BCondEx.AutoSize = true;
+            this.labelX_BCondEx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             // 
             // 
             // 
             this.labelX_BCondEx.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX_BCondEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX_BCondEx.Location = new System.Drawing.Point(9, 10);
+            this.labelX_BCondEx.Location = new System.Drawing.Point(65, 9);
             this.labelX_BCondEx.Name = "labelX_BCondEx";
-            this.labelX_BCondEx.Size = new System.Drawing.Size(169, 15);
+            this.labelX_BCondEx.Size = new System.Drawing.Size(176, 15);
             this.labelX_BCondEx.TabIndex = 0;
-            this.labelX_BCondEx.Text = "Condition Expression Calculator:";
+            this.labelX_BCondEx.Text = "Condition Expression Calculator";
+            this.labelX_BCondEx.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // groupPanel_Proc
             // 
@@ -1176,11 +1176,11 @@ namespace AIPolicy
             this.groupPanel_Proc.Controls.Add(this.buttonX_AddProc);
             this.groupPanel_Proc.Controls.Add(this.listBox_Procedure);
             this.groupPanel_Proc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel_Proc.Location = new System.Drawing.Point(482, 225);
+            this.groupPanel_Proc.Location = new System.Drawing.Point(482, 221);
             this.groupPanel_Proc.Margin = new System.Windows.Forms.Padding(6);
             this.groupPanel_Proc.Name = "groupPanel_Proc";
             this.groupPanel_Proc.Padding = new System.Windows.Forms.Padding(6);
-            this.groupPanel_Proc.Size = new System.Drawing.Size(511, 261);
+            this.groupPanel_Proc.Size = new System.Drawing.Size(511, 265);
             // 
             // 
             // 
@@ -1577,6 +1577,7 @@ namespace AIPolicy
             // 
             this.groupPanel_Search.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel_Search.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel_Search.Controls.Add(this.labelX_Containing);
             this.groupPanel_Search.Controls.Add(this.buttonX_FindNext);
             this.groupPanel_Search.Controls.Add(this.textBoxX_SearchPattern);
             this.groupPanel_Search.Controls.Add(this.comboBoxEx_SubCat);
@@ -1641,9 +1642,9 @@ namespace AIPolicy
             this.textBoxX_SearchPattern.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxX_SearchPattern.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxX_SearchPattern.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBoxX_SearchPattern.Location = new System.Drawing.Point(395, 9);
+            this.textBoxX_SearchPattern.Location = new System.Drawing.Point(469, 9);
             this.textBoxX_SearchPattern.Name = "textBoxX_SearchPattern";
-            this.textBoxX_SearchPattern.Size = new System.Drawing.Size(476, 22);
+            this.textBoxX_SearchPattern.Size = new System.Drawing.Size(402, 22);
             this.textBoxX_SearchPattern.TabIndex = 2;
             // 
             // comboBoxEx_SubCat
@@ -1997,7 +1998,6 @@ namespace AIPolicy
             this.switchButtonItem_SafeMode.OnTextColor = System.Drawing.Color.White;
             this.switchButtonItem_SafeMode.Tooltip = "Safe Mode switch";
             this.switchButtonItem_SafeMode.Value = true;
-            this.switchButtonItem_SafeMode.ValueChanged += new System.EventHandler(this.switchButtonItem_SafeMode_ValueChanged);
             // 
             // labelItem_ModeLock
             // 
@@ -2095,6 +2095,7 @@ namespace AIPolicy
             this.comboBoxItem_Language.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.controlContainerItem1});
             this.comboBoxItem_Language.Tooltip = "Language selection";
+            this.comboBoxItem_Language.SelectedIndexChanged += new System.EventHandler(this.ChangeLanguage);
             // 
             // comboItem_English
             // 
@@ -2298,13 +2299,13 @@ namespace AIPolicy
             this.comboBoxEx_Target.FormattingEnabled = true;
             this.comboBoxEx_Target.ItemHeight = 14;
             this.comboBoxEx_Target.Items.AddRange(new object[] {
-            this.comboItem_AggroMost,
-            this.comboItem_AggroLeast,
-            this.comboItem_AggroLeastRand,
+            this.comboItem_AggroFirst,
+            this.comboItem_AggroSecond,
+            this.comboItem_AggroSecondRand,
             this.comboItem_MostHP,
             this.comboItem_MostMP,
             this.comboItem_LeastHP,
-            this.comboItem_TEAM,
+            this.comboItem_ClassCombo,
             this.comboItem_Self});
             this.comboBoxEx_Target.Location = new System.Drawing.Point(16, 48);
             this.comboBoxEx_Target.Name = "comboBoxEx_Target";
@@ -2312,23 +2313,23 @@ namespace AIPolicy
             this.comboBoxEx_Target.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.comboBoxEx_Target.TabIndex = 1;
             // 
-            // comboItem_AggroMost
+            // comboItem_AggroFirst
             // 
-            this.comboItem_AggroMost.FontSize = 10F;
-            this.comboItem_AggroMost.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AggroMost.Text = "AGGRO_FIRST";
+            this.comboItem_AggroFirst.FontSize = 10F;
+            this.comboItem_AggroFirst.FontStyle = System.Drawing.FontStyle.Bold;
+            this.comboItem_AggroFirst.Text = "AGGRO_FIRST";
             // 
-            // comboItem_AggroLeast
+            // comboItem_AggroSecond
             // 
-            this.comboItem_AggroLeast.FontSize = 10F;
-            this.comboItem_AggroLeast.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AggroLeast.Text = "AGGRO_SECOND";
+            this.comboItem_AggroSecond.FontSize = 10F;
+            this.comboItem_AggroSecond.FontStyle = System.Drawing.FontStyle.Bold;
+            this.comboItem_AggroSecond.Text = "AGGRO_SECOND";
             // 
-            // comboItem_AggroLeastRand
+            // comboItem_AggroSecondRand
             // 
-            this.comboItem_AggroLeastRand.FontSize = 10F;
-            this.comboItem_AggroLeastRand.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_AggroLeastRand.Text = "AGGRO_SECOND_RAND";
+            this.comboItem_AggroSecondRand.FontSize = 10F;
+            this.comboItem_AggroSecondRand.FontStyle = System.Drawing.FontStyle.Bold;
+            this.comboItem_AggroSecondRand.Text = "AGGRO_SECOND_RAND";
             // 
             // comboItem_MostHP
             // 
@@ -2348,11 +2349,11 @@ namespace AIPolicy
             this.comboItem_LeastHP.FontStyle = System.Drawing.FontStyle.Bold;
             this.comboItem_LeastHP.Text = "LEAST_HP";
             // 
-            // comboItem_TEAM
+            // comboItem_ClassCombo
             // 
-            this.comboItem_TEAM.FontSize = 10F;
-            this.comboItem_TEAM.FontStyle = System.Drawing.FontStyle.Bold;
-            this.comboItem_TEAM.Text = "COMBO";
+            this.comboItem_ClassCombo.FontSize = 10F;
+            this.comboItem_ClassCombo.FontStyle = System.Drawing.FontStyle.Bold;
+            this.comboItem_ClassCombo.Text = "CLASS_COMBO";
             // 
             // comboItem_Self
             // 
@@ -2372,6 +2373,19 @@ namespace AIPolicy
             this.labelX_STarget.Size = new System.Drawing.Size(74, 15);
             this.labelX_STarget.TabIndex = 0;
             this.labelX_STarget.Text = "Select Target:";
+            // 
+            // labelX_Containing
+            // 
+            this.labelX_Containing.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX_Containing.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX_Containing.Location = new System.Drawing.Point(397, 8);
+            this.labelX_Containing.Name = "labelX_Containing";
+            this.labelX_Containing.Size = new System.Drawing.Size(66, 23);
+            this.labelX_Containing.TabIndex = 4;
+            this.labelX_Containing.Text = "Containing:";
             // 
             // MainWindow
             // 
@@ -2400,12 +2414,10 @@ namespace AIPolicy
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AIPolicy Editor - Deluxe Edition";
             this.Load += new System.EventHandler(this.MainWindowLoad);
             this.groupPanel_Controllers.ResumeLayout(false);
             this.groupPanel_ActionSets.ResumeLayout(false);
             this.groupPanel_Condition.ResumeLayout(false);
-            this.groupPanel_Condition.PerformLayout();
             this.panelEx_CondCalc.ResumeLayout(false);
             this.panelEx_CondCalc.PerformLayout();
             this.groupPanel_Proc.ResumeLayout(false);
@@ -2528,19 +2540,18 @@ namespace AIPolicy
         private DevComponents.DotNetBar.ButtonX buttonX_TCancel;
         private DevComponents.DotNetBar.ButtonX buttonX_TOK;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_Target;
-        private DevComponents.Editors.ComboItem comboItem_AggroMost;
-        private DevComponents.Editors.ComboItem comboItem_AggroLeast;
-        private DevComponents.Editors.ComboItem comboItem_AggroLeastRand;
+        private DevComponents.Editors.ComboItem comboItem_AggroFirst;
+        private DevComponents.Editors.ComboItem comboItem_AggroSecond;
+        private DevComponents.Editors.ComboItem comboItem_AggroSecondRand;
         private DevComponents.Editors.ComboItem comboItem_MostHP;
         private DevComponents.Editors.ComboItem comboItem_MostMP;
         private DevComponents.Editors.ComboItem comboItem_LeastHP;
-        private DevComponents.Editors.ComboItem comboItem_TEAM;
+        private DevComponents.Editors.ComboItem comboItem_ClassCombo;
         private DevComponents.Editors.ComboItem comboItem_Self;
         private DevComponents.DotNetBar.PanelEx panelEx_CondCalc;
         private DevComponents.DotNetBar.LabelX labelX_BCondEx;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX_Exp;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx_CondEx;
-        private DevComponents.DotNetBar.LabelX labelX_ClickMe;
         private DevComponents.DotNetBar.ButtonX buttonX_CondEdOK;
         private DevComponents.DotNetBar.ButtonX buttonX_CondEdCancel;
         private DevComponents.DotNetBar.ButtonX buttonX_KeyRBracket;
@@ -2593,5 +2604,7 @@ namespace AIPolicy
         private DevComponents.DotNetBar.LabelItem labelItem_ModeImg;
         private DevComponents.DotNetBar.LabelItem labelItem_SortActionSet;
         private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem_SortActionSet;
+        private DevComponents.DotNetBar.ButtonX buttonX_ExpCalc;
+        private DevComponents.DotNetBar.LabelX labelX_Containing;
     }
 }
